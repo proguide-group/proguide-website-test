@@ -1,6 +1,20 @@
 backend:
   name: github
-  repo: proguide-group/proguide-website  # your GitHub repo in the format user/repo
+  repo: proguide-group/proguide-website
   branch: main
   client_id: Ov23liFMnNaFHiVkVrS0
   base_url: https://proguide.netlify.app
+
+media_folder: "assets/uploads"
+public_folder: "/assets/uploads"
+
+collections:
+  - name: "blog"
+    label: "Blog"
+    folder: "content/blog"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "Body", name: "body", widget: "markdown" }
