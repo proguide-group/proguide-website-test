@@ -3,4 +3,4 @@ backend:
   repo: proguide-group/proguide-website  # your GitHub repo in the format user/repo
   branch: main
   client_id: Ov23liFMnNaFHiVkVrS0
-  base_url: https://6863f46147f7866b4e400060--proguide.netlify.app
+  base_url: https://proguide.netlify.app
