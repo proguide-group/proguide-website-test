@@ -1,5 +1,5 @@
 ---
-title: "Mechanical Reverse Engineering in Saudi Arabia"
+title: "Mechanical Reverse Engineering"
 date: 2024-02-01
 ---
 
