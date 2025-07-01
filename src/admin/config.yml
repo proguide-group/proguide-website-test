@@ -1,18 +1,6 @@
-# admin/config.yml
 backend:
-  name: git-gateway
+  name: github
+  repo: proguide-group/proguide-website  # your GitHub repo in the format user/repo
   branch: main
-
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
-
-collections:
-  - name: "blog"
-    label: "Blog"
-    folder: "content/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+  client_id: Ov23liFMnNaFHiVkVrS0
+  base_url: https://6863f46147f7866b4e400060--proguide.netlify.app
