@@ -1,19 +1,112 @@
 backend:
   name: git-gateway
-  branch: main # Change to 'master' if that's your default branch
+  branch: main
 
-media_folder: "/assets/images"
-public_folder: "/assets/images"
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
+  # Site Settings Collection
+  - name: "settings"
+    label: "Site Settings"
+    files:
+      - file: "data/settings.json"
+        label: "General Settings"
+        name: "general"
+        fields:
+          - label: "Site Information"
+            name: "site"
+            widget: "object"
+            fields:
+              - {label: "Site Title", name: "title", widget: "string"}
+              - {label: "Site Description", name: "description", widget: "text"}
+              - {label: "Contact Email", name: "email", widget: "string"}
+              - {label: "Contact Phone", name: "phone", widget: "string"}
+          
+          - label: "Statistics"
+            name: "stats"
+            widget: "object"
+            fields:
+              - {label: "Projects Completed", name: "projects_completed", widget: "number", default: 15}
+              - {label: "Years Experience", name: "years_experience", widget: "number", default: 4}
+              - {label: "Client Satisfaction", name: "client_satisfaction", widget: "number", default: 98}
+          
+          - label: "Sections Visibility"
+            name: "sections"
+            widget: "object"
+            fields:
+              - {label: "Show Client Marquee", name: "show_clients", widget: "boolean", default: false}
+              - {label: "Show Featured Projects", name: "show_projects", widget: "boolean", default: true}
+              - {label: "Show Client Testimonials", name: "show_testimonials", widget: "boolean", default: true}
+              - {label: "Show Statistics", name: "show_statistics", widget: "boolean", default: true}
+
+  # Clients Collection
+  - name: "clients"
+    label: "Client Marquee"
+    folder: "data/clients"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Client Name (English)", name: "name_en", widget: "string"}
+      - {label: "Client Name (Arabic)", name: "name_ar", widget: "string"}
+      - {label: "Logo", name: "logo", widget: "image"}
+      - {label: "Website URL", name: "website", widget: "string", required: false}
+      - {label: "Display Order", name: "order", widget: "number", default: 1}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+
+  # Projects Collection
+  - name: "projects"
+    label: "Featured Projects"
+    folder: "data/projects"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Project Title (English)", name: "title_en", widget: "string"}
+      - {label: "Project Title (Arabic)", name: "title_ar", widget: "string"}
+      - {label: "Project Image", name: "image", widget: "image"}
+      - {label: "Summary (English)", name: "summary_en", widget: "text"}
+      - {label: "Summary (Arabic)", name: "summary_ar", widget: "text"}
+      - {label: "Category", name: "category", widget: "select", options: ["Petrochemical", "Structural Steel", "Industrial Machinery", "Oil & Gas", "Manufacturing"]}
+      - {label: "Project URL", name: "url", widget: "string", required: false}
+      - {label: "Display Order", name: "order", widget: "number", default: 1}
+      - {label: "Featured", name: "featured", widget: "boolean", default: true}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+
+  # Testimonials Collection
+  - name: "testimonials"
+    label: "Client Testimonials"
+    folder: "data/testimonials"
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - {label: "Client Name (English)", name: "name_en", widget: "string"}
+      - {label: "Client Name (Arabic)", name: "name_ar", widget: "string"}
+      - {label: "Position (English)", name: "position_en", widget: "string"}
+      - {label: "Position (Arabic)", name: "position_ar", widget: "string"}
+      - {label: "Company (English)", name: "company_en", widget: "string"}
+      - {label: "Company (Arabic)", name: "company_ar", widget: "string"}
+      - {label: "Testimonial Text (English)", name: "text_en", widget: "text"}
+      - {label: "Testimonial Text (Arabic)", name: "text_ar", widget: "text"}
+      - {label: "Client Photo", name: "photo", widget: "image"}
+      - {label: "Rating", name: "rating", widget: "select", options: ["5", "4.5", "4", "3.5", "3"], default: "5"}
+      - {label: "Display Order", name: "order", widget: "number", default: 1}
+      - {label: "Active", name: "active", widget: "boolean", default: true}
+
+  # Blog Posts Collection
   - name: "blog"
-    label: "Blog"
-    folder: "/assets/blog"
+    label: "Blog Posts"
+    folder: "data/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Title (English)", name: "title_en", widget: "string"}
+      - {label: "Title (Arabic)", name: "title_ar", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "image", widget: "image"}
-      - {label: "Body", name: "body", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "select", options: ["Engineering", "Technology", "Industry News", "Case Studies"]}
+      - {label: "Excerpt (English)", name: "excerpt_en", widget: "text"}
+      - {label: "Excerpt (Arabic)", name: "excerpt_ar", widget: "text"}
+      - {label: "Content (English)", name: "body_en", widget: "markdown"}
+      - {label: "Content (Arabic)", name: "body_ar", widget: "markdown"}
+      - {label: "Tags", name: "tags", widget: "list", default: []}
+      - {label: "Published", name: "published", widget: "boolean", default: false}

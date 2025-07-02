@@ -17,7 +17,7 @@
   <nav class="main-nav">
     <div class="container nav-container">
       <a href="#" class="logo">
-        <img src="./assets/images/ProGuideLogo.svg" alt="Proguide Logo" class="logo-img">
+        <img src="./assets/images/ProGuideLogo-B.svg" alt="Proguide Logo" class="logo-img">
       </a>
       
       <div class="nav-right">
@@ -27,6 +27,7 @@
           <li><a href="#projects" data-translate="nav_projects">Projects</a></li>
           <li><a href="#team" data-translate="nav_team">Team</a></li>
           <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
+          <li><a href="blogs.html" data-translate="nav_blog">Blog</a></li>
         </ul>
         <div class="nav-actions">
           <div class="nav-social-links">
@@ -114,30 +115,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Clients Marquee -->
-  <section class="clients-marquee">
-    <div class="marquee-track">
-      <div class="marquee-item">
-        <img src="assets/images/clients/sabic.png" alt="SABIC">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/aramco.png" alt="Aramco">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/maaden.png" alt="Ma'aden">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/mowah.png" alt="Mowah">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/royal-commission.png" alt="Royal Commission">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/modon.png" alt="MODON">
-      </div>
-    </div>
-  </section>
 
   <!-- About Section -->
   <section id="about" class="section about-section">
@@ -292,7 +269,7 @@
             </p>
           </div>
           <div class="step-icon">
-            <img src="assets/images/icons/scan-step.svg" alt="Scanning">
+            <img src="assets/images/icons/3dscann.svg" alt="Scanning">
           </div>
         </div>
         
@@ -834,5 +811,15 @@ s0.parentNode.insertBefore(s1,s0);
 })();
 </script>
 <!--End of Tawk.to Script-->
+
+  <!-- Add this before the closing </body> tag -->
+  <script src="js/cms-content-loader.js"></script>
+
+  <!-- Update the clients marquee section to have an ID -->
+  <section class="clients-marquee" id="clients-marquee">
+    <div class="marquee-track">
+      <!-- Content will be loaded by CMS -->
+    </div>
+  </section>
 </body>
 </html>

@@ -1,0 +1,19 @@
+{
+  "site": {
+    "title": "Proguide - Mechanical Reverse Engineering Experts",
+    "description": "Leading mechanical reverse engineering firm specializing in 3D scanning, CAD modeling, and manufacturability solutions",
+    "email": "info@proguide-group.com",
+    "phone": "+966 53 624 4800"
+  },
+  "stats": {
+    "projects_completed": 15,
+    "years_experience": 4,
+    "client_satisfaction": 98
+  },
+  "sections": {
+    "show_clients": false,
+    "show_projects": true,
+    "show_testimonials": true,
+    "show_statistics": true
+  }
+}
