@@ -2,13 +2,13 @@ backend:
   name: git-gateway
   branch: main # Change to 'master' if that's your default branch
 
-media_folder: "assets/images"
+media_folder: "/assets/images"
 public_folder: "/assets/images"
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
