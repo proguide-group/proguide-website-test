@@ -1,20 +1,19 @@
 backend:
-  name: github
-  repo: proguide-group/proguide-website
-  branch: main
-  client_id: Ov23liFMnNaFHiVkVrS0
-  base_url: https://proguide.netlify.app
+  name: git-gateway
+  branch: main # Change to 'master' if that's your default branch
 
-media_folder: "assets/uploads"
-public_folder: "/assets/uploads"
+media_folder: "src/assets/images"
+public_folder: "/assets/images"
 
 collections:
   - name: "blog"
     label: "Blog"
-    folder: "content/blog"
+    folder: "src/content/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Publish Date", name: "date", widget: "datetime" }
-      - { label: "Body", name: "body", widget: "markdown" }
+      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
+      - {label: "Title", name: "title", widget: "string"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Body", name: "body", widget: "markdown"}
