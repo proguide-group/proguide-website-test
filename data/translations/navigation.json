@@ -1,0 +1,22 @@
+{
+  "en": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services", 
+    "projects": "Projects",
+    "team": "Team",
+    "contact": "Contact",
+    "blog": "Blog",
+    "get_quote": "Get Quote"
+  },
+  "ar": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "services": "خدماتنا",
+    "projects": "مشاريعنا", 
+    "team": "فريقنا",
+    "contact": "اتصل بنا",
+    "blog": "المدونة",
+    "get_quote": "احصل على عرض سعر"
+  }
+}

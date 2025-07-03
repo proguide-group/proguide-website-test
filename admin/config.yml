@@ -40,7 +40,251 @@ collections:
               - {label: "Show Client Testimonials", name: "show_testimonials", widget: "boolean", default: true}
               - {label: "Show Statistics", name: "show_statistics", widget: "boolean", default: true}
 
-  # Clients Collection
+  # Translations Collection - The main feature!
+  - name: "translations"
+    label: "Translations"
+    files:
+      # Navigation Translations
+      - file: "data/translations/navigation.json"
+        label: "Navigation"
+        name: "navigation"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Home", name: "home", widget: "string", default: "Home"}
+              - {label: "About", name: "about", widget: "string", default: "About"}
+              - {label: "Services", name: "services", widget: "string", default: "Services"}
+              - {label: "Projects", name: "projects", widget: "string", default: "Projects"}
+              - {label: "Team", name: "team", widget: "string", default: "Team"}
+              - {label: "Contact", name: "contact", widget: "string", default: "Contact"}
+              - {label: "Blog", name: "blog", widget: "string", default: "Blog"}
+              - {label: "Get Quote", name: "get_quote", widget: "string", default: "Get Quote"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Home", name: "home", widget: "string", default: "الرئيسية"}
+              - {label: "About", name: "about", widget: "string", default: "من نحن"}
+              - {label: "Services", name: "services", widget: "string", default: "خدماتنا"}
+              - {label: "Projects", name: "projects", widget: "string", default: "مشاريعنا"}
+              - {label: "Team", name: "team", widget: "string", default: "فريقنا"}
+              - {label: "Contact", name: "contact", widget: "string", default: "اتصل بنا"}
+              - {label: "Blog", name: "blog", widget: "string", default: "المدونة"}
+              - {label: "Get Quote", name: "get_quote", widget: "string", default: "احصل على عرض سعر"}
+
+      # Hero Section Translations
+      - file: "data/translations/hero.json"
+        label: "Hero Section"
+        name: "hero"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Main Title", name: "title", widget: "string", default: "ProGuide"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "Mechanical Reverse Engineering Experts"}
+              - {label: "Description", name: "description", widget: "text", default: "Transforming physical components into precise digital models with advanced 3D scanning and CAD reconstruction"}
+              - {label: "CTA Primary Button", name: "cta_primary", widget: "string", default: "Get Your Quote"}
+              - {label: "CTA Secondary Button", name: "cta_secondary", widget: "string", default: "Our Services"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Main Title", name: "title", widget: "string", default: "بروجايد"}
+              - {label: "Subtitle", name: "subtitle", widget: "string", default: "خبراء الهندسة العكسية الميكانيكية"}
+              - {label: "Description", name: "description", widget: "text", default: "تحويل المكونات الفيزيائية إلى نماذج رقمية دقيقة باستخدام المسح ثلاثي الأبعاد المتقدم وإعادة البناء بـ CAD"}
+              - {label: "CTA Primary Button", name: "cta_primary", widget: "string", default: "احصل على عرض سعر"}
+              - {label: "CTA Secondary Button", name: "cta_secondary", widget: "string", default: "خدماتنا"}
+
+      # About Section Translations
+      - file: "data/translations/about.json"
+        label: "About Section"
+        name: "about"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "About ProGuide"}
+              - {label: "Main Description", name: "main_desc", widget: "text", default: "Proguide is a premier mechanical reverse engineering firm specializing in transforming physical objects into precise digital models. We combine cutting-edge 3D scanning technology with expert CAD modeling to deliver solutions that enhance manufacturability, reduce costs, and accelerate product development."}
+              - {label: "Projects Completed", name: "projects_completed", widget: "string", default: "Projects Completed"}
+              - {label: "Years Experience", name: "years_experience", widget: "string", default: "Years Experience"}
+              - {label: "Client Satisfaction", name: "client_satisfaction", widget: "string", default: "% Client Satisfaction"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "عن بروجايد"}
+              - {label: "Main Description", name: "main_desc", widget: "text", default: "بروجايد هي شركة رائدة في الهندسة العكسية الميكانيكية متخصصة في تحويل الأشياء الفيزيائية إلى نماذج رقمية دقيقة. نحن نجمع بين تقنية المسح ثلاثي الأبعاد المتطورة والنمذجة الخبيرة بـ CAD لتقديم حلول تعزز قابلية التصنيع وتقلل التكاليف وتسرع تطوير المنتجات."}
+              - {label: "Projects Completed", name: "projects_completed", widget: "string", default: "المشاريع المنجزة"}
+              - {label: "Years Experience", name: "years_experience", widget: "string", default: "سنوات الخبرة"}
+              - {label: "Client Satisfaction", name: "client_satisfaction", widget: "string", default: "% رضا العملاء"}
+
+      # Services Section Translations
+      - file: "data/translations/services.json"
+        label: "Services Section"
+        name: "services"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Our Services"}
+              - {label: "Section Subtitle", name: "subtitle", widget: "string", default: "Comprehensive Reverse Engineering Solutions"}
+              - {label: "3D Scanning Title", name: "scanning_title", widget: "string", default: "3D Scanning"}
+              - {label: "3D Scanning Description", name: "scanning_desc", widget: "text", default: "High-precision 3D scanning using advanced equipment to capture detailed geometry"}
+              - {label: "CAD Modeling Title", name: "cad_title", widget: "string", default: "CAD Modeling"}
+              - {label: "CAD Modeling Description", name: "cad_desc", widget: "text", default: "Expert CAD reconstruction from scan data to create manufacturable designs"}
+              - {label: "Quality Control Title", name: "quality_title", widget: "string", default: "Quality Control"}
+              - {label: "Quality Control Description", name: "quality_desc", widget: "text", default: "Comprehensive inspection and validation of all deliverables"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "خدماتنا"}
+              - {label: "Section Subtitle", name: "subtitle", widget: "string", default: "حلول شاملة للهندسة العكسية"}
+              - {label: "3D Scanning Title", name: "scanning_title", widget: "string", default: "المسح ثلاثي الأبعاد"}
+              - {label: "3D Scanning Description", name: "scanning_desc", widget: "text", default: "مسح ثلاثي الأبعاد عالي الدقة باستخدام معدات متقدمة لالتقاط الهندسة التفصيلية"}
+              - {label: "CAD Modeling Title", name: "cad_title", widget: "string", default: "النمذجة بـ CAD"}
+              - {label: "CAD Modeling Description", name: "cad_desc", widget: "text", default: "إعادة بناء خبيرة بـ CAD من بيانات المسح لإنشاء تصاميم قابلة للتصنيع"}
+              - {label: "Quality Control Title", name: "quality_title", widget: "string", default: "مراقبة الجودة"}
+              - {label: "Quality Control Description", name: "quality_desc", widget: "text", default: "فحص شامل والتحقق من جميع المخرجات"}
+
+      # Process Section Translations
+      - file: "data/translations/process.json"
+        label: "Process Section"
+        name: "process"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Our Process"}
+              - {label: "Section Subtitle", name: "subtitle", widget: "string", default: "From Physical to Digital in 5 Steps"}
+              - {label: "Step 1 Title", name: "step1_title", widget: "string", default: "Initial Assessment"}
+              - {label: "Step 1 Description", name: "step1_desc", widget: "string", default: "Comprehensive evaluation of project requirements and feasibility"}
+              - {label: "Step 2 Title", name: "step2_title", widget: "string", default: "3D Scanning"}
+              - {label: "Step 2 Description", name: "step2_desc", widget: "string", default: "High-precision scanning using advanced 3D scanning technology"}
+              - {label: "Step 3 Title", name: "step3_title", widget: "string", default: "Point Cloud Processing"}
+              - {label: "Step 3 Description", name: "step3_desc", widget: "string", default: "Advanced processing and cleanup of captured 3D data"}
+              - {label: "Step 4 Title", name: "step4_title", widget: "string", default: "Analysis & Validation"}
+              - {label: "Step 4 Description", name: "step4_desc", widget: "string", default: "Virtual testing ensures performance meets requirements"}
+              - {label: "Step 5 Title", name: "step5_title", widget: "string", default: "CAD Delivery"}
+              - {label: "Step 5 Description", name: "step5_desc", widget: "string", default: "Final CAD models and technical documentation delivery"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "عمليتنا"}
+              - {label: "Section Subtitle", name: "subtitle", widget: "string", default: "من الفيزيائي إلى الرقمي في 5 خطوات"}
+              - {label: "Step 1 Title", name: "step1_title", widget: "string", default: "التقييم الأولي"}
+              - {label: "Step 1 Description", name: "step1_desc", widget: "string", default: "تقييم شامل لمتطلبات المشروع والجدوى"}
+              - {label: "Step 2 Title", name: "step2_title", widget: "string", default: "المسح ثلاثي الأبعاد"}
+              - {label: "Step 2 Description", name: "step2_desc", widget: "string", default: "مسح عالي الدقة باستخدام تقنية المسح ثلاثي الأبعاد المتقدمة"}
+              - {label: "Step 3 Title", name: "step3_title", widget: "string", default: "معالجة سحابة النقاط"}
+              - {label: "Step 3 Description", name: "step3_desc", widget: "string", default: "معالجة وتنظيف متقدم للبيانات ثلاثية الأبعاد المحتوية"}
+              - {label: "Step 4 Title", name: "step4_title", widget: "string", default: "التحليل والتحقق"}
+              - {label: "Step 4 Description", name: "step4_desc", widget: "string", default: "الاختبار الافتراضي يضمن أن الأداء يلبي المتطلبات"}
+              - {label: "Step 5 Title", name: "step5_title", widget: "string", default: "تسليم CAD"}
+              - {label: "Step 5 Description", name: "step5_desc", widget: "string", default: "تسليم نماذج CAD النهائية والوثائق التقنية"}
+
+      # Contact Section Translations
+      - file: "data/translations/contact.json"
+        label: "Contact Section"
+        name: "contact"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "Get in Touch"}
+              - {label: "Section Subtitle", name: "subtitle", widget: "string", default: "Ready to transform your components?"}
+              - {label: "Form Name Label", name: "form_name", widget: "string", default: "Full Name"}
+              - {label: "Form Email Label", name: "form_email", widget: "string", default: "Email Address"}
+              - {label: "Form Company Label", name: "form_company", widget: "string", default: "Company"}
+              - {label: "Form Message Label", name: "form_message", widget: "string", default: "Project Details"}
+              - {label: "Submit Button", name: "submit_btn", widget: "string", default: "Send Message"}
+              - {label: "Phone Label", name: "phone_label", widget: "string", default: "Phone"}
+              - {label: "Email Label", name: "email_label", widget: "string", default: "Email"}
+              - {label: "Address Label", name: "address_label", widget: "string", default: "Address"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Section Title", name: "title", widget: "string", default: "تواصل معنا"}
+              - {label: "Section Subtitle", name: "subtitle", widget: "string", default: "مستعد لتحويل مكوناتك؟"}
+              - {label: "Form Name Label", name: "form_name", widget: "string", default: "الاسم الكامل"}
+              - {label: "Form Email Label", name: "form_email", widget: "string", default: "عنوان البريد الإلكتروني"}
+              - {label: "Form Company Label", name: "form_company", widget: "string", default: "الشركة"}
+              - {label: "Form Message Label", name: "form_message", widget: "string", default: "تفاصيل المشروع"}
+              - {label: "Submit Button", name: "submit_btn", widget: "string", default: "إرسال الرسالة"}
+              - {label: "Phone Label", name: "phone_label", widget: "string", default: "الهاتف"}
+              - {label: "Email Label", name: "email_label", widget: "string", default: "البريد الإلكتروني"}
+              - {label: "Address Label", name: "address_label", widget: "string", default: "العنوان"}
+
+      # Blog Section Translations
+      - file: "data/translations/blog.json"
+        label: "Blog Section"
+        name: "blog"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "page_title", widget: "string", default: "Engineering Insights"}
+              - {label: "Page Subtitle", name: "page_subtitle", widget: "string", default: "Latest updates and insights from our reverse engineering experts"}
+              - {label: "Read More", name: "read_more", widget: "string", default: "Read More"}
+              - {label: "Categories", name: "categories", widget: "string", default: "Categories"}
+              - {label: "Recent Posts", name: "recent_posts", widget: "string", default: "Recent Posts"}
+              - {label: "Search Placeholder", name: "search_placeholder", widget: "string", default: "Search articles..."}
+              - {label: "No Posts Found", name: "no_posts", widget: "string", default: "No posts found"}
+              - {label: "Load More", name: "load_more", widget: "string", default: "Load More Articles"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Page Title", name: "page_title", widget: "string", default: "رؤى هندسية"}
+              - {label: "Page Subtitle", name: "page_subtitle", widget: "string", default: "آخر التحديثات والرؤى من خبراء الهندسة العكسية لدينا"}
+              - {label: "Read More", name: "read_more", widget: "string", default: "اقرأ المزيد"}
+              - {label: "Categories", name: "categories", widget: "string", default: "الفئات"}
+              - {label: "Recent Posts", name: "recent_posts", widget: "string", default: "المقالات الحديثة"}
+              - {label: "Search Placeholder", name: "search_placeholder", widget: "string", default: "البحث في المقالات..."}
+              - {label: "No Posts Found", name: "no_posts", widget: "string", default: "لم يتم العثور على مقالات"}
+              - {label: "Load More", name: "load_more", widget: "string", default: "تحميل المزيد من المقالات"}
+
+      # Footer Translations
+      - file: "data/translations/footer.json"
+        label: "Footer"
+        name: "footer"
+        fields:
+          - label: "English"
+            name: "en"
+            widget: "object"
+            fields:
+              - {label: "Company Description", name: "company_desc", widget: "text", default: "Leading mechanical reverse engineering firm specializing in 3D scanning, CAD modeling, and manufacturability solutions."}
+              - {label: "Quick Links Title", name: "quick_links", widget: "string", default: "Quick Links"}
+              - {label: "Services Title", name: "services_title", widget: "string", default: "Services"}
+              - {label: "Contact Info Title", name: "contact_info", widget: "string", default: "Contact Info"}
+              - {label: "Follow Us Title", name: "follow_us", widget: "string", default: "Follow Us"}
+              - {label: "Copyright", name: "copyright", widget: "string", default: "© 2024 ProGuide. All rights reserved."}
+              - {label: "Privacy Policy", name: "privacy_policy", widget: "string", default: "Privacy Policy"}
+              - {label: "Terms of Service", name: "terms_service", widget: "string", default: "Terms of Service"}
+          - label: "Arabic"
+            name: "ar"
+            widget: "object"
+            fields:
+              - {label: "Company Description", name: "company_desc", widget: "text", default: "شركة رائدة في الهندسة العكسية الميكانيكية متخصصة في المسح ثلاثي الأبعاد ونمذجة CAD وحلول قابلية التصنيع."}
+              - {label: "Quick Links Title", name: "quick_links", widget: "string", default: "روابط سريعة"}
+              - {label: "Services Title", name: "services_title", widget: "string", default: "خدماتنا"}
+              - {label: "Contact Info Title", name: "contact_info", widget: "string", default: "معلومات الاتصال"}
+              - {label: "Follow Us Title", name: "follow_us", widget: "string", default: "تابعنا"}
+              - {label: "Copyright", name: "copyright", widget: "string", default: "© 2024 بروجايد. جميع الحقوق محفوظة."}
+              - {label: "Privacy Policy", name: "privacy_policy", widget: "string", default: "سياسة الخصوصية"}
+              - {label: "Terms of Service", name: "terms_service", widget: "string", default: "شروط الخدمة"}
+
+  # Keep your existing collections...
   - name: "clients"
     label: "Client Marquee"
     folder: "data/clients"
@@ -49,21 +293,20 @@ collections:
     fields:
       - {label: "Client Name (English)", name: "name_en", widget: "string"}
       - {label: "Client Name (Arabic)", name: "name_ar", widget: "string"}
-      - {label: "Logo", name: "logo", widget: "image"}
+      - {label: "Logo", name: "logo", widget: "image", media_folder: "/assets/images/clients"}
       - {label: "Website URL", name: "website", widget: "string", required: false}
       - {label: "Display Order", name: "order", widget: "number", default: 1}
       - {label: "Active", name: "active", widget: "boolean", default: true}
 
-  # Projects Collection
   - name: "projects"
-    label: "Featured Projects"
+    label: "Featured Projects" 
     folder: "data/projects"
     create: true
     slug: "{{slug}}"
     fields:
       - {label: "Project Title (English)", name: "title_en", widget: "string"}
       - {label: "Project Title (Arabic)", name: "title_ar", widget: "string"}
-      - {label: "Project Image", name: "image", widget: "image"}
+      - {label: "Project Image", name: "image", widget: "image", media_folder: "/assets/images/projects"}
       - {label: "Summary (English)", name: "summary_en", widget: "text"}
       - {label: "Summary (Arabic)", name: "summary_ar", widget: "text"}
       - {label: "Category", name: "category", widget: "select", options: ["Petrochemical", "Structural Steel", "Industrial Machinery", "Oil & Gas", "Manufacturing"]}
@@ -72,7 +315,6 @@ collections:
       - {label: "Featured", name: "featured", widget: "boolean", default: true}
       - {label: "Active", name: "active", widget: "boolean", default: true}
 
-  # Testimonials Collection
   - name: "testimonials"
     label: "Client Testimonials"
     folder: "data/testimonials"
@@ -87,26 +329,25 @@ collections:
       - {label: "Company (Arabic)", name: "company_ar", widget: "string"}
       - {label: "Testimonial Text (English)", name: "text_en", widget: "text"}
       - {label: "Testimonial Text (Arabic)", name: "text_ar", widget: "text"}
-      - {label: "Client Photo", name: "photo", widget: "image"}
+      - {label: "Client Photo", name: "photo", widget: "image", media_folder: "/assets/images/testimonials"}
       - {label: "Rating", name: "rating", widget: "select", options: ["5", "4.5", "4", "3.5", "3"], default: "5"}
       - {label: "Display Order", name: "order", widget: "number", default: 1}
       - {label: "Active", name: "active", widget: "boolean", default: true}
 
-  # Blog Posts Collection
   - name: "blog"
     label: "Blog Posts"
     folder: "data/blog"
     create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    slug: "{{slug}}"
     fields:
-      - {label: "Title (English)", name: "title_en", widget: "string"}
-      - {label: "Title (Arabic)", name: "title_ar", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image"}
-      - {label: "Category", name: "category", widget: "select", options: ["Engineering", "Technology", "Industry News", "Case Studies"]}
+      - {label: "Post Title (English)", name: "title_en", widget: "string"}
+      - {label: "Post Title (Arabic)", name: "title_ar", widget: "string"}
+      - {label: "Featured Image", name: "image", widget: "image", media_folder: "/assets/images/blog"}
       - {label: "Excerpt (English)", name: "excerpt_en", widget: "text"}
       - {label: "Excerpt (Arabic)", name: "excerpt_ar", widget: "text"}
-      - {label: "Content (English)", name: "body_en", widget: "markdown"}
-      - {label: "Content (Arabic)", name: "body_ar", widget: "markdown"}
-      - {label: "Tags", name: "tags", widget: "list", default: []}
-      - {label: "Published", name: "published", widget: "boolean", default: false}
+      - {label: "Content (English)", name: "content_en", widget: "markdown"}
+      - {label: "Content (Arabic)", name: "content_ar", widget: "markdown"}
+      - {label: "Category", name: "category", widget: "select", options: ["Updates", "Insights", "Case Studies", "Whitepapers"]}
+      - {label: "Tags", name: "tags", widget: "list"}
+      - {label: "Publish Date", name: "date", widget: "datetime"}
+      - {label: "Active", name: "active", widget: "boolean", default: true}

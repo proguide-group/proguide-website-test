@@ -1,0 +1,16 @@
+{
+  "en": {
+    "title": "ProGuide",
+    "subtitle": "Mechanical Reverse Engineering Experts",
+    "description": "Transforming physical components into precise digital models with advanced 3D scanning and CAD reconstruction",
+    "cta_primary": "Get Your Quote",
+    "cta_secondary": "Our Services"
+  },
+  "ar": {
+    "title": "بروجايد", 
+    "subtitle": "خبراء الهندسة العكسية الميكانيكية",
+    "description": "تحويل المكونات الفيزيائية إلى نماذج رقمية دقيقة باستخدام المسح ثلاثي الأبعاد المتقدم وإعادة البناء بـ CAD",
+    "cta_primary": "احصل على عرض سعر",
+    "cta_secondary": "خدماتنا"
+  }
+}
