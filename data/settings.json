@@ -13,7 +13,7 @@
   "sections": {
     "show_clients": false,
     "show_projects": false,
-    "show_testimonials": true,
+    "show_testimonials": false,
     "show_statistics": true
   }
 }
