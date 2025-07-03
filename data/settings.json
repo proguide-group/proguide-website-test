@@ -12,7 +12,7 @@
   },
   "sections": {
     "show_clients": false,
-    "show_projects": true,
+    "show_projects": false,
     "show_testimonials": true,
     "show_statistics": true
   }
