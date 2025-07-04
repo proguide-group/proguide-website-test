@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog Post - Proguide Engineering</title>
+  <meta name="description" content="Latest insights from Proguide's mechanical reverse engineering experts">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/blogs.css">
+</head>
+<body>
+  <!-- Header Placeholder -->
+  <div id="header-placeholder">
+    <!-- Fallback header content -->
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/ProGuideLogo-B.svg" alt="Proguide Logo" class="logo-img">
+      </a>
+      
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+          <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+          <li><a href="index.html#projects" data-translate="nav_projects">Projects</a></li>
+          <li><a href="index.html#team" data-translate="nav_team">Team</a></li>
+          <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+          <li><a href="blogs.html" data-translate="nav_blog">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="nav-social-links">
+            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <button id="langToggle" aria-label="Switch Language" class="lang-toggle">
+            <i class="fas fa-globe"></i>
+            <span data-translate="lang_toggle">عربي</span>
+          </button>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Post Content -->
+  <main class="blog-post-main">
+    <div class="container">
+      <!-- Loading State -->
+      <div class="blog-post-loading" id="blogPostLoading">
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p data-translate="blog_post_loading">Loading blog post...</p>
+        </div>
+      </div>
+
+      <!-- Error State -->
+      <div class="blog-post-error" id="blogPostError" style="display: none;">
+        <div class="error-message">
+          <i class="fas fa-exclamation-triangle"></i>
+          <h2 data-translate="blog_post_error_title">Blog Post Not Found</h2>
+          <p data-translate="blog_post_error_subtitle">The blog post you're looking for could not be found.</p>
+          <a href="blogs.html" class="cta-button primary">
+            <i class="fas fa-arrow-left"></i>
+            <span data-translate="blog_post_back_to_blog">Back to Blog</span>
+          </a>
+        </div>
+      </div>
+
+      <!-- Blog Post Content -->
+      <article class="blog-post-content" id="blogPostContent" style="display: none;">
+        <!-- Content will be loaded here by JavaScript -->
+      </article>
+
+      <!-- Related Posts -->
+      <section class="related-posts" id="relatedPosts" style="display: none;">
+        <div class="section-header">
+          <h2 data-translate="related_posts_title">Related Posts</h2>
+        </div>
+        <div class="related-posts-grid" id="relatedPostsGrid">
+          <!-- Related posts will be loaded here -->
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <!-- Footer (same as blogs.html) -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col about-col">
+          <div class="footer-logo">
+            <img src="assets/images/ProGuideLogo-B.svg" alt="Proguide Logo">
+          </div>
+          <p class="footer-about" data-translate="footer_about">
+            Proguide is a premier mechanical reverse engineering firm specializing in transforming physical objects into precise digital models for manufacturing and documentation.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col links-col">
+          <h3 class="footer-title" data-translate="quick_links">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#about" data-translate="nav_about">About Us</a></li>
+            <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+            <li><a href="index.html#projects" data-translate="nav_projects">Projects</a></li>
+            <li><a href="index.html#team" data-translate="nav_team">Our Team</a></li>
+            <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col services-col">
+          <h3 class="footer-title" data-translate="our_services">Our Services</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-translate="service1">3D Scanning</a></li>
+            <li><a href="#" data-translate="service2">CAD Modeling</a></li>
+            <li><a href="#" data-translate="service3">Sheet Metal Design</a></li>
+            <li><a href="#" data-translate="service4">Structural Design</a></li>
+            <li><a href="#" data-translate="service5">Simulation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col contact-col">
+          <h3 class="footer-title" data-translate="contact_us">Contact Us</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span data-translate="contact_address">6917 Abu Abdullah Al-Sakhawi, Al-Qaswa, Al Madinah Province, 42391</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+966536244800" data-translate="contact_phone">+966 53 624 4800</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@proguide-group.com">info@proguide-group.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright" data-translate="copyright">
+          &copy; 2025 Proguide. All Rights Reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+          <a href="#" data-translate="terms_service">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/component-loader.js"></script>
+  <script src="js/blog-config.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/language-switcher.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blog-post.js"></script>
+  <script src="js/blog-categories-loader.js"></script>  <!-- Add this line if needed -->
+  <script>
+    // Update share functions to use translations
+    function copyLink() {
+      navigator.clipboard.writeText(window.location.href).then(() => {
+        const successMessage = window.getTranslation ? 
+          window.getTranslation('blog_post_copy_success') : 
+          'Link copied to clipboard!';
+        alert(successMessage);
+      });
+    }
+  </script>
+</body>
+</html>

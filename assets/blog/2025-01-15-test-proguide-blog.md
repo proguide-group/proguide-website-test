@@ -1,0 +1,62 @@
+---
+title: "Test ProGuide Blog Post"
+date: "2025-01-15"
+image: "assets/images/about-team.avif"
+category: "Engineering" 
+topics: ["engineering", "3d-scanning", "cad-modeling"]  # Keep this for filtering
+language: "en"
+slug: "test-proguide-blog"
+excerpt: "This is a test blog post to verify that the blog system is working correctly."
+---
+
+# Test ProGuide Blog Post
+
+This is a test blog post to verify that the blog system is working correctly.
+
+## Test Heading
+
+This content should appear in the blog listing page and individual post page.
+
+## Another Section
+
+More test content here to ensure everything displays properly.
+
+# How to Get Started with ProGuide: A Beginner’s Guide
+
+Welcome to the ProGuide blog! Whether you’re a student, professional, or lifelong learner, ProGuide is designed to help you achieve your goals efficiently. In this post, we’ll walk you through the basics of getting started.
+
+## Why Choose ProGuide?
+
+- **User-friendly interface**
+- **Comprehensive resources**
+- **Personalized recommendations**
+
+## Step 1: Sign Up
+
+Visit our [homepage](https://proguide.com) and create your free account. Fill in your details and verify your email to get started.
+
+## Step 2: Set Your Goals
+
+After signing in, set your learning or professional goals. ProGuide will tailor content and suggestions based on your preferences.
+
+## Step 3: Explore Resources
+
+Browse through our curated articles, tutorials, and guides. Use the search bar to find topics relevant to your interests.
+
+## Step 4: Track Your Progress
+
+Monitor your achievements and milestones from your dashboard. Stay motivated by earning badges and certificates.
+
+## Tips for Success
+
+- Set aside dedicated time for learning.
+- Engage with the community forums.
+- Regularly update your goals.
+
+## Join the ProGuide Community
+
+Connect with other users, share your experiences, and grow together. Follow us on [Twitter](https://twitter.com/proguide) and [LinkedIn](https://linkedin.com/company/proguide).
+
+---
+
+*Ready to unlock your potential? Start your journey with ProGuide today!*

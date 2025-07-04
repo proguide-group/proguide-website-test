@@ -130,8 +130,78 @@ const translations = {
     footer_about: "Proguide is a premier mechanical reverse engineering firm specializing in transforming physical objects into precise digital models for manufacturing and documentation.",
     copyright: "© 2025 Proguide. All Rights Reserved.",
     privacy_policy: "Privacy Policy",
-    terms_service: "Terms of Service"
+    terms_service: "Terms of Service",
+
+    // Blog Navigation
+    nav_blog: "Blog",
+
+    // Blog Page
+    blog_hero_title: "Engineering Insights",
+    blog_hero_subtitle: "Expert perspectives on mechanical reverse engineering, 3D scanning, and manufacturing innovation",
+    blog_loading: "Loading blog posts...",
+    blog_no_posts: "No blog posts found",
+    blog_check_back: "Check back soon for new content!",
+    blog_error_title: "Unable to load blog posts",
+    blog_error_subtitle: "Please try again later.",
+    blog_read_more: "Read More",
+    blog_category_engineering: "Engineering",
+    blog_category_technology: "Technology",
+    blog_category_innovation: "Innovation",
+
+    // Blog Pagination
+    pagination_previous: "Previous",
+    pagination_next: "Next",
+    pagination_page_info: "Page {current} of {total}",
+
+    // Newsletter Section
+    newsletter_title: "Stay Updated",
+    newsletter_subtitle: "Subscribe to get the latest insights on reverse engineering and manufacturing",
+    newsletter_placeholder: "Enter your email address",
+    newsletter_subscribe: "Subscribe",
+    newsletter_success: "Thank you for subscribing to our newsletter!",
+
+    // Individual Blog Post
+    blog_post_loading: "Loading blog post...",
+    blog_post_error_title: "Blog Post Not Found",
+    blog_post_error_subtitle: "The blog post you're looking for could not be found.",
+    blog_post_back_to_blog: "Back to Blog",
+    blog_post_share: "Share:",
+    blog_post_share_twitter: "Share on Twitter",
+    blog_post_share_linkedin: "Share on LinkedIn",
+    blog_post_share_copy: "Copy link",
+    blog_post_copy_success: "Link copied to clipboard!",
+
+    // Related Posts
+    related_posts_title: "Related Posts",
+
+    // Breadcrumb
+    breadcrumb_blog: "Blog",
+
+    // Blog filters
+    blog_search_placeholder: "Search for Blog",
+    explore_by_topic: "EXPLORE BY TOPIC:",
+    filter_by_language: "FILTER BY LANGUAGE:",
+    filter_all: "ALL",
+    filter_all_languages: "ALL LANGUAGES",
+    filter_english: "ENGLISH",
+    filter_arabic: "عربي",
+    filter_engineering: "ENGINEERING",
+    filter_3d_scanning: "3D SCANNING",
+    filter_cad_modeling: "CAD MODELING",
+    filter_manufacturing: "MANUFACTURING",
+    filter_innovation: "INNOVATION",
+    filter_case_studies: "CASE STUDIES",
+    blog_results_showing: "Showing all posts",
+    all: "ALL",
+    engineering: "ENGINEERING", 
+    "3d_scanning": "3D SCANNING",
+    cad_modeling: "CAD MODELING",
+    manufacturing: "MANUFACTURING",
+    innovation: "INNOVATION",
+    case_studies: "CASE STUDIES",
+    explore_by_category: "EXPLORE BY CATEGORY:"
   },
+  
   ar: {
     // Navigation
     nav_about: "من نحن",
@@ -263,6 +333,75 @@ const translations = {
     footer_about: "بروجــايد هي شركة رائدة في مجال الهندسة العكسية الميكانيكية متخصصة في تحويل الأجسام المادية إلى نماذج رقمية دقيقة للتصنيع والتوثيق.",
     copyright: "© ٢٠٢٥ بروجــايد. جميع الحقوق محفوظة.",
     privacy_policy: "سياسة الخصوصية",
-    terms_service: "شروط الخدمة"
+    terms_service: "شروط الخدمة",
+
+    // Blog Navigation
+    nav_blog: "المدونة",
+
+    // Blog Page
+    blog_hero_title: "رؤى هندسية",
+    blog_hero_subtitle: "وجهات نظر خبراء في الهندسة العكسية الميكانيكية والمسح ثلاثي الأبعاد وابتكارات التصنيع",
+    blog_loading: "جاري تحميل منشورات المدونة...",
+    blog_no_posts: "لم يتم العثور على منشورات",
+    blog_check_back: "تحقق مرة أخرى قريباً للحصول على محتوى جديد!",
+    blog_error_title: "تعذر تحميل منشورات المدونة",
+    blog_error_subtitle: "يرجى المحاولة مرة أخرى لاحقاً.",
+    blog_read_more: "اقرأ المزيد",
+    blog_category_engineering: "هندسة",
+    blog_category_technology: "تكنولوجيا",
+    blog_category_innovation: "ابتكار",
+
+    // Blog Pagination
+    pagination_previous: "السابق",
+    pagination_next: "التالي",
+    pagination_page_info: "صفحة {current} من {total}",
+
+    // Newsletter Section
+    newsletter_title: "ابق على اطلاع",
+    newsletter_subtitle: "اشترك للحصول على أحدث الرؤى حول الهندسة العكسية والتصنيع",
+    newsletter_placeholder: "أدخل عنوان بريدك الإلكتروني",
+    newsletter_subscribe: "اشترك",
+    newsletter_success: "شكراً لك على الاشتراك في نشرتنا الإخبارية!",
+
+    // Individual Blog Post
+    blog_post_loading: "جاري تحميل المنشور...",
+    blog_post_error_title: "لم يتم العثور على المنشور",
+    blog_post_error_subtitle: "المنشور الذي تبحث عنه غير موجود.",
+    blog_post_back_to_blog: "العودة للمدونة",
+    blog_post_share: "شارك:",
+    blog_post_share_twitter: "شارك على تويتر",
+    blog_post_share_linkedin: "شارك على لينكد إن",
+    blog_post_share_copy: "نسخ الرابط",
+    blog_post_copy_success: "تم نسخ الرابط!",
+
+    // Related Posts
+    related_posts_title: "منشورات ذات صلة",
+
+    // Breadcrumb
+    breadcrumb_blog: "المدونة",
+
+    // Blog filters
+    blog_search_placeholder: "البحث في المدونة",
+    explore_by_topic: "استكشف حسب الموضوع:",
+    filter_by_language: "فلترة حسب اللغة:",
+    filter_all: "الكل",
+    filter_all_languages: "جميع اللغات",
+    filter_english: "الإنجليزية",
+    filter_arabic: "العربية",
+    filter_engineering: "الهندسة",
+    filter_3d_scanning: "المسح ثلاثي الأبعاد",
+    filter_cad_modeling: "نمذجة CAD",
+    filter_manufacturing: "التصنيع",
+    filter_innovation: "الابتكار",
+    filter_case_studies: "دراسات الحالة",
+    blog_results_showing: "عرض جميع المقالات",
+    all: "الكل",
+    engineering: "الهندسة",
+    "3d_scanning": "المسح ثلاثي الأبعاد", 
+    cad_modeling: "النمذجة بـ CAD",
+    manufacturing: "التصنيع",
+    innovation: "الابتكار",
+    case_studies: "دراسات الحالة",
+    explore_by_category: "استكشف حسب الفئة:"
   }
 };

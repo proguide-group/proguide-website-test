@@ -1,0 +1,13 @@
+{
+  "sections": {
+    "show_projects": true,
+    "show_testimonials": true,
+    "show_clients": false,
+    "show_map": true
+  },
+  "site_info": {
+    "company_name": "ProGuide",
+    "contact_email": "info@proguide-group.com",
+    "contact_phone": "+966 53 624 4800"
+  }
+}

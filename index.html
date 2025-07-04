@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 <head>
-  
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Proguide - Mechanical Reverse Engineering Experts</title>
@@ -13,40 +12,27 @@
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-  <!-- Main Navigation -->
-  <nav class="main-nav">
-    <div class="container nav-container">
-      <a href="#" class="logo">
-        <img src="./assets/images/ProGuideLogo.svg" alt="Proguide Logo" class="logo-img">
-      </a>
-      
-      <div class="nav-right">
-        <ul class="nav-links">
-          <li><a href="#about" data-translate="nav_about">About</a></li>
-          <li><a href="#services" data-translate="nav_services">Services</a></li>
-          <li><a href="#projects" data-translate="nav_projects">Projects</a></li>
-          <li><a href="#team" data-translate="nav_team">Team</a></li>
-          <li><a href="#contact" data-translate="nav_contact">Contact</a></li>
-        </ul>
-        <div class="nav-actions">
-          <div class="nav-social-links">
-            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-          </div>
-          <button id="langToggle" aria-label="Switch Language" class="lang-toggle">
-            <i class="fas fa-globe"></i>
-            <span data-translate="lang_toggle">عربي</span>
-          </button>
-          <button class="mobile-menu-toggle" aria-label="Toggle menu">
-            <span></span>
-            <span></span>
-            <span></span>
-          </button>
+  <!-- Header Placeholder - Will be replaced by component loader -->
+  <div id="header-placeholder">
+    <!-- Fallback header content in case JavaScript fails -->
+    <nav class="main-nav">
+      <div class="container nav-container">
+        <a href="index.html" class="logo">
+          <img src="./assets/images/ProGuideLogo-B.svg" alt="Proguide Logo" class="logo-img">
+        </a>
+        <div class="nav-right">
+          <ul class="nav-links">
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#services">Services</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#team">Team</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+            <li><a href="blogs.html">Blog</a></li>
+          </ul>
         </div>
       </div>
-    </div>
-  </nav>
+    </nav>
+  </div>
 
   <!-- Hero Section -->
   <header class="hero">
@@ -60,8 +46,8 @@
         </div>
         
         <h1 class="hero-title" data-translate="company_name">
-          <span class="title-stroke">Proguide</span>
-          <span class="title-fill">Proguide</span>
+        
+          <span class="title-fill">ProGuide</span>
         </h1>
         
         <div class="hero-subtitle-wrapper">
@@ -114,30 +100,6 @@
       </div>
     </div>
   </header>
-
-  <!-- Clients Marquee -->
-  <section class="clients-marquee">
-    <div class="marquee-track">
-      <div class="marquee-item">
-        <img src="assets/images/clients/sabic.png" alt="SABIC">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/aramco.png" alt="Aramco">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/maaden.png" alt="Ma'aden">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/mowah.png" alt="Mowah">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/royal-commission.png" alt="Royal Commission">
-      </div>
-      <div class="marquee-item">
-        <img src="assets/images/clients/modon.png" alt="MODON">
-      </div>
-    </div>
-  </section>
 
   <!-- About Section -->
   <section id="about" class="section about-section">
@@ -292,7 +254,7 @@
             </p>
           </div>
           <div class="step-icon">
-            <img src="assets/images/icons/scan-step.svg" alt="Scanning">
+            <img src="assets/images/icons/3dscann.svg" alt="Scanning">
           </div>
         </div>
         
@@ -412,8 +374,8 @@
     </div>
   </section>
 
-  <!-- Testimonials -->
-  <section class="section testimonials-section">
+  <!-- Testimonials Section -->
+  <section class="testimonials-section">
     <div class="container">
       <div class="section-header">
         <span class="section-subtitle" data-translate="testimonials_subtitle">Client Feedback</span>
@@ -494,6 +456,29 @@
               </div>
             </div>
           </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Client Marquee -->
+  <section class="clients-marquee">
+    <div class="container">
+      <div class="marquee-content">
+        <div class="marquee-item">
+          <img src="assets/images/clients/client1.png" alt="Client Logo">
+        </div>
+        <div class="marquee-item">
+          <img src="assets/images/clients/client2.png" alt="Client Logo">
+        </div>
+        <div class="marquee-item">
+          <img src="assets/images/clients/client3.png" alt="Client Logo">
+        </div>
+        <div class="marquee-item">
+          <img src="assets/images/clients/client4.png" alt="Client Logo">
+        </div>
+        <div class="marquee-item">
+          <img src="assets/images/clients/client5.png" alt="Client Logo">
         </div>
       </div>
     </div>
@@ -793,11 +778,14 @@
 
   <!-- Scripts -->
   <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <script src="js/component-loader.js"></script> <!-- Load this first -->
   <script src="js/translations.js"></script>
   <script src="js/language-switcher.js"></script>
   <script src="js/cookies.js"></script>
   <script src="js/main.js"></script>
   <script src="js/animations.js"></script>
+  <script src="js/section-visibility.js"></script>
+  <script src="js/blog-categories-loader.js"></script>  <!-- Add this line -->
   <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 <script>
   if (window.netlifyIdentity) {

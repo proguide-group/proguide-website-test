@@ -1,6 +1,8 @@
 ---
 title: "Mechanical Reverse Engineering"
-date: 2024-02-01
+date: 2024-08-09T14:22:11.571Z
+categories: ["3D Scanning", "Engineering", "Manufacturing"]
+language: "en"
 ---
 
 Mechanical Reverse Engineering in Saudi Arabia: How ProGuide Sets the Standard for Innovation

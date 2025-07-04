@@ -1,0 +1,104 @@
+{
+  "categories": [
+    {
+      "name": "All",
+      "slug": "all",
+      "language": "en",
+      "active": true,
+      "color": "#6b7280",
+      "order": 0
+    },
+    {
+      "name": "Engineering",
+      "slug": "engineering",
+      "language": "en",
+      "active": true,
+      "color": "#3b82f6",
+      "order": 1
+    },
+    {
+      "name": "3D Scanning",
+      "slug": "3d-scanning",
+      "language": "en",
+      "active": true,
+      "color": "#10b981",
+      "order": 2
+    },
+    {
+      "name": "CAD Modeling",
+      "slug": "cad-modeling",
+      "language": "en",
+      "active": true,
+      "color": "#f59e0b",
+      "order": 3
+    },
+    {
+      "name": "Manufacturing",
+      "slug": "manufacturing",
+      "language": "en",
+      "active": true,
+      "color": "#ef4444",
+      "order": 4
+    },
+    {
+      "name": "Innovation",
+      "slug": "innovation",
+      "language": "en",
+      "active": true,
+      "color": "#8b5cf6",
+      "order": 5
+    },
+    {
+      "name": "Case Studies",
+      "slug": "case-studies",
+      "language": "en",
+      "active": true,
+      "color": "#06b6d4",
+      "order": 6
+    },
+    {
+      "name": "الكل",
+      "slug": "all",
+      "language": "ar",
+      "active": true,
+      "color": "#6b7280",
+      "order": 0
+    },
+    {
+      "name": "الهندسة العكسية",
+      "slug": "reverse-engineering",
+      "language": "ar",
+      "active": true,
+      "color": "#3b82f6",
+      "order": 1
+    },
+    {
+      "name": "المسح ثلاثي الأبعاد",
+      "slug": "3d-scanning",
+      "language": "ar",
+      "active": true,
+      "color": "#10b981",
+      "order": 2
+    },
+    {
+      "name": "التصنيع الذكي",
+      "slug": "smart-manufacturing",
+      "language": "ar",
+      "active": true,
+      "color": "#ef4444",
+      "order": 3
+    },
+    {
+      "name": "الحلول الرقمية",
+      "slug": "digital-solutions",
+      "language": "ar",
+      "active": true,
+      "color": "#8b5cf6",
+      "order": 4
+    }
+  ],
+  "settings": {
+    "show_all_button": true,
+    "max_per_row": 6
+  }
+}

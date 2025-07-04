@@ -1,14 +1,109 @@
 backend:
   name: git-gateway
-  branch: main # Change to 'master' if that's your default branch
+  branch: main
 
-media_folder: "/assets/images"
-public_folder: "/assets/images"
+media_folder: "assets/images/uploads"
+public_folder: "/assets/images/uploads"
 
 collections:
+  # Site Visibility Settings
+  - name: "site-settings"
+    label: "Site Settings"
+    files:
+      - file: "data/site-settings.json"
+        label: "Section Visibility"
+        name: "visibility"
+        fields:
+          - label: "Section Visibility Controls"
+            name: "sections"
+            widget: "object"
+            fields:
+              - label: "Show Projects Section"
+                name: "show_projects"
+                widget: "boolean"
+                default: true
+                hint: "Toggle Our Work / Featured Projects section on homepage"
+              
+              - label: "Show Client Testimonials"
+                name: "show_testimonials"
+                widget: "boolean"
+                default: true
+                hint: "Toggle Client Feedback section on homepage"
+              
+              - label: "Show Client Marquee"
+                name: "show_clients"
+                widget: "boolean"
+                default: false
+                hint: "Toggle Client logos marquee section"
+              
+              - label: "Show Map Section"
+                name: "show_map"
+                widget: "boolean"
+                default: true
+                hint: "Toggle Map/Location section"
+          
+          - label: "Site Information"
+            name: "site_info"
+            widget: "object"
+            fields:
+              - label: "Company Name"
+                name: "company_name"
+                widget: "string"
+                default: "ProGuide"
+              
+              - label: "Contact Email"
+                name: "contact_email"
+                widget: "string"
+                default: "info@proguide-group.com"
+              
+              - label: "Contact Phone"
+                name: "contact_phone"
+                widget: "string"
+                default: "+966 53 624 4800"
+
+  # Blog Categories Management - Language Specific
+  - name: "blog-categories"
+    label: "Blog Categories"
+    files:
+      - file: "data/blog-categories.json"
+        label: "Blog Category Tags"
+        name: "categories"
+        fields:
+          - label: "Available Categories"
+            name: "categories"
+            widget: "list"
+            fields:
+              - label: "Category Name"
+                name: "name"
+                widget: "string"
+                hint: "Enter category name in the appropriate language"
+              - label: "Category Slug"
+                name: "slug"
+                widget: "string"
+                hint: "URL-friendly version (e.g., 3d-scanning, reverse-engineering)"
+              - label: "Language"
+                name: "language"
+                widget: "select"
+                options: ["en", "ar"]
+                hint: "Which language this category belongs to"
+              - label: "Active"
+                name: "active"
+                widget: "boolean"
+                default: true
+              - label: "Color"
+                name: "color"
+                widget: "color"
+                default: "#3b82f6"
+              - label: "Order"
+                name: "order"
+                widget: "number"
+                default: 1
+                hint: "Display order (0 for 'All' button)"
+
+  # Blog Posts - Updated
   - name: "blog"
     label: "Blog"
-    folder: "/assets/blog"
+    folder: "assets/blog"
     create: true
     slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
     fields:
@@ -16,4 +111,21 @@ collections:
       - {label: "Title", name: "title", widget: "string"}
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Featured Image", name: "image", widget: "image"}
+      - {label: "Language", name: "language", widget: "select", options: ["en", "ar"], default: "en"}
+      - label: "Categories"
+        name: "categories"
+        widget: "select"
+        multiple: true
+        hint: "Select categories that match your post language"
+        options: 
+          - { label: "Engineering", value: "Engineering" }
+          - { label: "3D Scanning", value: "3D Scanning" }
+          - { label: "CAD Modeling", value: "CAD Modeling" }
+          - { label: "Manufacturing", value: "Manufacturing" }
+          - { label: "Innovation", value: "Innovation" }
+          - { label: "Case Studies", value: "Case Studies" }
+          - { label: "الهندسة العكسية", value: "الهندسة العكسية" }
+          - { label: "المسح ثلاثي الأبعاد", value: "المسح ثلاثي الأبعاد" }
+          - { label: "التصنيع الذكي", value: "التصنيع الذكي" }
+          - { label: "الحلول الرقمية", value: "الحلول الرقمية" }
       - {label: "Body", name: "body", widget: "markdown"}

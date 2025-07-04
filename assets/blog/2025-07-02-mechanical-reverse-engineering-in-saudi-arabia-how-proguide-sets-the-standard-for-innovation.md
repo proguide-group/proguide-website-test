@@ -3,7 +3,9 @@ layout: blog
 title: "Mechanical Reverse Engineering in Saudi Arabia: How ProGuide Sets the
   Standard for Innovation"
 date: 2024-06-12T14:22:11.571Z
+categories: ["3D Scanning", "Engineering", "Manufacturing"]
 image: /assets/images/reverse-engineering.png
+language: "en"
 ---
 
 

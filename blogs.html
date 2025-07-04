@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog - Proguide Engineering</title>
+  <meta name="description" content="Latest insights and updates from Proguide's mechanical reverse engineering experts">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/blogs.css">
+</head>
+<body>
+  <!-- Header Placeholder -->
+  <div id="header-placeholder">
+    <!-- Fallback header content -->
+  </div>
+
+  <!-- Main Navigation -->
+  <nav class="main-nav">
+    <div class="container nav-container">
+      <a href="index.html" class="logo">
+        <img src="./assets/images/ProGuideLogo-B.svg" alt="Proguide Logo" class="logo-img">
+      </a>
+      
+      <div class="nav-right">
+        <ul class="nav-links">
+          <li><a href="index.html#about" data-translate="nav_about">About</a></li>
+          <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+          <li><a href="index.html#projects" data-translate="nav_projects">Projects</a></li>
+          <li><a href="index.html#team" data-translate="nav_team">Team</a></li>
+          <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+          <li><a href="blogs.html" class="active" data-translate="nav_blog">Blog</a></li>
+        </ul>
+        <div class="nav-actions">
+          <div class="nav-social-links">
+            <a href="#" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter" target="_blank"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+          </div>
+          <button id="langToggle" aria-label="Switch Language" class="lang-toggle">
+            <i class="fas fa-globe"></i>
+            <span data-translate="lang_toggle">عربي</span>
+          </button>
+          <button class="mobile-menu-toggle" aria-label="Toggle menu">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Blog Hero Section -->
+  <section class="blog-hero">
+    <div class="container">
+      <div class="blog-hero-content">
+        <h1 class="blog-hero-title" data-translate="blog_hero_title">Engineering Insights</h1>
+        <p class="blog-hero-subtitle" data-translate="blog_hero_subtitle">Expert perspectives on mechanical reverse engineering, 3D scanning, and manufacturing innovation</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Filters Section -->
+  <section class="blog-filters-section">
+    <div class="container">
+      <!-- Search Bar -->
+      <div class="blog-search">
+        <div class="search-wrapper">
+          <input type="text" id="blogSearch" placeholder="Search for Blog" data-translate-placeholder="blog_search_placeholder">
+          <button class="search-voice-btn" aria-label="Voice search">
+            <i class="fas fa-microphone"></i>
+          </button>
+          <button class="search-btn" aria-label="Search">
+            <i class="fas fa-search"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Static Categories - No Dynamic Loading -->
+      <div class="filters-combined-row">
+        <div class="blog-topic-filters">
+          <h3 class="filters-title" data-translate="explore_by_category">EXPLORE BY CATEGORY:</h3>
+          <div class="category-tags">
+            <button class="category-tag active" data-filter="all" data-translate="all">ALL</button>
+            <button class="category-tag" data-filter="engineering" data-translate="engineering">ENGINEERING</button>
+            <button class="category-tag" data-filter="3d-scanning" data-translate="3d_scanning">3D SCANNING</button>
+            <button class="category-tag" data-filter="cad-modeling" data-translate="cad_modeling">CAD MODELING</button>
+            <button class="category-tag" data-filter="manufacturing" data-translate="manufacturing">MANUFACTURING</button>
+            <button class="category-tag" data-filter="innovation" data-translate="innovation">INNOVATION</button>
+            <button class="category-tag" data-filter="case-studies" data-translate="case_studies">CASE STUDIES</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Blog Posts Section -->
+  <section class="blog-posts-section">
+    <div class="container">
+      <!-- Results count -->
+      <div class="blog-results-info">
+        <p id="resultsCount" data-translate="blog_results_showing">Showing all posts</p>
+      </div>
+      
+      <div class="blog-grid" id="blogGrid">
+        <!-- Blog posts will be loaded here by JavaScript -->
+        <div class="loading-spinner">
+          <i class="fas fa-spinner fa-spin"></i>
+          <p data-translate="blog_loading">Loading blog posts...</p>
+        </div>
+      </div>
+      
+      <!-- Pagination -->
+      <div class="blog-pagination" id="blogPagination" style="display: none;">
+        <button class="pagination-btn" id="prevBtn" disabled>
+          <i class="fas fa-chevron-left"></i>
+          <span data-translate="pagination_previous">Previous</span>
+        </button>
+        <div class="pagination-info">
+          <span id="pageInfo" data-translate="pagination_page_info">Page 1 of 1</span>
+        </div>
+        <button class="pagination-btn" id="nextBtn" disabled>
+          <span data-translate="pagination_next">Next</span>
+          <i class="fas fa-chevron-right"></i>
+        </button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Newsletter Section -->
+  <section class="newsletter-section">
+    <div class="container">
+      <div class="newsletter-content">
+        <h2 class="newsletter-title" data-translate="newsletter_title">Stay Updated</h2>
+        <p class="newsletter-subtitle" data-translate="newsletter_subtitle">Subscribe to get the latest insights on reverse engineering and manufacturing</p>
+        <form class="newsletter-form">
+          <input type="email" data-translate-placeholder="newsletter_placeholder" placeholder="Enter your email address" required>
+          <button type="submit" class="cta-button primary">
+            <span data-translate="newsletter_subscribe">Subscribe</span>
+            <i class="fas fa-paper-plane"></i>
+          </button>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-col about-col">
+          <div class="footer-logo">
+            <img src="assets/images/ProGuideLogo-B.svg" alt="Proguide Logo">
+          </div>
+          <p class="footer-about" data-translate="footer_about">
+            Proguide is a premier mechanical reverse engineering firm specializing in transforming physical objects into precise digital models for manufacturing and documentation.
+          </p>
+          <div class="footer-social">
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+          </div>
+        </div>
+        
+        <div class="footer-col links-col">
+          <h3 class="footer-title" data-translate="quick_links">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html#about" data-translate="nav_about">About Us</a></li>
+            <li><a href="index.html#services" data-translate="nav_services">Services</a></li>
+            <li><a href="index.html#projects" data-translate="nav_projects">Projects</a></li>
+            <li><a href="index.html#team" data-translate="nav_team">Our Team</a></li>
+            <li><a href="index.html#contact" data-translate="nav_contact">Contact</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col services-col">
+          <h3 class="footer-title" data-translate="our_services">Our Services</h3>
+          <ul class="footer-links">
+            <li><a href="#" data-translate="service1">3D Scanning</a></li>
+            <li><a href="#" data-translate="service2">CAD Modeling</a></li>
+            <li><a href="#" data-translate="service3">Sheet Metal Design</a></li>
+            <li><a href="#" data-translate="service4">Structural Design</a></li>
+            <li><a href="#" data-translate="service5">Simulation</a></li>
+          </ul>
+        </div>
+        
+        <div class="footer-col contact-col">
+          <h3 class="footer-title" data-translate="contact_us">Contact Us</h3>
+          <ul class="footer-contact">
+            <li>
+              <i class="fas fa-map-marker-alt"></i>
+              <span data-translate="contact_address">6917 Abu Abdullah Al-Sakhawi, Al-Qaswa, Al Madinah Province, 42391</span>
+            </li>
+            <li>
+              <i class="fas fa-phone-alt"></i>
+              <a href="tel:+966536244800" data-translate="contact_phone">+966 53 624 4800</a>
+            </li>
+            <li>
+              <i class="fas fa-envelope"></i>
+              <a href="mailto:info@proguide-group.com">info@proguide-group.com</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+      
+      <div class="footer-bottom">
+        <div class="copyright" data-translate="copyright">
+          &copy; 2025 Proguide. All Rights Reserved.
+        </div>
+        <div class="footer-legal">
+          <a href="#" data-translate="privacy_policy">Privacy Policy</a>
+          <a href="#" data-translate="terms_service">Terms of Service</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Back to Top Button -->
+  <button class="back-to-top" aria-label="Back to top">
+    <i class="fas fa-arrow-up"></i>
+  </button>
+
+  <!-- Scripts -->
+  <script src="js/component-loader.js"></script>
+  <script src="js/blog-config.js"></script>
+  <script src="js/translations.js"></script>
+  <script src="js/language-switcher.js"></script>
+  <script src="js/cookies.js"></script>
+  <script src="js/main.js"></script>
+  <script src="js/blogs.js"></script>
+  <!-- <script src="js/blog-categories-loader.js"></script> -->
+  <!-- <script src="js/blog-topics-loader.js"></script> --> <!-- Old name - keep commented -->
+</body>
+</html>

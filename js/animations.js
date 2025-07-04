@@ -11,7 +11,7 @@ function initHeroAnimations() {
     for (let i = 0; i < 400; i++) { // 20x20 grid
       const dot = document.createElement('span');
       dot.style.animationDelay = `${Math.random() * 2}s`;
-      dot.style.opacity = Math.random() * 0.5 + 0.1;
+      dot.style.opacity = Math.random() * 0.3 + 0.1; // Reduced opacity for lighter theme
       dotGrid.appendChild(dot);
     }
   }
@@ -52,55 +52,91 @@ function initHeroAnimations() {
   }
 }
 
-// Particle.js Initialization
+// Particle.js Initialization - Updated for Light Theme
 function initParticles() {
   if (document.getElementById('particles-js')) {
     particlesJS('particles-js', {
       particles: {
         number: {
-          value: 80,
-          density: { enable: true, value_area: 800 }
+          value: 60, // Reduced number for cleaner look
+          density: { enable: true, value_area: 1000 }
         },
         color: {
-          value: document.documentElement.getAttribute('data-theme') === 'dark' 
-            ? '#4361ee' : '#3a86ff'
+          value: '#a5b4fc' // Lighter primary color for light theme
         },
-        shape: { type: 'circle' },
+        shape: { 
+          type: 'circle',
+          stroke: {
+            width: 0,
+            color: '#e0e7ff'
+          }
+        },
         opacity: {
-          value: 0.5,
+          value: 0.3, // Reduced opacity for subtlety
           random: true,
-          anim: { enable: true, speed: 1, opacity_min: 0.1 }
+          anim: { 
+            enable: true, 
+            speed: 0.5, // Slower animation
+            opacity_min: 0.05 
+          }
         },
         size: {
-          value: 3,
+          value: 2, // Smaller particles
           random: true,
-          anim: { enable: true, speed: 2, size_min: 0.1 }
+          anim: { 
+            enable: true, 
+            speed: 1, 
+            size_min: 0.1 
+          }
         },
         line_linked: {
           enable: true,
-          distance: 150,
-          color: 'currentColor',
-          opacity: 0.2,
+          distance: 120, // Shorter lines for cleaner look
+          color: '#e0e7ff', // Very light blue for connections
+          opacity: 0.15, // Very subtle lines
           width: 1
         },
         move: {
           enable: true,
-          speed: 1,
+          speed: 0.8, // Slower movement
           direction: 'none',
           random: true,
-          out_mode: 'out'
+          straight: false,
+          out_mode: 'out',
+          bounce: false,
+          attract: {
+            enable: false,
+            rotateX: 600,
+            rotateY: 1200
+          }
         }
       },
       interactivity: {
         detect_on: 'canvas',
         events: {
-          onhover: { enable: true, mode: 'grab' },
-          onclick: { enable: true, mode: 'push' },
+          onhover: { 
+            enable: true, 
+            mode: 'grab' 
+          },
+          onclick: { 
+            enable: true, 
+            mode: 'push' 
+          },
           resize: true
         },
         modes: {
-          grab: { distance: 140, line_linked: { opacity: 0.5 } },
-          push: { particles_nb: 4 }
+          grab: { 
+            distance: 100, // Shorter grab distance
+            line_linked: { 
+              opacity: 0.3 // Subtle hover effect
+            } 
+          },
+          push: { 
+            particles_nb: 2 // Fewer particles on click
+          },
+          remove: {
+            particles_nb: 2
+          }
         }
       },
       retina_detect: true
@@ -108,7 +144,7 @@ function initParticles() {
   }
 }
 
-// Scroll Animations
+// Scroll Animations - Updated for smoother light theme transitions
 function initScrollAnimations() {
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
@@ -119,25 +155,42 @@ function initScrollAnimations() {
         if (entry.target.classList.contains('fade-up')) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'translateY(0)';
+          entry.target.style.transition = 'all 0.6s ease-out';
         }
         
         if (entry.target.classList.contains('scale-in')) {
           entry.target.style.opacity = '1';
           entry.target.style.transform = 'scale(1)';
+          entry.target.style.transition = 'all 0.5s ease-out';
+        }
+        
+        if (entry.target.classList.contains('slide-in-left')) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+          entry.target.style.transition = 'all 0.6s ease-out';
+        }
+        
+        if (entry.target.classList.contains('slide-in-right')) {
+          entry.target.style.opacity = '1';
+          entry.target.style.transform = 'translateX(0)';
+          entry.target.style.transition = 'all 0.6s ease-out';
         }
         
         observer.unobserve(entry.target);
       }
     });
-  }, { threshold: 0.1 });
+  }, { 
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
 
   // Observe all elements with animation classes
-  document.querySelectorAll('.fade-up, .scale-in, .reveal, .animate').forEach(el => {
+  document.querySelectorAll('.fade-up, .scale-in, .slide-in-left, .slide-in-right, .reveal, .animate').forEach(el => {
     observer.observe(el);
   });
 }
 
-// Animated Counters
+// Animated Counters - Enhanced for light theme
 function animateCounters() {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
@@ -146,16 +199,22 @@ function animateCounters() {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const target = +entry.target.getAttribute('data-count');
-        const duration = 2000; // Animation duration in ms
+        const duration = 2500; // Slightly longer duration for smoother effect
         const startTime = performance.now();
         
         const animate = (currentTime) => {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          entry.target.textContent = Math.floor(progress * target);
+          
+          // Easing function for smoother animation
+          const easeOutCubic = 1 - Math.pow(1 - progress, 3);
+          
+          entry.target.textContent = Math.floor(easeOutCubic * target);
           
           if (progress < 1) {
             requestAnimationFrame(animate);
+          } else {
+            entry.target.textContent = target; // Ensure final value is exact
           }
         };
         
@@ -168,57 +227,98 @@ function animateCounters() {
   counters.forEach(counter => observer.observe(counter));
 }
 
-// Smooth Scrolling
+// Smooth Scrolling - Enhanced
 function initSmoothScroll() {
   document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function(e) {
       e.preventDefault();
       const target = document.querySelector(this.getAttribute('href'));
       if (target) {
+        const headerOffset = 100; // Account for fixed header
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
         window.scrollTo({
-          top: target.offsetTop - 80,
+          top: offsetPosition,
           behavior: 'smooth'
         });
         
         // Close mobile menu if open
         const nav = document.querySelector('.nav-links');
-        if (nav.classList.contains('open')) {
-          document.querySelector('.mobile-menu-toggle').classList.remove('open');
+        const toggle = document.querySelector('.mobile-menu-toggle');
+        if (nav && nav.classList.contains('open')) {
+          toggle.classList.remove('open');
           nav.classList.remove('open');
+          document.body.style.overflow = '';
         }
       }
     });
   });
 }
 
-// Mobile Menu
+// Mobile Menu - Enhanced
 function initMobileMenu() {
   const toggle = document.querySelector('.mobile-menu-toggle');
   const nav = document.querySelector('.nav-links');
   if (!toggle || !nav) return;
 
   toggle.addEventListener('click', () => {
+    const isOpen = toggle.classList.contains('open');
+    
     toggle.classList.toggle('open');
     nav.classList.toggle('open');
-    document.body.style.overflow = nav.classList.contains('open') ? 'hidden' : '';
+    document.body.style.overflow = isOpen ? '' : 'hidden';
+    
+    // Add smooth transition
+    if (!isOpen) {
+      nav.style.visibility = 'visible';
+    } else {
+      setTimeout(() => {
+        if (!nav.classList.contains('open')) {
+          nav.style.visibility = 'hidden';
+        }
+      }, 300);
+    }
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!toggle.contains(e.target) && !nav.contains(e.target) && nav.classList.contains('open')) {
+      toggle.classList.remove('open');
+      nav.classList.remove('open');
+      document.body.style.overflow = '';
+    }
   });
 }
 
-// Back to Top Button
+// Back to Top Button - Enhanced for light theme
 function initBackToTop() {
   const button = document.querySelector('.back-to-top');
   if (!button) return;
 
+  let isVisible = false;
+
   window.addEventListener('scroll', () => {
-    button.classList.toggle('visible', window.scrollY > 300);
+    const shouldShow = window.scrollY > 400;
+    
+    if (shouldShow && !isVisible) {
+      button.classList.add('visible');
+      isVisible = true;
+    } else if (!shouldShow && isVisible) {
+      button.classList.remove('visible');
+      isVisible = false;
+    }
   });
 
   button.addEventListener('click', () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ 
+      top: 0, 
+      behavior: 'smooth' 
+    });
   });
 }
 
-// Form Validation
+// Form Validation - Enhanced
 function initFormValidation() {
   document.querySelectorAll('form').forEach(form => {
     form.addEventListener('submit', function(e) {
@@ -226,48 +326,88 @@ function initFormValidation() {
       const inputs = form.querySelectorAll('[required]');
       
       inputs.forEach(input => {
-        if (!input.value.trim()) {
+        const value = input.value.trim();
+        
+        // Remove previous error states
+        input.classList.remove('error');
+        
+        // Basic validation
+        if (!value) {
           input.classList.add('error');
           isValid = false;
-        } else {
-          input.classList.remove('error');
+        } else if (input.type === 'email' && !isValidEmail(value)) {
+          input.classList.add('error');
+          isValid = false;
         }
       });
 
       if (!isValid) {
         e.preventDefault();
-        alert('Please fill in all required fields.');
+        
+        // Show error message
+        showFormMessage(form, 'error', 'Please fill in all required fields correctly.');
+        
+        // Focus first error field
+        const firstError = form.querySelector('.error');
+        if (firstError) firstError.focus();
+        
       } else {
         // Simulate form submission
         e.preventDefault();
-        form.querySelector('button[type="submit"]').disabled = true;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
         
-        // Show success message
-        const successMsg = document.createElement('div');
-        successMsg.className = 'form-success';
-        successMsg.innerHTML = `
-          <i class="fas fa-check-circle"></i>
-          <span data-translate="form_success">Thank you! Your message has been sent.</span>
-        `;
-        form.appendChild(successMsg);
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Sending...';
         
-        // Reset form after delay
+        // Simulate loading delay
         setTimeout(() => {
+          showFormMessage(form, 'success', 'Thank you! Your message has been sent successfully.');
           form.reset();
-          successMsg.remove();
-          form.querySelector('button[type="submit"]').disabled = false;
-        }, 3000);
+          submitBtn.disabled = false;
+          submitBtn.textContent = originalText;
+        }, 1500);
       }
     });
   });
 }
 
+// Helper function for email validation
+function isValidEmail(email) {
+  const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  return emailRegex.test(email);
+}
+
+// Helper function to show form messages
+function showFormMessage(form, type, message) {
+  // Remove existing messages
+  const existingMsg = form.querySelector('.form-message');
+  if (existingMsg) existingMsg.remove();
+  
+  const messageEl = document.createElement('div');
+  messageEl.className = `form-message form-message-${type}`;
+  messageEl.innerHTML = `
+    <i class="fas fa-${type === 'success' ? 'check-circle' : 'exclamation-triangle'}"></i>
+    <span>${message}</span>
+  `;
+  
+  form.appendChild(messageEl);
+  
+  // Auto-remove after delay
+  setTimeout(() => {
+    messageEl.remove();
+  }, type === 'success' ? 4000 : 3000);
+}
+
 // Initialize Everything
 document.addEventListener('DOMContentLoaded', () => {
-  initParticles();
-  initHeroAnimations();
-  initScrollAnimations();
-  animateCounters();
+  // Initialize animations with slight delays for better performance
+  setTimeout(initParticles, 100);
+  setTimeout(initHeroAnimations, 200);
+  setTimeout(initScrollAnimations, 300);
+  setTimeout(animateCounters, 400);
+  
+  // Initialize interactions immediately
   initSmoothScroll();
   initMobileMenu();
   initBackToTop();
@@ -279,10 +419,35 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-// Resize handler for particles
-window.addEventListener('resize', () => {
+// Resize handler for particles - Enhanced
+window.addEventListener('resize', debounce(() => {
   if (window.pJSDom && window.pJSDom.length > 0) {
     pJSDom[0].pJS.fn.vendors.destroypJS();
-    initParticles();
+    setTimeout(initParticles, 100);
+  }
+}, 250));
+
+// Debounce utility function
+function debounce(func, wait) {
+  let timeout;
+  return function executedFunction(...args) {
+    const later = () => {
+      clearTimeout(timeout);
+      func(...args);
+    };
+    clearTimeout(timeout);
+    timeout = setTimeout(later, wait);
+  };
+}
+
+// Performance optimization - Pause animations when tab is not visible
+document.addEventListener('visibilitychange', () => {
+  const particles = document.getElementById('particles-js');
+  if (particles) {
+    if (document.hidden) {
+      particles.style.display = 'none';
+    } else {
+      particles.style.display = 'block';
+    }
   }
 });

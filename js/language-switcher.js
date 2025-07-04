@@ -46,5 +46,43 @@ function initLanguageSwitcher() {
   applyTranslations(currentLang);
 }
 
+function switchLanguage(newLang) {
+  // Prevent multiple rapid switches
+  if (window.languageSwitching) return;
+  window.languageSwitching = true;
+  
+  console.log('Switching to language:', newLang);
+  
+  // Update the document language
+  document.documentElement.lang = newLang;
+  
+  // Dispatch the language change event ONCE
+  document.dispatchEvent(new CustomEvent('languageChanged', {
+    detail: { language: newLang },
+    bubbles: false // Prevent bubbling to avoid multiple triggers
+  }));
+  
+  // Your existing translation logic here...
+  // updatePageTranslations(newLang);
+  
+  // Reset the flag after processing
+  setTimeout(() => {
+    window.languageSwitching = false;
+  }, 500);
+}
+
+// Make sure language switch buttons only call this once
+document.querySelectorAll('[data-lang]').forEach(button => {
+  button.addEventListener('click', function(e) {
+    e.preventDefault();
+    e.stopPropagation(); // Prevent event bubbling
+    
+    const lang = this.dataset.lang;
+    if (lang && lang !== document.documentElement.lang) {
+      switchLanguage(lang);
+    }
+  });
+});
+
 // Initialize on DOM ready
 document.addEventListener('DOMContentLoaded', initLanguageSwitcher);
