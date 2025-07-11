@@ -1,7 +1,7 @@
 {
   "sections": {
     "show_projects": true,
-    "show_testimonials": true,
+    "show_testimonials": false,
     "show_clients": false,
     "show_map": true
   },
