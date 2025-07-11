@@ -190,5 +190,12 @@
         "blog_error_refresh": "Please try refreshing the page",
         "breadcrumb_blog": "Blog",
         "blog_post_back_to_blog": "Back to Blog"
+    ,
+    "form_validation_error": "Please fill in all required fields correctly.",
+    "form_success_message": "Thank you! Your message has been sent successfully.",
+    "form_sending_message": "Sending...",
+    "cookie_consent_text": "We use cookies to enhance your Browse experience and analyze our traffic. By clicking \"Accept All\", you consent to our use of cookies.",
+    "cookie_accept_button": "Accept All",
+    "contact_form_success_message": "Thank you for your message! We will get back to you soon."
     }
 }

@@ -343,26 +343,21 @@ function initFormValidation() {
 
       if (!isValid) {
         e.preventDefault();
-        
-        // Show error message
-        showFormMessage(form, 'error', 'Please fill in all required fields correctly.');
-        
+        // Show error message (translated)
+        showFormMessage(form, 'error', window.getTranslation('form_validation_error'));
         // Focus first error field
         const firstError = form.querySelector('.error');
         if (firstError) firstError.focus();
-        
       } else {
         // Simulate form submission
         e.preventDefault();
         const submitBtn = form.querySelector('button[type="submit"]');
         const originalText = submitBtn.textContent;
-        
         submitBtn.disabled = true;
-        submitBtn.textContent = 'Sending...';
-        
+        submitBtn.textContent = window.getTranslation('form_sending_message');
         // Simulate loading delay
         setTimeout(() => {
-          showFormMessage(form, 'success', 'Thank you! Your message has been sent successfully.');
+          showFormMessage(form, 'success', window.getTranslation('form_success_message'));
           form.reset();
           submitBtn.disabled = false;
           submitBtn.textContent = originalText;

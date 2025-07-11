@@ -431,7 +431,12 @@ class BlogManager {
     if (pagination) pagination.style.display = 'flex';
     if (prevBtn) prevBtn.disabled = this.currentPage === 1;
     if (nextBtn) nextBtn.disabled = this.currentPage === this.totalPages;
-    if (pageInfo) pageInfo.textContent = `Page ${this.currentPage} of ${this.totalPages}`;
+    if (pageInfo) {
+      const pageInfoText = window.getTranslation('pagination_page_info')
+        .replace('{current}', this.currentPage)
+        .replace('{total}', this.totalPages);
+      pageInfo.textContent = pageInfoText;
+    }
   }
 
   // Newsletter form
