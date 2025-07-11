@@ -414,9 +414,6 @@ document.addEventListener('DOMContentLoaded', () => {
   initFormValidation();
 
   // Initialize language switcher if available
-  if (typeof initLanguageSwitcher === 'function') {
-    initLanguageSwitcher();
-  }
 });
 
 // Resize handler for particles - Enhanced

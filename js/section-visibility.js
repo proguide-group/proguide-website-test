@@ -11,11 +11,9 @@ class SectionVisibilityController {
   async init() {
     try {
       await this.loadSettings();
-      this.setupLanguageSwitcher();
     } catch (error) {
       console.log('Settings not available, using defaults');
       this.useDefaults();
-      this.setupLanguageSwitcher();
     }
   }
 
@@ -71,77 +69,17 @@ class SectionVisibilityController {
   }
 
   setupLanguageSwitcher() {
-    // Setup language switcher functionality
-    document.querySelectorAll('.lang-switch').forEach(button => {
-      button.addEventListener('click', (e) => {
-        e.preventDefault();
-        const newLang = button.getAttribute('data-lang');
-        this.switchLanguage(newLang);
-      });
-    });
-
-    // Set initial language state
-    this.updateLanguageButtons();
   }
 
   switchLanguage(newLang) {
-    if (newLang === this.currentLang) return;
 
-    this.currentLang = newLang;
-    document.documentElement.lang = newLang;
-    document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
-    
-    // Store language preference
-    localStorage.setItem('preferredLanguage', newLang);
-    
-    // Update active language button
-    this.updateLanguageButtons();
-    
-    // Apply translations (you can expand this)
-    this.applyTranslations(newLang);
-    
-    // Trigger custom event for other components
-    document.dispatchEvent(new CustomEvent('languageChanged', { 
-      detail: { language: newLang } 
-    }));
   }
 
   updateLanguageButtons() {
-    document.querySelectorAll('.lang-switch').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-lang') === this.currentLang);
-    });
   }
 
   applyTranslations(lang) {
-    // Basic translations - you can expand this
-    const translations = {
-      en: {
-        nav_home: "Home",
-        nav_about: "About", 
-        nav_services: "Services",
-        nav_projects: "Projects",
-        nav_team: "Team",
-        nav_contact: "Contact",
-        nav_blog: "Blog"
-      },
-      ar: {
-        nav_home: "الرئيسية",
-        nav_about: "من نحن",
-        nav_services: "خدماتنا", 
-        nav_projects: "مشاريعنا",
-        nav_team: "فريقنا",
-        nav_contact: "اتصل بنا",
-        nav_blog: "المدونة"
-      }
-    };
 
-    // Apply translations to elements with data-translate attributes
-    document.querySelectorAll('[data-translate]').forEach(element => {
-      const key = element.getAttribute('data-translate');
-      if (translations[lang] && translations[lang][key]) {
-        element.textContent = translations[lang][key];
-      }
-    });
   }
 
   // Method to manually refresh settings
@@ -152,10 +90,6 @@ class SectionVisibilityController {
 
 // Initialize when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Check for saved language preference
-  const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-  document.documentElement.lang = savedLang;
-  document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
   
   window.sectionVisibility = new SectionVisibilityController();
 });

@@ -14,19 +14,45 @@ class BlogManager {
     this.currentFilters = {
       search: '',
       topic: 'all',
-      language: 'all'
+      language: 'all' // This filter should be controlled by the main language switch
     };
-    this.isFiltering = false; // Add filtering flag
+    this.isFiltering = false;
+
+    // Listen for global language change event
+    document.addEventListener('languageChanged', (e) => this.handleLanguageChange(e));
   }
 
   async init() {
     await this.loadBlogPosts();
-    this.filteredPosts = [...this.posts]; // Initialize filtered posts
+    // The initial filteredPosts should be based on the current interface language
+    this.currentFilters.language = document.documentElement.lang;
+    this.applyFilters(); // Call applyFilters to set up initial view
     this.setupFilters();
     this.setupPagination();
     this.setupNewsletterForm();
-    this.renderPosts();
-    this.updateResultsCount();
+    // renderPosts() and updateResultsCount() are called by applyFilters()
+    this.updatePaginationControls();
+  }
+  // NEW METHOD
+  async handleLanguageChange(event) {
+    const newLang = event.detail.language;
+    console.log(`BlogManager: Language changed to ${newLang}. Re-applying filters.`);
+    this.currentFilters.language = newLang; // Update the language filter
+    this.currentPage = 1; // Reset to first page on language change
+    this.applyFilters(); // Re-apply filters to refresh posts based on new language
+    // Re-attach category listeners as the DOM might have been rebuilt by BlogCategoriesLoader
+    // setTimeout is a small workaround to ensure BlogCategoriesLoader completes its rebuild first
+    setTimeout(() => {
+        if (window.blogCategoriesLoader) {
+            window.blogCategoriesLoader.attachCategoryListeners(); // Re-attach listeners for category tags
+            // Ensure the 'All' category for the new language is active by default
+            const activeCategoryButton = document.querySelector(`.category-tag[data-slug="all"][data-language="${newLang}"]`);
+            if (activeCategoryButton) {
+                document.querySelectorAll('.category-tag').forEach(t => t.classList.remove('active'));
+                activeCategoryButton.classList.add('active');
+            }
+        }
+    }, 150); // Small delay
   }
 
   async loadBlogPosts() {
@@ -248,33 +274,11 @@ class BlogManager {
     this.setupCategoryFilters();
   }
 
-  setupCategoryFilters() {
-    this.attachCategoryListeners();
-  }
-
-  attachCategoryListeners() {
-    document.querySelectorAll('.category-tag').forEach(tag => {
-      tag.addEventListener('click', (e) => {
-        // Remove active class from all tags
-        document.querySelectorAll('.category-tag').forEach(t => t.classList.remove('active'));
-        
-        // Add active class to clicked tag
-        e.target.classList.add('active');
-        
-        // Update filter
-        this.currentFilters.topic = e.target.dataset.filter || 'all';
-        this.applyFilters();
-      });
-    });
-  }
-
-  // Apply filters
   applyFilters() {
     if (this.isFiltering) return;
     this.isFiltering = true;
     
-    console.log('Applying filters:', this.currentFilters);
-    
+    console.log('Applying filters in BlogManager:', this.currentFilters);
     const currentInterfaceLanguage = document.documentElement.lang || 'en';
     
     this.filteredPosts = this.posts.filter(post => {
@@ -291,6 +295,7 @@ class BlogManager {
                  category.toLowerCase().includes(this.currentFilters.topic.toLowerCase());
         });
 
+      // Crucial: Filter posts by the current interface language
       const matchesLanguage = post.language === currentInterfaceLanguage;
       
       return matchesSearch && matchesCategory && matchesLanguage;
@@ -302,8 +307,6 @@ class BlogManager {
     this.renderPosts();
     this.updateResultsCount();
     this.updatePaginationControls();
-    
-    // Reset immediately - no setTimeout
     this.isFiltering = false;
   }
 
@@ -324,13 +327,12 @@ class BlogManager {
     const resultsCount = document.getElementById('resultsCount');
     if (resultsCount) {
       const total = this.filteredPosts.length;
-      
       if (total === 0) {
-        resultsCount.textContent = 'No posts found matching your criteria';
+        resultsCount.textContent = window.getTranslation('blog_results_no_posts');
       } else if (total === this.posts.length) {
-        resultsCount.textContent = `Showing all ${total} posts`;
+        resultsCount.textContent = window.getTranslation('blog_results_showing_all').replace('{total}', total);
       } else {
-        resultsCount.textContent = `Showing ${total} of ${this.posts.length} posts`;
+        resultsCount.textContent = window.getTranslation('blog_results_showing_filtered').replace('{total}', total).replace('{allTotal}', this.posts.length);
       }
     }
   }
@@ -348,8 +350,8 @@ class BlogManager {
       blogGrid.innerHTML = `
         <div class="no-results">
           <i class="fas fa-search"></i>
-          <h3>No posts found</h3>
-          <p>Try adjusting your search criteria or filters</p>
+          <h3>${window.getTranslation('no_results_title')}</h3>
+          <p>${window.getTranslation('no_results_subtitle')}</p>
         </div>
       `;
       return;
@@ -360,10 +362,10 @@ class BlogManager {
       const postLanguage = post.language || 'en';
       const isRTL = postLanguage === 'ar';
       const directionClass = isRTL ? 'rtl' : 'ltr';
-      
       // Keep your existing category logic
       const categoryData = post.categories.map(cat => this.categoryToSlug(cat)).join(',');
-      
+      // Use the original filename (URL-encoded) as the slug in the link
+      const postLinkHref = `blog-post.html?slug=${encodeURIComponent(post.filename)}`;
       return `
       <article class="blog-card ${directionClass}" 
                data-categories="${categoryData}" 
@@ -379,8 +381,8 @@ class BlogManager {
           </div>
           <h2 class="blog-title">${post.title}</h2>
           <p class="blog-excerpt">${post.excerpt}</p>
-          <a href="blog-post.html?slug=${post.slug}" class="read-more-btn">
-            <span>${isRTL ? 'اقرأ المزيد' : 'Read More'}</span>
+          <a href="${postLinkHref}" class="read-more-btn">
+            <span>${window.getTranslation('blog_read_more')}</span>
             <i class="fas fa-arrow-${isRTL ? 'left' : 'right'}"></i>
           </a>
         </div>
@@ -441,7 +443,7 @@ class BlogManager {
         const email = form.querySelector('input[type="email"]').value;
         console.log('Newsletter subscription:', email);
         // Add your newsletter logic here
-        alert('Thank you for subscribing!');
+        alert(window.getTranslation('newsletter_success'));
         form.reset();
       });
     }
@@ -453,16 +455,16 @@ class BlogManager {
       blogGrid.innerHTML = `
         <div class="error-message">
           <i class="fas fa-exclamation-triangle"></i>
-          <h3>Error Loading Posts</h3>
-          <p>Please try refreshing the page</p>
+          <h3>${window.getTranslation('blog_error_generic')}</h3>
+          <p>${window.getTranslation('blog_error_refresh')}</p>
         </div>
       `;
     }
   }
 }
 
-// Initialize the blog manager
+// Global initialization
 document.addEventListener('DOMContentLoaded', () => {
-  const blogManager = new BlogManager();
-  blogManager.init();
+  window.blogManager = new BlogManager();
+  window.blogManager.init();
 });

@@ -1,3 +1,42 @@
+# Translations Management
+- name: "translations"
+  label: "Translations"
+  files:
+    - file: "data/translations-en.json"
+      label: "English Translations"
+      name: "en"
+      fields:
+        - label: "Translations"
+          name: "translations"
+          widget: "object"
+          fields:
+            - {label: "Nav About", name: "nav_about", widget: "string"}
+            # ... add all other keys you use in data-translate attributes
+            - {label: "Lang Toggle Arabic Text", name: "lang_toggle_ar_text", widget: "string"}
+            - {label: "Lang Toggle English Text", name: "lang_toggle_en_text", widget: "string"}
+            - {label: "Blog Results No Posts", name: "blog_results_no_posts", widget: "string"}
+            - {label: "Blog Results Showing All", name: "blog_results_showing_all", widget: "string"}
+            - {label: "Blog Results Showing Filtered", name: "blog_results_showing_filtered", widget: "string"}
+            - {label: "No Results Title", name: "no_results_title", widget: "string"}
+            - {label: "No Results Subtitle", name: "no_results_subtitle", widget: "string"}
+
+    - file: "data/translations-ar.json"
+      label: "Arabic Translations"
+      name: "ar"
+      fields:
+        - label: "Translations"
+          name: "translations"
+          widget: "object"
+          fields:
+            - {label: "عن", name: "nav_about", widget: "string"}
+            # ... add all other keys
+            - {label: "نص زر تبديل اللغة للعربية", name: "lang_toggle_ar_text", widget: "string"}
+            - {label: "نص زر تبديل اللغة للإنجليزية", name: "lang_toggle_en_text", widget: "string"}
+            - {label: "نتائج المدونة لا يوجد منشورات", name: "blog_results_no_posts", widget: "string"}
+            - {label: "نتائج المدونة إظهار الكل", name: "blog_results_showing_all", widget: "string"}
+            - {label: "نتائج المدونة إظهار المفلت", name: "blog_results_showing_filtered", widget: "string"}
+            - {label: "عنوان لا توجد نتائج", name: "no_results_title", widget: "string"}
+            - {label: "عنوان فرعي لا توجد نتائج", name: "no_results_subtitle", widget: "string"}
 backend:
   name: git-gateway
   branch: main

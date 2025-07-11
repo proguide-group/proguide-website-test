@@ -12,6 +12,10 @@ class ComponentLoader {
       await this.loadHeader();
       // Initialize navigation functionality after header is loaded
       this.initializeNavigation();
+      // Call translationManager.setupLanguageToggle() directly after header is loaded
+      if (window.translationManager && typeof window.translationManager.setupLanguageToggle === 'function') {
+        window.translationManager.setupLanguageToggle();
+      }
     } catch (error) {
       console.error('Error loading components:', error);
     }
@@ -40,8 +44,6 @@ class ComponentLoader {
     // Initialize mobile menu toggle
     this.initMobileMenu();
     
-    // Initialize language toggle
-    this.initLanguageToggle();
     
     // Initialize scroll effects
     this.initScrollEffects();
@@ -73,39 +75,6 @@ class ComponentLoader {
   }
 
   initLanguageToggle() {
-    const langToggle = document.getElementById('langToggle');
-    
-    if (langToggle) {
-      langToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        
-        const currentLang = document.documentElement.lang || 'en';
-        const newLang = currentLang === 'en' ? 'ar' : 'en';
-        
-        // Update document language and direction
-        document.documentElement.lang = newLang;
-        document.documentElement.dir = newLang === 'ar' ? 'rtl' : 'ltr';
-        
-        // Update button text
-        const buttonText = langToggle.querySelector('span');
-        if (buttonText) {
-          buttonText.textContent = newLang === 'en' ? 'عربي' : 'EN';
-        }
-        
-        // Store preference
-        localStorage.setItem('preferredLanguage', newLang);
-        
-        // Trigger language change event
-        document.dispatchEvent(new CustomEvent('languageChanged', { 
-          detail: { language: newLang } 
-        }));
-        
-        // Apply translations if available
-        if (window.applyTranslations) {
-          window.applyTranslations(newLang);
-        }
-      });
-    }
   }
 
   initScrollEffects() {
@@ -166,10 +135,6 @@ class ComponentLoader {
 
 // Initialize component loader when DOM is ready
 document.addEventListener('DOMContentLoaded', () => {
-  // Load saved language preference
-  const savedLang = localStorage.getItem('preferredLanguage') || 'en';
-  document.documentElement.lang = savedLang;
-  document.documentElement.dir = savedLang === 'ar' ? 'rtl' : 'ltr';
   
   // Initialize component loader
   window.componentLoader = new ComponentLoader();

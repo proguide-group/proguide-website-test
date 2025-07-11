@@ -83,37 +83,26 @@ class BlogCategoriesLoader {
   }
 
   reloadCategoriesForLanguage() {
-    console.log('🔄 Reloading categories for language:', this.currentLang);
-    
+    console.log('🔄 BlogCategoriesLoader: Reloading categories for language:', this.currentLang);
     if (this.allCategoriesData && this.settings) {
       const categoryContainer = document.querySelector('.category-tags');
-      
-      // COMPLETE REBUILD - Remove and recreate container
       if (categoryContainer) {
         const parent = categoryContainer.parentNode;
         const newContainer = document.createElement('div');
         newContainer.className = 'category-tags';
-        
-        // Replace the container completely
         parent.replaceChild(newContainer, categoryContainer);
-        
-        console.log('🔥 Container completely replaced');
-        
-        // Small delay to ensure DOM is ready
+        console.log('🔥 BlogCategoriesLoader: Container completely replaced');
         setTimeout(() => {
-          // Now render categories in the new container
           this.renderCategories(this.allCategoriesData, this.settings);
-          console.log('✅ Categories re-rendered in new container');
+          console.log('✅ BlogCategoriesLoader: Categories re-rendered in new container');
+          // Ensure 'All' is active after re-render for the new language
+          const allButton = document.querySelector(`.category-tag[data-slug="all"][data-language="${this.currentLang}"]`);
+          if (allButton) {
+              allButton.click(); // Simulate click to activate and filter blog posts
+          }
         }, 10);
       }
-      
-      // Reset blog manager
-      if (window.blogManager) {
-        window.blogManager.currentFilters.topic = 'all';
-        window.blogManager.currentPage = 1;
-        window.blogManager.filteredPosts = null;
-        window.blogManager.renderPosts();
-      }
+      // Reset blog manager is handled by BlogManager's own languageChanged listener
     }
   }
 
