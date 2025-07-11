@@ -44,7 +44,14 @@ collections:
             name: "translations"
             widget: "object"
             fields:
-              # ... (all translation fields as in your new config)
+              - { label: "Nav About", name: "nav_about", widget: "string" }
+              - { label: "Lang Toggle Arabic Text", name: "lang_toggle_ar_text", widget: "string" }
+              - { label: "Lang Toggle English Text", name: "lang_toggle_en_text", widget: "string" }
+              - { label: "Blog Results No Posts", name: "blog_results_no_posts", widget: "string" }
+              - { label: "Blog Results Showing All", name: "blog_results_showing_all", widget: "string" }
+              - { label: "Blog Results Showing Filtered", name: "blog_results_showing_filtered", widget: "string" }
+              - { label: "No Results Title", name: "no_results_title", widget: "string" }
+              - { label: "No Results Subtitle", name: "no_results_subtitle", widget: "string" }
       - file: "data/translations-ar.json"
         label: "Arabic Interface Texts"
         name: "ar_translations"
@@ -53,28 +60,42 @@ collections:
             name: "translations"
             widget: "object"
             fields:
-              # ... (all translation fields as in your new config)
+              - { label: "عن", name: "nav_about", widget: "string" }
+              - { label: "نص زر تبديل اللغة للعربية", name: "lang_toggle_ar_text", widget: "string" }
+              - { label: "نص زر تبديل اللغة للإنجليزية", name: "lang_toggle_en_text", widget: "string" }
+              - { label: "نتائج المدونة لا يوجد منشورات", name: "blog_results_no_posts", widget: "string" }
+              - { label: "نتائج المدونة إظهار الكل", name: "blog_results_showing_all", widget: "string" }
+              - { label: "نتائج المدونة إظهار المفلت", name: "blog_results_showing_filtered", widget: "string" }
+              - { label: "عنوان لا توجد نتائج", name: "no_results_title", widget: "string" }
+              - { label: "عنوان فرعي لا توجد نتائج", name: "no_results_subtitle", widget: "string" }
 
   - name: "site_settings"
     label: "Site Settings"
     description: "Global website configuration and feature toggles."
-    file: "data/site-settings.json"
-    fields:
-      - label: "Sections Visibility"
-        name: "sections"
-        widget: "object"
+    files:
+      - file: "data/site-settings.json"
+        label: "Site Settings"
+        name: "site_settings"
         fields:
-          - {label: "Show Projects Section", name: "show_projects", widget: "boolean", default: true, hint: "Toggle visibility of the 'Featured Projects' section on the homepage."}
-          - {label: "Show Testimonials Section", name: "show_testimonials", widget: "boolean", default: true, hint: "Toggle visibility of the 'What Our Clients Say' section."}
-          - {label: "Show Clients Marquee", name: "show_clients", widget: "boolean", default: false, hint: "Toggle visibility of the scrolling client logos."}
-          - {label: "Show Map Section", name: "show_map", widget: "boolean", default: true, hint: "Toggle visibility of the embedded map on the contact page."}
-      - label: "Company Information"
-        name: "site_info"
-        widget: "object"
-        fields:
-          - {label: "Company Name", name: "company_name", widget: "string", required: true}
-          - {label: "Contact Email", name: "contact_email", widget: "string", pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", pattern_human_readable: "Must be a valid email address", required: true}
-          - {label: "Contact Phone Number", name: "contact_phone", widget: "string", required: true}
+          - label: "Sections Visibility"
+            name: "sections"
+            widget: "object"
+            fields:
+              - {label: "Show Projects Section", name: "show_projects", widget: "boolean", default: true, hint: "Toggle visibility of the 'Featured Projects' section on the homepage."}
+              - {label: "Show Testimonials Section", name: "show_testimonials", widget: "boolean", default: true, hint: "Toggle visibility of the 'What Our Clients Say' section."}
+              - {label: "Show Clients Marquee", name: "show_clients", widget: "boolean", default: false, hint: "Toggle visibility of the scrolling client logos."}
+              - {label: "Show Map Section", name: "show_map", widget: "boolean", default: true, hint: "Toggle visibility of the embedded map on the contact page."}
+          - label: "Company Information"
+            name: "site_info"
+            widget: "object"
+            fields:
+              - {label: "Company Name", name: "company_name", widget: "string", required: true}
+              - label: "Contact Email"
+                name: "contact_email"
+                widget: "string"
+                pattern: ["^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "Must be a valid email address"]
+                required: true
+              - {label: "Contact Phone Number", name: "contact_phone", widget: "string", required: true}
 
   - name: "blog-categories"
     label: "Blog Categories"
