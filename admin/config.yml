@@ -1,106 +1,81 @@
-# Translations Management
-- name: "translations"
-  label: "Translations"
-  files:
-    - file: "data/translations-en.json"
-      label: "English Translations"
-      name: "en"
-      fields:
-        - label: "Translations"
-          name: "translations"
-          widget: "object"
-          fields:
-            - {label: "Nav About", name: "nav_about", widget: "string"}
-            # ... add all other keys you use in data-translate attributes
-            - {label: "Lang Toggle Arabic Text", name: "lang_toggle_ar_text", widget: "string"}
-            - {label: "Lang Toggle English Text", name: "lang_toggle_en_text", widget: "string"}
-            - {label: "Blog Results No Posts", name: "blog_results_no_posts", widget: "string"}
-            - {label: "Blog Results Showing All", name: "blog_results_showing_all", widget: "string"}
-            - {label: "Blog Results Showing Filtered", name: "blog_results_showing_filtered", widget: "string"}
-            - {label: "No Results Title", name: "no_results_title", widget: "string"}
-            - {label: "No Results Subtitle", name: "no_results_subtitle", widget: "string"}
-
-    - file: "data/translations-ar.json"
-      label: "Arabic Translations"
-      name: "ar"
-      fields:
-        - label: "Translations"
-          name: "translations"
-          widget: "object"
-          fields:
-            - {label: "عن", name: "nav_about", widget: "string"}
-            # ... add all other keys
-            - {label: "نص زر تبديل اللغة للعربية", name: "lang_toggle_ar_text", widget: "string"}
-            - {label: "نص زر تبديل اللغة للإنجليزية", name: "lang_toggle_en_text", widget: "string"}
-            - {label: "نتائج المدونة لا يوجد منشورات", name: "blog_results_no_posts", widget: "string"}
-            - {label: "نتائج المدونة إظهار الكل", name: "blog_results_showing_all", widget: "string"}
-            - {label: "نتائج المدونة إظهار المفلت", name: "blog_results_showing_filtered", widget: "string"}
-            - {label: "عنوان لا توجد نتائج", name: "no_results_title", widget: "string"}
-            - {label: "عنوان فرعي لا توجد نتائج", name: "no_results_subtitle", widget: "string"}
 backend:
   name: git-gateway
   branch: main
 
-media_folder: "assets/images/uploads"
-public_folder: "/assets/images/uploads"
+publish_mode: editorial_workflow
+
+media_folder: "assets/images"
+public_folder: "/assets/images"
 
 collections:
-  # Site Visibility Settings
-  - name: "site-settings"
-    label: "Site Settings"
-    files:
-      - file: "data/site-settings.json"
-        label: "Section Visibility"
-        name: "visibility"
-        fields:
-          - label: "Section Visibility Controls"
-            name: "sections"
-            widget: "object"
-            fields:
-              - label: "Show Projects Section"
-                name: "show_projects"
-                widget: "boolean"
-                default: true
-                hint: "Toggle Our Work / Featured Projects section on homepage"
-              
-              - label: "Show Client Testimonials"
-                name: "show_testimonials"
-                widget: "boolean"
-                default: true
-                hint: "Toggle Client Feedback section on homepage"
-              
-              - label: "Show Client Marquee"
-                name: "show_clients"
-                widget: "boolean"
-                default: false
-                hint: "Toggle Client logos marquee section"
-              
-              - label: "Show Map Section"
-                name: "show_map"
-                widget: "boolean"
-                default: true
-                hint: "Toggle Map/Location section"
-          
-          - label: "Site Information"
-            name: "site_info"
-            widget: "object"
-            fields:
-              - label: "Company Name"
-                name: "company_name"
-                widget: "string"
-                default: "ProGuide"
-              
-              - label: "Contact Email"
-                name: "contact_email"
-                widget: "string"
-                default: "info@proguide-group.com"
-              
-              - label: "Contact Phone"
-                name: "contact_phone"
-                widget: "string"
-                default: "+966 53 624 4800"
+  - name: "posts"
+    label: "Blog Posts"
+    folder: "assets/blog"
+    create: true
+    delete: true
+    identifier_field: "title"
+    slug: "{{filename}}"
+    sortable_fields: ["date", "title", "language"]
+    view_filters:
+      - label: Language
+        field: language
+        pattern: 'en'
+      - label: Language
+        field: language
+        pattern: 'ar'
+    fields:
+      - {label: "Title", name: "title", widget: "string", required: true}
+      - {label: "Publish Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, required: true}
+      - {label: "Language", name: "language", widget: "select", options: [{label: "English", value: "en"}, {label: "Arabic", value: "ar"}], default: "en", required: true}
+      - {label: "Featured Image", name: "image", widget: "image", required: false, allow_multiple: false, choose_url: false, media_library: { config: { max_file_size: 2000000 } }}
+      - {label: "Categories", name: "categories", widget: "list", field: {label: "Category Name", name: "category_name", widget: "string"}, required: true, hint: "Enter up to 3 categories (e.g., Engineering, 3D Scanning)"}
+      - {label: "Excerpt", name: "excerpt", widget: "text", required: false, hint: "A short summary for blog listing (max 150 characters)"}
+      - {label: "Body", name: "body", widget: "markdown", required: true}
 
-  # Blog Categories Management - Language Specific
+  - name: "translations"
+    label: "Website Translations"
+    description: "Manage all interface texts for English and Arabic."
+    files:
+      - file: "data/translations-en.json"
+        label: "English Interface Texts"
+        name: "en_translations"
+        fields:
+          - label: "English Texts"
+            name: "translations"
+            widget: "object"
+            fields:
+              # ... (all translation fields as in your new config)
+      - file: "data/translations-ar.json"
+        label: "Arabic Interface Texts"
+        name: "ar_translations"
+        fields:
+          - label: "Arabic Texts"
+            name: "translations"
+            widget: "object"
+            fields:
+              # ... (all translation fields as in your new config)
+
+  - name: "site_settings"
+    label: "Site Settings"
+    description: "Global website configuration and feature toggles."
+    file: "data/site-settings.json"
+    fields:
+      - label: "Sections Visibility"
+        name: "sections"
+        widget: "object"
+        fields:
+          - {label: "Show Projects Section", name: "show_projects", widget: "boolean", default: true, hint: "Toggle visibility of the 'Featured Projects' section on the homepage."}
+          - {label: "Show Testimonials Section", name: "show_testimonials", widget: "boolean", default: true, hint: "Toggle visibility of the 'What Our Clients Say' section."}
+          - {label: "Show Clients Marquee", name: "show_clients", widget: "boolean", default: false, hint: "Toggle visibility of the scrolling client logos."}
+          - {label: "Show Map Section", name: "show_map", widget: "boolean", default: true, hint: "Toggle visibility of the embedded map on the contact page."}
+      - label: "Company Information"
+        name: "site_info"
+        widget: "object"
+        fields:
+          - {label: "Company Name", name: "company_name", widget: "string", required: true}
+          - {label: "Contact Email", name: "contact_email", widget: "string", pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", pattern_human_readable: "Must be a valid email address", required: true}
+          - {label: "Contact Phone Number", name: "contact_phone", widget: "string", required: true}
+
   - name: "blog-categories"
     label: "Blog Categories"
     files:
@@ -138,33 +113,3 @@ collections:
                 widget: "number"
                 default: 1
                 hint: "Display order (0 for 'All' button)"
-
-  # Blog Posts - Updated
-  - name: "blog"
-    label: "Blog"
-    folder: "assets/blog"
-    create: true
-    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
-    fields:
-      - {label: "Layout", name: "layout", widget: "hidden", default: "blog"}
-      - {label: "Title", name: "title", widget: "string"}
-      - {label: "Publish Date", name: "date", widget: "datetime"}
-      - {label: "Featured Image", name: "image", widget: "image"}
-      - {label: "Language", name: "language", widget: "select", options: ["en", "ar"], default: "en"}
-      - label: "Categories"
-        name: "categories"
-        widget: "select"
-        multiple: true
-        hint: "Select categories that match your post language"
-        options: 
-          - { label: "Engineering", value: "Engineering" }
-          - { label: "3D Scanning", value: "3D Scanning" }
-          - { label: "CAD Modeling", value: "CAD Modeling" }
-          - { label: "Manufacturing", value: "Manufacturing" }
-          - { label: "Innovation", value: "Innovation" }
-          - { label: "Case Studies", value: "Case Studies" }
-          - { label: "الهندسة العكسية", value: "الهندسة العكسية" }
-          - { label: "المسح ثلاثي الأبعاد", value: "المسح ثلاثي الأبعاد" }
-          - { label: "التصنيع الذكي", value: "التصنيع الذكي" }
-          - { label: "الحلول الرقمية", value: "الحلول الرقمية" }
-      - {label: "Body", name: "body", widget: "markdown"}
