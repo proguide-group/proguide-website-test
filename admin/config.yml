@@ -45,6 +45,11 @@ collections:
             widget: "object"
             fields:
               - { label: "Nav About", name: "nav_about", widget: "string" }
+              - { label: "Nav Services", name: "nav_services", widget: "string" }
+              - { label: "Nav Projects", name: "nav_projects", widget: "string" }
+              - { label: "Nav Team", name: "nav_team", widget: "string" }
+              - { label: "Nav Blog", name: "nav_blog", widget: "string" }
+              - { label: "Nav Contact", name: "nav_contact", widget: "string" }
               - { label: "Lang Toggle Arabic Text", name: "lang_toggle_ar_text", widget: "string" }
               - { label: "Lang Toggle English Text", name: "lang_toggle_en_text", widget: "string" }
               - { label: "Blog Results No Posts", name: "blog_results_no_posts", widget: "string" }
@@ -52,6 +57,31 @@ collections:
               - { label: "Blog Results Showing Filtered", name: "blog_results_showing_filtered", widget: "string" }
               - { label: "No Results Title", name: "no_results_title", widget: "string" }
               - { label: "No Results Subtitle", name: "no_results_subtitle", widget: "string" }
+              - { label: "Team Subtitle", name: "team_subtitle", widget: "string" }
+              - { label: "Team Title", name: "team_title", widget: "string" }
+              - { label: "Team Description", name: "team_description", widget: "string" }
+              - { label: "Team Member 1", name: "team_member1", widget: "string" }
+              - { label: "Team Member 1 Role", name: "team_member1_role", widget: "string" }
+              - { label: "Team Member 1 Bio", name: "team_member1_bio", widget: "string" }
+              - { label: "Team Member 2", name: "team_member2", widget: "string" }
+              - { label: "Team Member 2 Role", name: "team_member2_role", widget: "string" }
+              - { label: "Team Member 2 Bio", name: "team_member2_bio", widget: "string" }
+              - { label: "About Subtitle", name: "about_subtitle", widget: "string" }
+              - { label: "About Title", name: "about_title", widget: "string" }
+              - { label: "About Description", name: "about_description", widget: "text" }
+              - { label: "Years Experience", name: "years_experience", widget: "string" }
+              - { label: "Client Satisfaction", name: "client_satisfaction", widget: "string" }
+              - { label: "Projects Completed", name: "projects_completed", widget: "string" }
+              - { label: "Breadcrumb Blog", name: "breadcrumb_blog", widget: "string" }
+              - { label: "Blog Read More", name: "blog_read_more", widget: "string" }
+              - { label: "Blog Post Error Title", name: "blog_post_error_title", widget: "string" }
+              - { label: "Blog Post Error Subtitle", name: "blog_post_error_subtitle", widget: "string" }
+              - { label: "Blog Post Back To Blog", name: "blog_post_back_to_blog", widget: "string" }
+              - { label: "Blog Post Share", name: "blog_post_share", widget: "string" }
+              - { label: "Blog Post Share Twitter", name: "blog_post_share_twitter", widget: "string" }
+              - { label: "Blog Post Share LinkedIn", name: "blog_post_share_linkedin", widget: "string" }
+              - { label: "Blog Post Share Copy", name: "blog_post_share_copy", widget: "string" }
+              - { label: "Blog Post Copy Success", name: "blog_post_copy_success", widget: "string" }
       - file: "data/translations-ar.json"
         label: "Arabic Interface Texts"
         name: "ar_translations"
@@ -61,6 +91,11 @@ collections:
             widget: "object"
             fields:
               - { label: "عن", name: "nav_about", widget: "string" }
+              - { label: "الخدمات", name: "nav_services", widget: "string" }
+              - { label: "المشاريع", name: "nav_projects", widget: "string" }
+              - { label: "الفريق", name: "nav_team", widget: "string" }
+              - { label: "المدونة", name: "nav_blog", widget: "string" }
+              - { label: "اتصل بنا", name: "nav_contact", widget: "string" }
               - { label: "نص زر تبديل اللغة للعربية", name: "lang_toggle_ar_text", widget: "string" }
               - { label: "نص زر تبديل اللغة للإنجليزية", name: "lang_toggle_en_text", widget: "string" }
               - { label: "نتائج المدونة لا يوجد منشورات", name: "blog_results_no_posts", widget: "string" }
@@ -68,6 +103,31 @@ collections:
               - { label: "نتائج المدونة إظهار المفلت", name: "blog_results_showing_filtered", widget: "string" }
               - { label: "عنوان لا توجد نتائج", name: "no_results_title", widget: "string" }
               - { label: "عنوان فرعي لا توجد نتائج", name: "no_results_subtitle", widget: "string" }
+              - { label: "العنوان الفرعي للفريق", name: "team_subtitle", widget: "string" }
+              - { label: "عنوان الفريق", name: "team_title", widget: "string" }
+              - { label: "وصف الفريق", name: "team_description", widget: "string" }
+              - { label: "عضو الفريق 1", name: "team_member1", widget: "string" }
+              - { label: "دور عضو الفريق 1", name: "team_member1_role", widget: "string" }
+              - { label: "نبذة عضو الفريق 1", name: "team_member1_bio", widget: "string" }
+              - { label: "عضو الفريق 2", name: "team_member2", widget: "string" }
+              - { label: "دور عضو الفريق 2", name: "team_member2_role", widget: "string" }
+              - { label: "نبذة عضو الفريق 2", name: "team_member2_bio", widget: "string" }
+              - { label: "العنوان الفرعي من نحن", name: "about_subtitle", widget: "string" }
+              - { label: "عنوان من نحن", name: "about_title", widget: "string" }
+              - { label: "وصف من نحن", name: "about_description", widget: "text" }
+              - { label: "سنوات الخبرة", name: "years_experience", widget: "string" }
+              - { label: "رضا العملاء", name: "client_satisfaction", widget: "string" }
+              - { label: "المشاريع المنجزة", name: "projects_completed", widget: "string" }
+              - { label: "شريط التنقل المدونة", name: "breadcrumb_blog", widget: "string" }
+              - { label: "اقرأ المزيد في المدونة", name: "blog_read_more", widget: "string" }
+              - { label: "عنوان خطأ منشور المدونة", name: "blog_post_error_title", widget: "string" }
+              - { label: "عنوان فرعي خطأ منشور المدونة", name: "blog_post_error_subtitle", widget: "string" }
+              - { label: "زر العودة للمدونة", name: "blog_post_back_to_blog", widget: "string" }
+              - { label: "مشاركة منشور المدونة", name: "blog_post_share", widget: "string" }
+              - { label: "مشاركة على تويتر", name: "blog_post_share_twitter", widget: "string" }
+              - { label: "مشاركة على لينكدإن", name: "blog_post_share_linkedin", widget: "string" }
+              - { label: "مشاركة الرابط", name: "blog_post_share_copy", widget: "string" }
+              - { label: "تم نسخ رابط المنشور", name: "blog_post_copy_success", widget: "string" }
 
   - name: "site_settings"
     label: "Site Settings"
