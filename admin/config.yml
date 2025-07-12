@@ -2534,7 +2534,7 @@ collections:
               - {label: "القائمة: فريقنا", name: "nav_team", widget: "string"}
               - {label: "القائمة: اتصل بنا", name: "nav_contact", widget: "string"}
               - {label: "القائمة: المدونة", name: "nav_blog", widget: "string"}
-              
+
               # Language Toggle Button Text
               - {label: "زر تبديل اللغة (إلى العربية)", name: "lang_toggle_ar_text", widget: "string", default: "عربي"}
               - {label: "زر تبديل اللغة (إلى الإنجليزية)", name: "lang_toggle_en_text", widget: "string", default: "EN"}
@@ -2577,4 +2577,149 @@ collections:
               - {label: "الخدمة 5: الوصف", name: "service5Desc", widget: "markdown", hint: "يدعم صيغة Markdown."}
               - {label: "الخدمة 6: العنوان", name: "service6", widget: "string"}
               - {label: "الخدمة 6: الوصف", name: "service6Desc", widget: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 7: العنوان", name: "
+              - {label: "الخدمة 7: العنوان", name: "service7", widget: "string"}
+              - {label: "الخدمة 7: الوصف", name: "service7Desc", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "روابط سريعة العنوان (الفوتر)", name: "quick_links", widget: "string"}
+              - {label: "خدماتنا العنوان (الفوتر)", name: "our_services", widget: "string"}
+
+              # Process Section (from index.html)
+              - {label: "العملية: عنوان فرعي", name: "process_subtitle", widget: "string"}
+              - {label: "العملية: عنوان", name: "process_title", widget: "string"}
+              - {label: "الخطوة 1: العنوان", name: "step1_title", widget: "string"}
+              - {label: "الخطوة 1: الوصف", name: "step1_desc", widget: "string"}
+              - {label: "الخطوة 2: العنوان", name: "step2_title", widget: "string"}
+              - {label: "الخطوة 2: الوصف", name: "step2_desc", widget: "string"}
+              - {label: "الخطوة 3: العنوان", name: "step3_title", widget: "string"}
+              - {label: "الخطوة 3: الوصف", name: "step3_desc", widget: "string"}
+              - {label: "الخطوة 4: العنوان", name: "step4_title", widget: "string"}
+              - {label: "الخطوة 4: الوصف", name: "step4_desc", widget: "string"}
+              - {label: "الخطوة 5: العنوان", name: "step5_title", widget: "string"}
+              - {label: "الخطوة 5: الوصف", name: "step5_desc", widget: "string"}
+
+              # Projects Section (from index.html)
+              - {label: "المشاريع: عنوان فرعي", name: "projects_subtitle", widget: "string"}
+              - {label: "المشاريع: العنوان", name: "projects_title", widget: "string"}
+              - {label: "المشروع 1: العنوان", name: "project1_title", widget: "string"}
+              - {label: "المشروع 2: العنوان", name: "project2_title", widget: "string"}
+              - {label: "المشروع 3: العنوان", name: "project3_title", widget: "string"}
+              - {label: "زر عرض المشروع", name: "view_project", widget: "string"}
+              - {label: "زر عرض جميع المشاريع", name: "view_all_projects", widget: "string"}
+
+              # Testimonials Section (from index.html)
+              - {label: "الشهادات: عنوان فرعي", name: "testimonials_subtitle", widget: "string"}
+              - {label: "الشهادات: العنوان", name: "testimonials_title", widget: "string"}
+              - {label: "شهادة 1: النص", name: "testimonial1_text", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "شهادة 1: اسم العميل", name: "testimonial1_name", widget: "string"}
+              - {label: "شهادة 1: منصب العميل", name: "testimonial1_position", widget: "string"}
+              - {label: "شهادة 2: النص", name: "testimonial2_text", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "شهادة 2: اسم العميل", name: "testimonial2_name", widget: "string"}
+              - {label: "شهادة 2: منصب العميل", name: "testimonial2_position", widget: "string"}
+              - {label: "شهادة 3: النص", name: "testimonial3_text", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "شهادة 3: اسم العميل", name: "testimonial3_name", widget: "string"}
+              - {label: "شهادة 3: منصب العميل", name: "testimonial3_position", widget: "string"}
+
+              # Team Section (from index.html)
+              - {label: "الفريق: عنوان فرعي", name: "team_subtitle", widget: "string"}
+              - {label: "الفريق: العنوان", name: "team_title", widget: "string"}
+              - {label: "الفريق: الوصف", name: "team_description", widget: "string"}
+              - {label: "عضو الفريق 1: الاسم", name: "team_member1", widget: "string"}
+              - {label: "عضو الفريق 1: الدور", name: "team_member1_role", widget: "string"}
+              - {label: "عضو الفريق 1: السيرة الذاتية", name: "team_member1_bio", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "عضو الفريق 2: الاسم", name: "team_member2", widget: "string"}
+              - {label: "عضو الفريق 2: الدور", name: "team_member2_role", widget: "string"}
+              - {label: "عضو الفريق 2: السيرة الذاتية", name: "team_member2_bio", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "عضو الفريق 3: الاسم", name: "team_member3", widget: "string"}
+              - {label: "عضو الفريق 3: الدور", name: "team_member3_role", widget: "string"}
+              - {label: "عضو الفريق 3: السيرة الذاتية", name: "team_member3_bio", widget: "markdown", hint: "يدعم صيغة Markdown."}
+
+              # CTA Section (from index.html)
+              - {label: "دعوة للإجراء: العنوان", name: "cta_title", widget: "string"}
+              - {label: "دعوة للإجراء: النص", name: "cta_text", widget: "string"}
+              - {label: "دعوة للإجراء: زر 1", name: "cta_button1", widget: "string"}
+              - {label: "دعوة للإجراء: زر 2", name: "cta_button2", widget: "string"}
+
+              # Contact Section (from index.html)
+              - {label: "التواصل: عنوان فرعي", name: "contact_subtitle", widget: "string"}
+              - {label: "التواصل: عنوان", name: "contact_title", widget: "string"}
+              - {label: "العنوان: العنوان", name: "address_title", widget: "string"}
+              - {label: "التواصل: العنوان", name: "contact_address", widget: "string"}
+              - {label: "البريد الإلكتروني: العنوان", name: "email_title", widget: "string"}
+              - {label: "الاتصال: العنوان", name: "call_title", widget: "string"}
+              - {label: "التواصل: الهاتف", name: "contact_phone", widget: "string"}
+              - {label: "الساعات: العنوان", name: "hours_title", widget: "string"}
+              - {label: "التواصل: ساعات العمل", name: "working_hours", widget: "string"}
+              - {label: "تابعنا العنوان", name: "follow_title", widget: "string"}
+              - {label: "النموذج: اسمك", name: "yourName", widget: "string"}
+              - {label: "النموذج: بريدك الإلكتروني", name: "yourEmail", widget: "string"}
+              - {label: "النموذج: رقم الهاتف", name: "yourPhone", widget: "string"}
+              - {label: "النموذج: الخدمة المهتم بها", name: "service_interest", widget: "string"}
+              - {label: "النموذج: اختر خدمة خيار", name: "select_service", widget: "string"}
+              - {label: "النموذج: رسالتك", name: "yourMessage", widget: "string"}
+              - {label: "النموذج: زر إرسال الرسالة", name: "sendMessage", widget: "string"}
+
+              # Footer (from index.html, blogs.html, blog-post.html)
+              - {label: "Quick Links Title", name: "quick_links", widget: "string"}
+              - {label: "Our Services Title (Footer)", name: "our_services", widget: "string"}
+              - {label: "Contact Us Title (Footer)", name: "contact_us", widget: "string"}
+              - {label: "Footer: About Text", name: "footer_about", widget: "markdown", hint: "يدعم صيغة Markdown."}
+              - {label: "Footer: Copyright Text", name: "copyright", widget: "string"}
+              - {label: "Footer: Privacy Policy", name: "privacy_policy", widget: "string"}
+              - {label: "Footer: Terms of Service", name: "terms_service", widget: "string"}
+
+              # Blog Listing Specific UI Texts (from blogs.html and js/blogs.js)
+              - {label: "Blog Hero: Title", name: "blog_hero_title", widget: "string"}
+              - {label: "Blog Hero: Subtitle", name: "blog_hero_subtitle", widget: "string"}
+              - {label: "Blog: Loading Posts Message", name: "blog_loading", widget: "string"}
+              - {label: "Blog: No Posts Found Message", name: "blog_no_posts", widget: "string"}
+              - {label: "Blog: Check Back Soon Message", name: "blog_check_back", widget: "string"}
+              - {label: "Blog: Error Loading Title", name: "blog_error_title", widget: "string"}
+              - {label: "Blog: Error Loading Subtitle", name: "blog_error_subtitle", widget: "string"}
+              - {label: "Blog: Read More Button", name: "blog_read_more", widget: "string"}
+              - {label: "Pagination: Previous Button", name: "pagination_previous", widget: "string"}
+              - {label: "Pagination: Next Button", name: "pagination_next", widget: "string"}
+              - {label: "Pagination: Page Info Text", name: "pagination_page_info", widget: "string", hint: "Use {current} and {total} as placeholders (e.g., 'Page {current} of {total}')"}
+              - {label: "Newsletter: Title", name: "newsletter_title", widget: "string"}
+              - {label: "Newsletter: Subtitle", name: "newsletter_subtitle", widget: "string"}
+              - {label: "Newsletter: Email Placeholder", name: "newsletter_placeholder", widget: "string"}
+              - {label: "Newsletter: Subscribe Button", name: "newsletter_subscribe", widget: "string"}
+              - {label: "Newsletter: Success Message", name: "newsletter_success", widget: "string"}
+              - {label: "Blog Search: Placeholder", name: "blog_search_placeholder", widget: "string"}
+              - {label: "Explore By Category Label", name: "explore_by_category", widget: "string"}
+              - {label: "Blog Results: Showing All Posts Info", name: "blog_results_showing", widget: "string", hint: "e.g., 'Showing all posts'. Note: This might be redundant with _showing_all and _showing_filtered."}
+              - {label: "Category Filter: All", name: "all", widget: "string"}
+              - {label: "Category Filter: Engineering", name: "engineering", widget: "string"}
+              - {label: "Category Filter: 3D Scanning", name: "3d_scanning", widget: "string"}
+              - {label: "Category Filter: CAD Modeling", name: "cad_modeling", widget: "string"}
+              - {label: "Category Filter: Manufacturing", name: "manufacturing", widget: "string"}
+              - {label: "Category Filter: Innovation", name: "innovation", widget: "string"}
+              - {label: "Category Filter: Case Studies", name: "case_studies", widget: "string"}
+              - {label: "No Results: Title", name: "no_results_title", widget: "string"}
+              - {label: "No Results: Subtitle", name: "no_results_subtitle", widget: "string"}
+              - {label: "Blog Error: Generic Message", name: "blog_error_generic", widget: "string"}
+              - {label: "Blog Error: Refresh Prompt", name: "blog_error_refresh", widget: "string"}
+              - {label: "Blog Results: No Posts Matching Criteria", name: "blog_results_no_posts", widget: "string"}
+              - {label: "Blog Results: Showing All {total} Posts", name: "blog_results_showing_all", widget: "string", hint: "Use {total} as placeholder."}
+              - {label: "Blog Results: Showing {total} of {allTotal} Posts", name: "blog_results_showing_filtered", widget: "string", hint: "Use {total} and {allTotal} as placeholders."}
+
+              # Blog Post Page Specific UI Texts (from blog-post.html and js/blog-post.js)
+              - {label: "Blog Post: Loading Message", name: "blog_post_loading", widget: "string"}
+              - {label: "Blog Post: Not Found Title", name: "blog_post_error_title", widget: "string"}
+              - {label: "Blog Post: Not Found Subtitle", name: "blog_post_error_subtitle", widget: "string"}
+              - {label: "Blog Post: Back to Blog Button", name: "blog_post_back_to_blog", widget: "string"}
+              - {label: "Blog Post: Share Label", name: "blog_post_share", widget: "string"}
+              - {label: "Blog Post: Share Twitter Button", name: "blog_post_share_twitter", widget: "string"}
+              - {label: "Blog Post: Share LinkedIn Button", name: "blog_post_share_linkedin", widget: "string"}
+              - {label: "Blog Post: Copy Link Button", name: "blog_post_share_copy", widget: "string"}
+              - {label: "Blog Post: Copy Success Message", name: "blog_post_copy_success", widget: "string"}
+              - {label: "Related Posts: Title", name: "related_posts_title", widget: "string"}
+              - {label: "Breadcrumb: Blog Link", name: "breadcrumb_blog", widget: "string"}
+
+              # Cookie Consent Banner (from js/cookies.js and HTML)
+              - {label: "Cookie Consent: Text", name: "cookie_consent_text", widget: "string"}
+              - {label: "Cookie Consent: Accept Button", name: "cookie_accept_button", widget: "string"}
+
+              # Contact Form Messages (from js/main.js and js/animations.js)
+              - {label: "Form: Validation Error", name: "form_validation_error", widget: "string"}
+              - {label: "Form: Success Message", name: "form_success_message", widget: "string"}
+              - {label: "Form: Sending Message", name: "form_sending_message", widget: "string"}
+              - {label: "Contact Form: Success Message", name: "contact_form_success_message", widget: "string"}
