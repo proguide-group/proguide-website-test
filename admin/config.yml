@@ -333,7 +333,7 @@ collections:
   - name: "blog_categories"
     label: "Blog Categories"
     description: "Manage the categories used for blog posts."
-    file: "data/blog-categories.json" # Points to your existing blog-categories.json file
+    file: "data/blog-categories.json"
     fields:
       - label: "Category List"
         name: "categories"
@@ -345,9 +345,3 @@ collections:
           - {label: "Active", name: "active", widget: "boolean", default: true, hint: "Whether this category should be visible and usable."}
           - {label: "Color (Hex)", name: "color", widget: "color", required: false, hint: "Optional: Hex color code for category badges (e.g., #3b82f6)."}
           - {label: "Order", name: "order", widget: "number", value_type: "int", default: 0, hint: "Order in which categories appear (lower number first)."}
-      - label: "Settings"
-        name: "settings"
-        widget: "object"
-        fields:
-          - {label: "Show 'All' Button", name: "show_all_button", widget: "boolean", default: true, hint: "Display an 'ALL' button for categories."}
-          - {label: "Max Categories Per Row", name: "max_per_row", widget: "number", value_type: "int", default: 6, hint: "Maximum number of category buttons to display per row."}
