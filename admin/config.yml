@@ -54,7 +54,7 @@ collections:
               - {label: "Nav: Blog", name: "nav_blog", widget: "string"}
               - {label: "Lang Toggle (to Arabic)", name: "lang_toggle_ar_text", widget: "string", default: "عربي", hint: "Text displayed on the button when the site is in English, to switch to Arabic."}
               - {label: "Lang Toggle (to English)", name: "lang_toggle_en_text", widget: "string", default: "EN", hint: "Text displayed on the button when the site is in Arabic, to switch to English."}
-              - {label: "Lang Toggle Icon Text", name: "lang_toggle", widget: "string", default: "عربي", hint: "Fallback text shown next to globe icon (e.g., 'عربي' if on English site). This is often overwritten by the specific toggle texts."}
+              - {label: "Lang Toggle Icon Text", name: "lang_toggle_icon", widget: "string", default: "عربي", hint: "Fallback text shown next to globe icon (e.g., 'عربي' if on English site). This is often overwritten by the specific toggle texts."}
               - {label: "Hero: Badge", name: "hero_badge", widget: "string"}
               - {label: "Hero: Company Name", name: "company_name", widget: "string"}
               - {label: "Hero: Title", name: "hero_title", widget: "string"}
@@ -155,7 +155,7 @@ collections:
               - {label: "Form: Your Message Label", name: "yourMessage", widget: "string"}
               - {label: "Form: Send Message Button", name: "sendMessage", widget: "string"}
               - {label: "Quick Links Title", name: "quick_links", widget: "string"}
-              - {label: "Our Services Title (Footer)", name: "our_services", widget: "string"}
+              - {label: "Our Services Title (Footer)", name: "our_services_footer2", widget: "string"}
               - {label: "Contact Us Title (Footer)", name: "contact_us", widget: "string"}
               - {label: "Footer: About Text", name: "footer_about", widget: "markdown", hint: "يدعم صيغة Markdown."}
               - {label: "Footer: Copyright Text", name: "copyright", widget: "string"}
@@ -230,7 +230,7 @@ collections:
         widget: "object"
         fields:
           - {label: "Company Name", name: "company_name", widget: "string", required: true}
-          - {label: "Contact Email", name: "contact_email", widget: "string", pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", pattern_human_readable: "Must be a valid email address", required: true}
+          - {label: "Contact Email", name: "contact_email", widget: "string", pattern: ["^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$"], pattern_human_readable: "Must be a valid email address", required: true}
           - {label: "Contact Phone Number", name: "contact_phone", widget: "string", required: true}
           - {label: "Social Media: LinkedIn URL", name: "linkedin_url", widget: "string", required: false, hint: "Full URL to your LinkedIn profile."}
           - {label: "Social Media: Twitter URL", name: "twitter_url", widget: "string", required: false, hint: "Full URL to your Twitter profile."}
