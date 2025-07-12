@@ -356,4 +356,3 @@ collections:
           - {label: "Slug", name: "slug", widget: "string", required: true, hint: "Unique URL-friendly identifier (e.g., 'engineering'). Used for filtering."}
           - {label: "Active", name: "active", widget: "boolean", default: true, hint: "Whether this category should be visible and usable."}
           - {label: "Color (Hex)", name: "color", widget: "color", required: false, hint: "Optional: Hex color code for category badges (e.g., #3b82f6)."}
-          - {label: "Order", name: "order", widget: "number", value_type: "int", default: 0, hint: "Order in which categories appear (lower number first)."}
