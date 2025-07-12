@@ -191,30 +191,53 @@ function initScrollAnimations() {
 }
 
 // Animated Counters - Enhanced for light theme
-function animateCounters() {
-  const counters = document.querySelectorAll('[data-count]');
+// Animated Counters - Enhanced for light theme
+async function animateCounters() { // Made async to allow fetch
+  const counters = document.querySelectorAll('[data-metric]'); // Changed selector
   if (!counters.length) return;
+
+  let metricsData = {};
+  try {
+    const response = await fetch('/data/site-metrics.json');
+    if (response.ok) {
+      metricsData = await response.json();
+    } else {
+      console.warn('Failed to load site metrics, using fallback or default values.');
+    }
+  } catch (error) {
+    console.error('Error fetching site metrics:', error);
+    console.warn('Using fallback or default values for counters.');
+  }
 
   const observer = new IntersectionObserver((entries) => {
     entries.forEach(entry => {
       if (entry.isIntersecting) {
-        const target = +entry.target.getAttribute('data-count');
-        const duration = 2500; // Slightly longer duration for smoother effect
+        const metricKey = entry.target.getAttribute('data-metric'); // Get the metric key
+        // Use the fetched metric or fallback to the hardcoded data-count if not found
+        // or a default if neither is present.
+        const targetValue = metricsData[metricKey] !== undefined ? +metricsData[metricKey] : +entry.target.getAttribute('data-count');
+        
+        // Handle company_experience_badge separately if it's not a number
+        if (metricKey === 'company_experience_badge') {
+          entry.target.textContent = metricsData[metricKey] || entry.target.textContent;
+          observer.unobserve(entry.target); // Stop observing after setting text
+          return; // Skip numeric animation for this
+        }
+
+        const duration = 2500;
         const startTime = performance.now();
         
         const animate = (currentTime) => {
           const elapsed = currentTime - startTime;
           const progress = Math.min(elapsed / duration, 1);
-          
-          // Easing function for smoother animation
           const easeOutCubic = 1 - Math.pow(1 - progress, 3);
           
-          entry.target.textContent = Math.floor(easeOutCubic * target);
+          entry.target.textContent = Math.floor(easeOutCubic * targetValue); // Use targetValue
           
           if (progress < 1) {
             requestAnimationFrame(animate);
           } else {
-            entry.target.textContent = target; // Ensure final value is exact
+            entry.target.textContent = targetValue;
           }
         };
         

@@ -85,11 +85,23 @@ collections:
               - {label: "About: Subtitle", name: "about_subtitle", widget: "string"}
               - {label: "About: Title", name: "about_title", widget: "string"}
               - {label: "About: Main Description", name: "about_main_desc", widget: "text", field_backend: "markdown", hint: "Supports Markdown for rich text."}
-              - {label: "About: Years Experience (badge text)", name: "company_experience", widget: "string", default: "4+"}
               - {label: "About: Years Label (badge)", name: "about_experience_years", widget: "string"}
-              - {label: "About: Projects Completed Stat", name: "projects_completed", widget: "string"}
-              - {label: "About: Years Experience Stat", name: "years_experience", widget: "string"}
-              - {label: "About: Client Satisfaction Stat", name: "client_satisfaction", widget: "string"}
+              # Stat values removed: company_experience, projects_completed, years_experience, client_satisfaction
+# Site Metrics Collection (NEW COLLECTION)
+# This manages the numeric data for animated counters and other simple site-wide numbers.
+  - name: "site_metrics"
+    label: "Site Metrics"
+    description: "Manage numerical data for counters, stats, and company badges."
+    file: "data/site-metrics.json" # Points to the new site-metrics.json file
+    fields:
+      - label: "Company Statistics"
+        name: "stats" # Optional: group fields under a new 'stats' key in the JSON
+        widget: "object"
+        fields:
+          - {label: "Projects Completed (Count)", name: "projects_completed", widget: "number", value_type: "int", default: 150, required: true, hint: "The number of projects completed for the animated counter."}
+          - {label: "Years Experience (Count)", name: "years_experience", widget: "number", value_type: "int", default: 4, required: true, hint: "The number of years of experience for the animated counter."}
+          - {label: "Client Satisfaction (%)", name: "client_satisfaction", widget: "number", value_type: "int", default: 98, required: true, min: 0, max: 100, hint: "Client satisfaction percentage for the animated counter."}
+          - {label: "Company Experience Badge Text", name: "company_experience_badge", widget: "string", default: "4+", required: true, hint: "Text for the 'Years' badge (e.g., '4+' or '5 years')."}
               - {label: "Mission: Title", name: "our_mission_title", widget: "string"}
               - {label: "Mission: Description", name: "our_mission_desc", widget: "text", field_backend: "markdown", hint: "Supports Markdown for rich text."}
               - {label: "Vision: Title", name: "vision_title", widget: "string"}

@@ -8,6 +8,10 @@
   "site_info": {
     "company_name": "ProGuide",
     "contact_email": "info@proguide-group.com",
-    "contact_phone": "+966 53 624 4800"
+    "contact_phone": "+966 53 624 4800",
+    "linkedin_url": "https://www.linkedin.com/company/proguide",
+    "twitter_url": "https://twitter.com/proguide",
+    "instagram_url": "https://instagram.com/proguide",
+    "youtube_url": "https://youtube.com/proguide"
   }
 }
