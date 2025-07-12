@@ -1,5 +1,17 @@
-publish_mode: editorial_workflow
-...existing code...
+backend:
+  name: git-gateway # Connects to your Git repo via Netlify Identity
+  branch: main # IMPORTANT: Replace 'main' with your actual primary Git branch name (e.g., 'master')
+
+publish_mode: editorial_workflow # Enables content moderation (draft, in review, ready)
+
+media_folder: "assets/images" # Folder where uploaded media files will be stored, relative to your site root
+public_folder: "/assets/images" # The public path to the media files, for use in your frontend (e.g., /assets/images/my-image.jpg)
+
+collections:
+  # Blog Posts Collection
+  # This collection manages your markdown files in the 'assets/blog' directory.
+  - name: "posts"
+    label: "Blog Posts"
     folder: "assets/blog" # The directory where your markdown blog files are located
     create: true # Allows users to create new blog posts
     delete: true # Allows users to delete blog posts
@@ -179,214 +191,10 @@ publish_mode: editorial_workflow
               - {label: "Quick Links Title", name: "quick_links", widget: "string"}
               - {label: "Our Services Title (Footer)", name: "our_services", widget: "string"}
               - {label: "Contact Us Title (Footer)", name: "contact_us", widget: "string"}
-              - {label: "Footer: About Text", name: "footer_about", widget: "text", field_backend: "markdown", hint: "Supports Markdown."}
+              - {label: "Footer: About Text", name: "footer_about", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
               - {label: "Footer: Copyright Text", name: "copyright", widget: "string"}
               - {label: "Footer: Privacy Policy", name: "privacy_policy", widget: "string"}
               - {label: "Footer: Terms of Service", name: "terms_service", widget: "string"}
-
-              # Blog Listing Specific UI Texts (from blogs.html and js/blogs.js)
-              - {label: "Blog Hero: Title", name: "blog_hero_title", widget: "string"}
-              - {label: "Blog Hero: Subtitle", name: "blog_hero_subtitle", widget: "string"}
-              - {label: "Blog: Loading Posts Message", name: "blog_loading", widget: "string"}
-              - {label: "Blog: No Posts Found Message", name: "blog_no_posts", widget: "string"}
-              - {label: "Blog: Check Back Soon Message", name: "blog_check_back", widget: "string"}
-              - {label: "Blog: Error Loading Title", name: "blog_error_title", widget: "string"}
-              - {label: "Blog: Error Loading Subtitle", name: "blog_error_subtitle", widget: "string"}
-              - {label: "Blog: Read More Button", name: "blog_read_more", widget: "string"}
-              - {label: "Pagination: Previous Button", name: "pagination_previous", widget: "string"}
-              - {label: "Pagination: Next Button", name: "pagination_next", widget: "string"}
-              - {label: "Pagination: Page Info Text", name: "pagination_page_info", widget: "string", hint: "Use {current} and {total} as placeholders (e.g., 'Page {current} of {total}')"}
-              - {label: "Newsletter: Title", name: "newsletter_title", widget: "string"}
-              - {label: "Newsletter: Subtitle", name: "newsletter_subtitle", widget: "string"}
-              - {label: "Newsletter: Email Placeholder", name: "newsletter_placeholder", widget: "string"}
-              - {label: "Newsletter: Subscribe Button", name: "newsletter_subscribe", widget: "string"}
-              - {label: "Newsletter: Success Message", name: "newsletter_success", widget: "string"}
-              - {label: "Blog Search: Placeholder", name: "blog_search_placeholder", widget: "string"}
-              - {label: "Explore By Category Label", name: "explore_by_category", widget: "string"}
-              - {label: "Blog Results: Showing All Posts Info", name: "blog_results_showing", widget: "string", hint: "e.g., 'Showing all posts'. Note: This might be redundant with _showing_all and _showing_filtered."}
-              - {label: "Category Filter: All", name: "all", widget: "string"}
-              - {label: "Category Filter: Engineering", name: "engineering", widget: "string"}
-              - {label: "Category Filter: 3D Scanning", name: "3d_scanning", widget: "string"}
-              - {label: "Category Filter: CAD Modeling", name: "cad_modeling", widget: "string"}
-              - {label: "Category Filter: Manufacturing", name: "manufacturing", widget: "string"}
-              - {label: "Category Filter: Innovation", name: "innovation", widget: "string"}
-              - {label: "Category Filter: Case Studies", name: "case_studies", widget: "string"}
-              - {label: "No Results: Title", name: "no_results_title", widget: "string"}
-              - {label: "No Results: Subtitle", name: "no_results_subtitle", widget: "string"}
-              - {label: "Blog Error: Generic Message", name: "blog_error_generic", widget: "string"}
-              - {label: "Blog Error: Refresh Prompt", name: "blog_error_refresh", widget: "string"}
-              - {label: "Blog Results: No Posts Matching Criteria", name: "blog_results_no_posts", widget: "string"}
-              - {label: "Blog Results: Showing All {total} Posts", name: "blog_results_showing_all", widget: "string", hint: "Use {total} as placeholder."}
-              - {label: "Blog Results: Showing {total} of {allTotal} Posts", name: "blog_results_showing_filtered", widget: "string", hint: "Use {total} and {allTotal} as placeholders."}
-
-              # Blog Post Page Specific UI Texts (from blog-post.html and js/blog-post.js)
-              - {label: "Blog Post: Loading Message", name: "blog_post_loading", widget: "string"}
-              - {label: "Blog Post: Not Found Title", name: "blog_post_error_title", widget: "string"}
-              - {label: "Blog Post: Not Found Subtitle", name: "blog_post_error_subtitle", widget: "string"}
-              - {label: "Blog Post: Back to Blog Button", name: "blog_post_back_to_blog", widget: "string"}
-              - {label: "Blog Post: Share Label", name: "blog_post_share", widget: "string"}
-              - {label: "Blog Post: Share Twitter Button", name: "blog_post_share_twitter", widget: "string"}
-              - {label: "Blog Post: Share LinkedIn Button", name: "blog_post_share_linkedin", widget: "string"}
-              - {label: "Blog Post: Copy Link Button", name: "blog_post_share_copy", widget: "string"}
-              - {label: "Blog Post: Copy Success Message", name: "blog_post_copy_success", widget: "string"}
-              - {label: "Related Posts: Title", name: "related_posts_title", widget: "string"}
-              - {label: "Breadcrumb: Blog Link", name: "breadcrumb_blog", widget: "string"}
-
-              # Cookie Consent Banner (from js/cookies.js and HTML)
-              - {label: "Cookie Consent: Text", name: "cookie_consent_text", widget: "string"}
-              - {label: "Cookie Consent: Accept Button", name: "cookie_accept_button", widget: "string"}
-
-              # Contact Form Messages (from js/main.js and js/animations.js)
-              - {label: "Form: Validation Error", name: "form_validation_error", widget: "string"}
-              - {label: "Form: Success Message", name: "form_success_message", widget: "string"}
-              - {label: "Form: Sending Message", name: "form_sending_message", widget: "string"}
-              - {label: "Contact Form: Success Message", name: "contact_form_success_message", widget: "string"} # Redundant with form_success_message, consolidate if possible in JS
-
-
-      - file: "data/translations-ar.json" # Path to your Arabic translations JSON file
-        label: "Arabic Interface Texts"
-        name: "ar_translations" # A unique internal name for this file in the CMS
-        fields:
-          - label: "Arabic Texts" # A label for the main object holding translations
-            name: "translations"
-            widget: "object"
-            fields: # Define all your data-translate keys here, with Arabic values
-              # Navigation (from header.html)
-              - {label: "القائمة: من نحن", name: "nav_about", widget: "string"}
-              - {label: "القائمة: خدماتنا", name: "nav_services", widget: "string"}
-              - {label: "القائمة: مشاريعنا", name: "nav_projects", widget: "string"}
-              - {label: "القائمة: فريقنا", name: "nav_team", widget: "string"}
-              - {label: "القائمة: اتصل بنا", name: "nav_contact", widget: "string"}
-              - {label: "القائمة: المدونة", name: "nav_blog", widget: "string"}
-              
-              # Language Toggle Button Text
-              - {label: "زر تبديل اللغة (إلى العربية)", name: "lang_toggle_ar_text", widget: "string", default: "عربي"}
-              - {label: "زر تبديل اللغة (إلى الإنجليزية)", name: "lang_toggle_en_text", widget: "string", default: "EN"}
-              - {label: "نص أيقونة تبديل اللغة", name: "lang_toggle", widget: "string", default: "English", hint: "النص المعروض بجوار أيقونة الكرة الأرضية (مثل 'English' إذا كان الموقع باللغة العربية)."}
-
-              # Hero Section (from index.html)
-              - {label: "البطل: شارة", name: "hero_badge", widget: "string"}
-              - {label: "البطل: اسم الشركة", name: "company_name", widget: "string"}
-              - {label: "البطل: العنوان", name: "hero_title", widget: "string"}
-              - {label: "البطل: العنوان الفرعي", name: "hero_subtitle", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown للنص المنسق."}
-              - {label: "البطل: زر الإجراء 1", name: "hero_cta", widget: "string"}
-              - {label: "البطل: زر الإجراء 2", name: "hero_cta2", widget: "string"}
-              - {label: "البطل: مرر لأسفل", name: "scroll_down", widget: "string"}
-
-              # About Section (from index.html)
-              - {label: "عن: عنوان فرعي", name: "about_subtitle", widget: "string"}
-              - {label: "عن: عنوان", name: "about_title", widget: "string"}
-              - {label: "عن: الوصف الرئيسي", name: "about_main_desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown للنص المنسق."}
-              - {label: "عن: سنوات الخبرة (نص الشارة)", name: "company_experience", widget: "string", default: "+٤"}
-              - {label: "عن: تسمية السنوات (شارة)", name: "about_experience_years", widget: "string"}
-              - {label: "عن: مشاريع مكتملة إحصائية", name: "projects_completed", widget: "string"}
-              - {label: "عن: سنوات الخبرة إحصائية", name: "years_experience", widget: "string"}
-              - {label: "عن: رضا العملاء إحصائية", name: "client_satisfaction", widget: "string"}
-              - {label: "المهمة: العنوان", name: "our_mission_title", widget: "string"}
-              - {label: "المهمة: الوصف", name: "our_mission_desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown للنص المنسق."}
-              - {label: "الرؤية: العنوان", name: "vision_title", widget: "string"}
-              - {label: "الرؤية: الوصف", name: "vision_desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown للنص المنسق."}
-
-              # Services Section (from index.html and footer)
-              - {label: "الخدمات: العنوان", name: "services_title", widget: "string"}
-              - {label: "الخدمة 1: العنوان", name: "service1", widget: "string"}
-              - {label: "الخدمة 1: الوصف", name: "service1Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 2: العنوان", name: "service2", widget: "string"}
-              - {label: "الخدمة 2: الوصف", name: "service2Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 3: العنوان", name: "service3", widget: "string"}
-              - {label: "الخدمة 3: الوصف", name: "service3Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 4: العنوان", name: "service4", widget: "string"}
-              - {label: "الخدمة 4: الوصف", name: "service4Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 5: العنوان", name: "service5", widget: "string"}
-              - {label: "الخدمة 5: الوصف", name: "service5Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 6: العنوان", name: "service6", widget: "string"}
-              - {label: "الخدمة 6: الوصف", name: "service6Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الخدمة 7: العنوان", name: "service7", widget: "string"}
-              - {label: "الخدمة 7: الوصف", name: "service7Desc", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-
-              # Process Section (from index.html)
-              - {label: "العملية: عنوان فرعي", name: "process_subtitle", widget: "string"}
-              - {label: "العملية: عنوان", name: "process_title", widget: "string"}
-              - {label: "الخطوة 1: العنوان", name: "step1_title", widget: "string"}
-              - {label: "الخطوة 1: الوصف", name: "step1_desc", widget: "string"}
-              - {label: "الخطوة 2: العنوان", name: "step2_title", widget: "string"}
-              - {label: "الخطوة 2: الوصف", name: "step2_desc", widget: "string"}
-              - {label: "الخطوة 3: العنوان", name: "step3_title", widget: "string"}
-              - {label: "الخطوة 3: الوصف", name: "step3_desc", widget: "string"}
-              - {label: "الخطوة 4: العنوان", name: "step4_title", widget: "string"}
-              - {label: "الخطوة 4: الوصف", name: "step4_desc", widget: "string"}
-              - {label: "الخطوة 5: العنوان", name: "step5_title", widget: "string"}
-              - {label: "الخطوة 5: الوصف", name: "step5_desc", widget: "string"}
-
-              # Projects Section (from index.html)
-              - {label: "المشاريع: عنوان فرعي", name: "projects_subtitle", widget: "string"}
-              - {label: "المشاريع: العنوان", name: "projects_title", widget: "string"}
-              - {label: "المشروع 1: العنوان", name: "project1_title", widget: "string"}
-              - {label: "المشروع 2: العنوان", name: "project2_title", widget: "string"}
-              - {label: "المشروع 3: العنوان", name: "project3_title", widget: "string"}
-              - {label: "زر عرض المشروع", name: "view_project", widget: "string"}
-              - {label: "زر عرض جميع المشاريع", name: "view_all_projects", widget: "string"}
-
-              # Testimonials Section (from index.html)
-              - {label: "الشهادات: عنوان فرعي", name: "testimonials_subtitle", widget: "string"}
-              - {label: "الشهادات: العنوان", name: "testimonials_title", widget: "string"}
-              - {label: "شهادة 1: النص", name: "testimonial1_text", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "شهادة 1: اسم العميل", name: "testimonial1_name", widget: "string"}
-              - {label: "شهادة 1: منصب العميل", name: "testimonial1_position", widget: "string"}
-              - {label: "شهادة 2: النص", name: "testimonial2_text", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "شهادة 2: اسم العميل", name: "testimonial2_name", widget: "string"}
-              - {label: "شهادة 2: منصب العميل", name: "testimonial2_position", widget: "string"}
-              - {label: "شهادة 3: النص", name: "testimonial3_text", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "شهادة 3: اسم العميل", name: "testimonial3_name", widget: "string"}
-              - {label: "شهادة 3: منصب العميل", name: "testimonial3_position", widget: "string"}
-
-              # Team Section (from index.html)
-              - {label: "الفريق: عنوان فرعي", name: "team_subtitle", widget: "string"}
-              - {label: "الفريق: العنوان", name: "team_title", widget: "string"}
-              - {label: "الفريق: الوصف", name: "team_description", widget: "string"}
-              - {label: "عضو الفريق 1: الاسم", name: "team_member1", widget: "string"}
-              - {label: "عضو الفريق 1: الدور", name: "team_member1_role", widget: "string"}
-              - {label: "عضو الفريق 1: السيرة الذاتية", name: "team_member1_bio", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "عضو الفريق 2: الاسم", name: "team_member2", widget: "string"}
-              - {label: "عضو الفريق 2: الدور", name: "team_member2_role", widget: "string"}
-              - {label: "عضو الفريق 2: السيرة الذاتية", name: "team_member2_bio", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "عضو الفريق 3: الاسم", name: "team_member3", widget: "string"}
-              - {label: "عضو الفريق 3: الدور", name: "team_member3_role", widget: "string"}
-              - {label: "عضو الفريق 3: السيرة الذاتية", name: "team_member3_bio", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-
-              # CTA Section (from index.html)
-              - {label: "دعوة للإجراء: العنوان", name: "cta_title", widget: "string"}
-              - {label: "دعوة للإجراء: النص", name: "cta_text", widget: "string"}
-              - {label: "دعوة للإجراء: زر 1", name: "cta_button1", widget: "string"}
-              - {label: "دعوة للإجراء: زر 2", name: "cta_button2", widget: "string"}
-
-              # Contact Section (from index.html)
-              - {label: "التواصل: عنوان فرعي", name: "contact_subtitle", widget: "string"}
-              - {label: "التواصل: عنوان", name: "contact_title", widget: "string"}
-              - {label: "العنوان: العنوان", name: "address_title", widget: "string"}
-              - {label: "التواصل: العنوان", name: "contact_address", widget: "string"}
-              - {label: "البريد الإلكتروني: العنوان", name: "email_title", widget: "string"}
-              - {label: "الاتصال: العنوان", name: "call_title", widget: "string"}
-              - {label: "التواصل: الهاتف", name: "contact_phone", widget: "string"}
-              - {label: "الساعات: العنوان", name: "hours_title", widget: "string"}
-              - {label: "التواصل: ساعات العمل", name: "working_hours", widget: "string"}
-              - {label: "تابعنا العنوان", name: "follow_title", widget: "string"}
-              - {label: "النموذج: اسمك", name: "yourName", widget: "string"}
-              - {label: "النموذج: بريدك الإلكتروني", name: "yourEmail", widget: "string"}
-              - {label: "النموذج: رقم الهاتف", name: "yourPhone", widget: "string"}
-              - {label: "النموذج: الخدمة المهتم بها", name: "service_interest", widget: "string"}
-              - {label: "النموذج: اختر خدمة خيار", name: "select_service", widget: "string"}
-              - {label: "النموذج: رسالتك", name: "yourMessage", widget: "string"}
-              - {label: "النموذج: زر إرسال الرسالة", name: "sendMessage", widget: "string"}
-              
-              # Footer (from index.html, blogs.html, blog-post.html)
-              - {label: "روابط سريعة العنوان (الفوتر)", name: "quick_links", widget: "string"}
-              - {label: "خدماتنا العنوان (الفوتر)", name: "our_services", widget: "string"}
-              - {label: "اتصل بنا العنوان (الفوتر)", name: "contact_us", widget: "string"}
-              - {label: "الفوتر: نص عن الشركة", name: "footer_about", widget: "text", field_backend: "markdown", hint: "يدعم صيغة Markdown."}
-              - {label: "الفوتر: نص حقوق النشر", name: "copyright", widget: "string"}
-              - {label: "الفوتر: سياسة الخصوصية", name: "privacy_policy", widget: "string"}
-              - {label: "الفوتر: شروط الخدمة", name: "terms_service", widget: "string"}
 
               # Blog Listing Specific UI Texts (from blogs.html and js/blogs.js)
               - {label: "مدونة البطل: العنوان", name: "blog_hero_title", widget: "string"}
@@ -444,7 +252,8 @@ publish_mode: editorial_workflow
               - {label: "النموذج: خطأ التحقق", name: "form_validation_error", widget: "string"}
               - {label: "النموذج: رسالة نجاح", name: "form_success_message", widget: "string"}
               - {label: "النموذج: رسالة جاري الإرسال", name: "form_sending_message", widget: "string"}
-              - {label: "نموذج الاتصال: رسالة نجاح", name: "contact_form_success_message", widget: "string"} # Note: Consider consolidating with form_success_message in JS if possible
+              - {label: "نموذج الاتصال: رسالة نجاح", name: "contact_form_success_message", widget: "string"}
+
 
   # Site Settings Collection
   # This collection manages global website configuration and feature toggles.
@@ -468,111 +277,77 @@ publish_mode: editorial_workflow
           - {label: "Company Name", name: "company_name", widget: "string", required: true}
           - {label: "Contact Email", name: "contact_email", widget: "string", pattern: "^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", pattern_human_readable: "Must be a valid email address", required: true}
           - {label: "Contact Phone Number", name: "contact_phone", widget: "string", required: true}
-          # Add other relevant site info fields here if needed (e.g., social media URLs)
-          # Example:
-          # - {label: "Social Media: LinkedIn URL", name: "linkedin_url", widget: "string", required: false}
-          # - {label: "Social Media: Twitter URL", name: "twitter_url", widget: "string", required: false}
-          # - {label: "Social Media: Instagram URL", name: "instagram_url", widget: "string", required: false}
-          # - {label: "Social Media: YouTube URL", name: "youtube_url", widget: "string", required: false}
+          - {label: "Social Media: LinkedIn URL", name: "linkedin_url", widget: "string", required: false, hint: "Full URL to your LinkedIn profile."}
+          - {label: "Social Media: Twitter URL", name: "twitter_url", widget: "string", required: false, hint: "Full URL to your Twitter profile."}
+          - {label: "Social Media: Instagram URL", name: "instagram_url", widget: "string", required: false, hint: "Full URL to your Instagram profile."}
+          - {label: "Social Media: YouTube URL", name: "youtube_url", widget: "string", required: false, hint: "Full URL to your YouTube channel."}
 
-  # Optional: Projects Collection
-  # Uncomment this block if you plan to manage individual project details dynamically
-  # and display them on separate pages or in a more complex portfolio.
-  # - name: "projects"
-  #   label: "Projects"
-  #   folder: "data/projects" # Example: Store project data in data/projects/my-project.json
-  #   create: true
-  #   delete: true
-  #   slug: "{{title | slug}}" # Generates a URL-friendly slug from the project title
-  #   fields:
-  #     - {label: "Title", name: "title", widget: "string", required: true}
-  #     - {label: "Short Description", name: "description", widget: "text", required: false}
-  #     - {label: "Featured Image", name: "image", widget: "image", required: true}
-  #     - {label: "Full Content (Markdown)", name: "body", widget: "markdown", required: false}
-  #     - {label: "Project Type (Category)", name: "type", widget: "string"}
-  #     - {label: "Client", name: "client", widget: "string"}
-  #     - {label: "Completion Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false}
+  # Projects Collection (Enabled for management)
+  # This collection allows you to manage individual project details dynamically.
+  # You will need to update your front-end code (e.g., index.html or a dedicated projects.html)
+  # to fetch and render data from `data/projects/` based on these fields.
+  - name: "projects"
+    label: "Projects"
+    folder: "data/projects" # Example: Store project data in data/projects/my-project.json
+    create: true # Allow creating new project entries
+    delete: true # Allow deleting project entries
+    identifier_field: "title" # Field to use as display identifier in the CMS list
+    slug: "{{title | slug}}" # Generates a URL-friendly slug from the project title for file naming
+    fields:
+      - {label: "Title (English)", name: "title_en", widget: "string", required: true, hint: "Title of the project in English."}
+      - {label: "Title (Arabic)", name: "title_ar", widget: "string", required: true, hint: "Title of the project in Arabic."}
+      - {label: "Short Description (English)", name: "description_en", widget: "text", required: false, hint: "A brief description of the project in English."}
+      - {label: "Short Description (Arabic)", name: "description_ar", widget: "text", required: false, hint: "A brief description of the project in Arabic."}
+      - {label: "Featured Image", name: "image", widget: "image", required: true, allow_multiple: false, choose_url: false, media_library: { config: { max_file_size: 2000000 } }, hint: "Main image for the project."}
+      - {label: "Full Content (English)", name: "body_en", widget: "markdown", required: false, hint: "Detailed description of the project in English. Supports Markdown."}
+      - {label: "Full Content (Arabic)", name: "body_ar", widget: "markdown", required: false, hint: "Detailed description of the project in Arabic. Supports Markdown."}
+      - {label: "Project Type (Category)", name: "type", widget: "string", hint: "e.g., Petrochemical, Structural Steel, Industrial Machinery."}
+      - {label: "Client", name: "client", widget: "string", hint: "Name of the client for this project."}
+      - {label: "Completion Date", name: "date", widget: "datetime", format: "YYYY-MM-DD", date_format: "YYYY-MM-DD", time_format: false, hint: "Date when the project was completed."}
+      - {label: "Project URL (Optional)", name: "project_url", widget: "string", required: false, hint: "Optional: Link to a dedicated project page if it exists."}
 
-  # Optional: Testimonials Collection
-  # Uncomment this block if you want to manage client testimonials individually via the CMS.
-  # - name: "testimonials"
-  #   label: "Testimonials"
-  #   folder: "data/testimonials" # Example: Store testimonials in data/testimonials/client-name.json
-  #   create: true
-  #   delete: true
-  #   fields:
-  #     - {label: "Client Name", name: "name", widget: "string", required: true}
-  #     - {label: "Client Position", name: "position", widget: "string", required: false}
-  #     - {label: "Client Avatar", name: "avatar", widget: "image", required: false, media_library: { config: { max_file_size: 500000 } }} # Max 500KB
-  #     - {label: "Testimonial Text", name: "text", widget: "text", required: true, field_backend: "markdown", hint: "Supports Markdown."}
-  #     - {label: "Rating (1-5)", name: "rating", widget: "number", min: 1, max: 5, default: 5, value_type: "int", hint: "Star rating for the testimonial."}
+  # Testimonials Collection (Enabled for management)
+  # This collection allows you to add and manage individual client feedback entries.
+  # You will need to update your front-end code (e.g., index.html) to fetch and render
+  # data from `data/testimonials/` based on these fields.
+  - name: "testimonials"
+    label: "Testimonials"
+    folder: "data/testimonials" # Example: Store testimonials in data/testimonials/client-name.json
+    create: true # Allow creating new testimonial entries
+    delete: true # Allow deleting testimonial entries
+    identifier_field: "name" # Field to use as display identifier in the CMS list
+    slug: "{{name | slug}}" # Generates a URL-friendly slug from the client name
+    fields:
+      - {label: "Client Name (English)", name: "name_en", widget: "string", required: true, hint: "Name of the client in English."}
+      - {label: "Client Name (Arabic)", name: "name_ar", widget: "string", required: true, hint: "Name of the client in Arabic."}
+      - {label: "Client Position (English)", name: "position_en", widget: "string", required: false, hint: "Client's job title or role in English."}
+      - {label: "Client Position (Arabic)", name: "position_ar", widget: "string", required: false, hint: "Client's job title or role in Arabic."}
+      - {label: "Client Avatar", name: "avatar", widget: "image", required: false, media_library: { config: { max_file_size: 500000 } }, hint: "Client's profile picture (max 500KB)."}
+      - {label: "Testimonial Text (English)", name: "text_en", widget: "text", required: true, field_backend: "markdown", hint: "The client's feedback in English. Supports Markdown."}
+      - {label: "Testimonial Text (Arabic)", name: "text_ar", widget: "text", required: true, field_backend: "markdown", hint: "The client's feedback in Arabic. Supports Markdown."}
+      - {label: "Rating (1-5)", name: "rating", widget: "number", min: 1, max: 5, default: 5, value_type: "int", hint: "Star rating for the testimonial (1 to 5 stars)."}
 
-  # Optional: Blog Categories Collection (Advanced)
-  # If you enable this, you would manage your blog categories as separate entries.
-  # Then, in the 'posts' collection, you would change the 'categories' field
-  # to use a 'relation' widget to link to these categories.
-  # - name: "blog_categories"
-  #   label: "Blog Categories"
-  #   folder: "data/blog-categories" # This implies each category would be its own file (e.g., data/blog-categories/engineering.json)
-  #                                   # or you can manage it as a single file, like your existing one.
-  #                                   # If managing as a single file:
-  #   # file: "data/blog-categories.json"
-  #   # fields:
-  #   #   - label: "Blog Categories"
-  #   #   name: "categories"
-  #   #   widget: "list"
-  #   #   fields:
-  #   #     - {label: "Category Name (English)", name: "name_en", widget: "string"}
-  #   #     - {label: "Category Name (Arabic)", name: "name_ar", widget: "string"}
-  #   #     - {label: "Slug", name: "slug", widget: "string", hint: "Unique URL-friendly identifier"}
-  #   #     - {label: "Active", name: "active", widget: "boolean", default: true}
-  #   #     - {label: "Color (Hex)", name: "color", widget: "color"}
-  #   #     - {label: "Order", name: "order", widget: "number", value_type: "int"}
-            name: "site_info"
-            widget: "object"
-            fields:
-              - {label: "Company Name", name: "company_name", widget: "string", required: true}
-              - label: "Contact Email"
-                name: "contact_email"
-                widget: "string"
-                pattern: ["^[^\\s@]+@[^\\s@]+\\.[^\\s@]+$", "Must be a valid email address"]
-                required: true
-              - {label: "Contact Phone Number", name: "contact_phone", widget: "string", required: true}
-
-  - name: "blog-categories"
+  # Blog Categories Collection (Enabled)
+  # This collection manages your blog categories from a single JSON file.
+  # Your js/blog-categories-loader1.js already reads this file.
+  - name: "blog_categories"
     label: "Blog Categories"
-    files:
-      - file: "data/blog-categories.json"
-        label: "Blog Category Tags"
+    description: "Manage the categories used for blog posts."
+    file: "data/blog-categories.json" # Points to your existing blog-categories.json file
+    fields:
+      - label: "Category List"
         name: "categories"
+        widget: "list"
         fields:
-          - label: "Available Categories"
-            name: "categories"
-            widget: "list"
-            fields:
-              - label: "Category Name"
-                name: "name"
-                widget: "string"
-                hint: "Enter category name in the appropriate language"
-              - label: "Category Slug"
-                name: "slug"
-                widget: "string"
-                hint: "URL-friendly version (e.g., 3d-scanning, reverse-engineering)"
-              - label: "Language"
-                name: "language"
-                widget: "select"
-                options: ["en", "ar"]
-                hint: "Which language this category belongs to"
-              - label: "Active"
-                name: "active"
-                widget: "boolean"
-                default: true
-              - label: "Color"
-                name: "color"
-                widget: "color"
-                default: "#3b82f6"
-              - label: "Order"
-                name: "order"
-                widget: "number"
-                default: 1
-                hint: "Display order (0 for 'All' button)"
+          - {label: "Category Name (English)", name: "name_en", widget: "string", required: true, hint: "The display name of the category in English (e.g., 'Engineering')."}
+          - {label: "Category Name (Arabic)", name: "name_ar", widget: "string", required: true, hint: "The display name of the category in Arabic (e.g., 'الهندسة')."}
+          - {label: "Slug", name: "slug", widget: "string", required: true, hint: "Unique URL-friendly identifier (e.g., 'engineering'). Used for filtering."}
+          - {label: "Active", name: "active", widget: "boolean", default: true, hint: "Whether this category should be visible and usable."}
+          - {label: "Color (Hex)", name: "color", widget: "color", required: false, hint: "Optional: Hex color code for category badges (e.g., #3b82f6)."}
+          - {label: "Order", name: "order", widget: "number", value_type: "int", default: 0, hint: "Order in which categories appear (lower number first)."}
+      - label: "Settings"
+        name: "settings"
+        widget: "object"
+        fields:
+          - {label: "Show 'All' Button", name: "show_all_button", widget: "boolean", default: true, hint: "Display an 'ALL' button for categories."}
+          - {label: "Max Categories Per Row", name: "max_per_row", widget: "number", value_type: "int", default: 6, hint: "Maximum number of category buttons to display per row."}
