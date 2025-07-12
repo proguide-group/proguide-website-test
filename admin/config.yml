@@ -1079,10 +1079,10 @@ collections:
 
       - file: "data/translations-ar.json" # Path to your Arabic translations JSON file
         label: "Arabic Interface Texts"
-        name: "ar_translations" # A unique internal name for this file in the CMS
+        name: "ar_translations_1" # A unique internal name for this file in the CMS
         fields:
           - label: "Arabic Texts" # A label for the main object holding translations
-            name: "translations"
+            name: "translations_1"
             widget: "object"
             fields: # Define all your data-translate keys here, with Arabic values
               # Navigation (from header.html)
