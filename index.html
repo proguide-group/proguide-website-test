@@ -629,25 +629,35 @@
         </div>
         
         <div class="contact-form-wrapper">
-          <form class="contact-form" autocomplete="off" aria-label="Contact Form">
+          <form name="contact" class="contact-form" autocomplete="off" aria-label="Contact Form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <!-- Netlify required hidden field for form name -->
+            <input type="hidden" name="form-name" value="contact" />
+
+            <!-- Hidden field for dynamic recipient email -->
+            <input type="hidden" id="recipient-email-input" name="recipient-email" value="" />
+
+            <!-- Honeypot field for spam protection -->
+            <p class="hidden" style="display:none;">
+              <label>
+                Don’t fill this out if you’re human: <input name="bot-field" />
+              </label>
+            </p>
+
             <div class="form-group">
               <label for="name" data-translate="yourName">Your Name</label>
-              <input type="text" id="name" class="form-control" required aria-label="Your Name">
+              <input type="text" id="name" name="name" class="form-control" required aria-label="Your Name">
             </div>
-            
             <div class="form-group">
               <label for="email" data-translate="yourEmail">Email Address</label>
-              <input type="email" id="email" class="form-control" required aria-label="Email Address">
+              <input type="email" id="email" name="email" class="form-control" required aria-label="Email Address">
             </div>
-            
             <div class="form-group">
               <label for="phone" data-translate="yourPhone">Phone Number</label>
-              <input type="tel" id="phone" class="form-control" aria-label="Phone Number">
+              <input type="tel" id="phone" name="phone" class="form-control" aria-label="Phone Number">
             </div>
-            
             <div class="form-group">
               <label for="service" data-translate="service_interest">Service of Interest</label>
-              <select id="service" class="form-control" aria-label="Service of Interest">
+              <select id="service" name="service" class="form-control" aria-label="Service of Interest">
                 <option value="" data-translate="select_service">Select a Service</option>
                 <option value="3d-scanning" data-translate="service1">3D Scanning</option>
                 <option value="cad-modeling" data-translate="service2">CAD Modeling</option>
@@ -656,16 +666,17 @@
                 <option value="simulation" data-translate="service5">Simulation</option>
               </select>
             </div>
-            
             <div class="form-group">
               <label for="message" data-translate="yourMessage">Your Message</label>
-              <textarea id="message" class="form-control" rows="5" required aria-label="Your Message"></textarea>
+              <textarea id="message" name="message" class="form-control" rows="5" required aria-label="Your Message"></textarea>
             </div>
-            
             <button type="submit" class="submit-button" data-translate="sendMessage">
               <span>Send Message</span>
               <i class="fas fa-paper-plane"></i>
             </button>
+
+            <!-- Container for success/error messages -->
+            <div id="form-status" class="form-status-message"></div>
           </form>
         </div>
       </div>
