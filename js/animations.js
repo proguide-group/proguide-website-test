@@ -213,13 +213,19 @@ async function animateCounters() { // Made async to allow fetch
     entries.forEach(entry => {
       if (entry.isIntersecting) {
         const metricKey = entry.target.getAttribute('data-metric'); // Get the metric key
-        // Use the fetched metric or fallback to the hardcoded data-count if not found
-        // or a default if neither is present.
-        const targetValue = metricsData[metricKey] !== undefined ? +metricsData[metricKey] : +entry.target.getAttribute('data-count');
+        // Use the fetched metric from stats object (CMS updates this) or fallback to root level or default
+        const targetValue = (metricsData.stats && metricsData.stats[metricKey] !== undefined) 
+          ? +metricsData.stats[metricKey] 
+          : metricsData[metricKey] !== undefined 
+            ? +metricsData[metricKey] 
+            : +entry.target.getAttribute('data-count') || 0;
         
         // Handle company_experience_badge separately if it's not a number
         if (metricKey === 'company_experience_badge') {
-          entry.target.textContent = metricsData[metricKey] || entry.target.textContent;
+          const badgeValue = (metricsData.stats && metricsData.stats[metricKey]) 
+            || metricsData[metricKey] 
+            || entry.target.textContent;
+          entry.target.textContent = badgeValue;
           observer.unobserve(entry.target); // Stop observing after setting text
           return; // Skip numeric animation for this
         }

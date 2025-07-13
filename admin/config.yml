@@ -72,6 +72,9 @@ collections:
               - {label: "About: Title", name: "about_title", widget: "string"}
               - {label: "About: Main Description", name: "about_main_desc", widget: "text"}
               - {label: "About: Years Label", name: "about_experience_years", widget: "string"}
+              - {label: "Stat: Projects Completed Label", name: "projects_completed", widget: "string"}
+              - {label: "Stat: Years Experience Label", name: "years_experience", widget: "string"}
+              - {label: "Stat: Client Satisfaction Label", name: "client_satisfaction", widget: "string"}
               - {label: "Mission: Title", name: "our_mission_title", widget: "string"}
               - {label: "Mission: Description", name: "our_mission_desc", widget: "text"}
               - {label: "Vision: Title", name: "vision_title", widget: "string"}
