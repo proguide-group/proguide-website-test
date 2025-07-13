@@ -286,8 +286,11 @@ collections:
   # Site Settings Collection
   - name: "site_settings"
     label: "Site Settings"
-    file: "data/site-settings.json"
-    fields:
+    files:
+      - file: "data/site-settings.json"
+        label: "Site Settings"
+        name: "site_settings"
+        fields:
       - label: "Sections Visibility"
         name: "sections"
         widget: "object"
@@ -311,8 +314,11 @@ collections:
   # Site Metrics Collection
   - name: "site_metrics"
     label: "Site Metrics"
-    file: "data/site-metrics.json"
-    fields:
+    files:
+      - file: "data/site-metrics.json"
+        label: "Site Metrics"
+        name: "site_metrics"
+        fields:
       - label: "Company Statistics"
         name: "stats"
         widget: "object"
@@ -364,8 +370,11 @@ collections:
   # Blog Categories Collection
   - name: "blog_categories"
     label: "Blog Categories"
-    file: "data/blog-categories.json"
-    fields:
+    files:
+      - file: "data/blog-categories.json"
+        label: "Blog Categories"
+        name: "blog_categories"
+        fields:
       - label: "Category List"
         name: "categories"
         widget: "list"
