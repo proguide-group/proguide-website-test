@@ -30,6 +30,7 @@ class SectionVisibilityController {
   useDefaults() {
     const defaultSettings = {
       show_projects: true,
+      show_projects_completed: true,
       show_testimonials: true,
       show_clients: false,
       show_map: true
@@ -41,6 +42,9 @@ class SectionVisibilityController {
   applyVisibilitySettings(sections) {
     // Projects Section
     this.toggleSection('#projects, .projects-section, .work-section', sections.show_projects);
+    
+    // Projects Completed Counter
+    this.toggleSection('[data-section="projects_completed"]', sections.show_projects_completed);
     
     // Client Testimonials/Feedback
     this.toggleSection('.testimonials-section, .feedback-section, .reviews-section', sections.show_testimonials);

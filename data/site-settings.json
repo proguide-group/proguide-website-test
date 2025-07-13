@@ -1,6 +1,7 @@
 {
   "sections": {
     "show_projects": false,
+    "show_projects_completed": true,
     "show_testimonials": false,
     "show_clients": false,
     "show_map": true

@@ -71,7 +71,6 @@ collections:
               - {label: "About: Subtitle", name: "about_subtitle", widget: "string"}
               - {label: "About: Title", name: "about_title", widget: "string"}
               - {label: "About: Main Description", name: "about_main_desc", widget: "text"}
-              - {label: "About: Years Label", name: "about_experience_years", widget: "string"}
               - {label: "Stat: Projects Completed Label", name: "projects_completed", widget: "string"}
               - {label: "Stat: Years Experience Label", name: "years_experience", widget: "string"}
               - {label: "Stat: Client Satisfaction Label", name: "client_satisfaction", widget: "string"}
@@ -299,6 +298,7 @@ collections:
             widget: "object"
             fields:
               - {label: "Show Projects Section", name: "show_projects", widget: "boolean", default: true}
+              - {label: "Show Projects Completed Counter", name: "show_projects_completed", widget: "boolean", default: true}
               - {label: "Show Testimonials Section", name: "show_testimonials", widget: "boolean", default: true}
               - {label: "Show Clients Marquee", name: "show_clients", widget: "boolean", default: false}
               - {label: "Show Map Section", name: "show_map", widget: "boolean", default: true}
@@ -329,7 +329,6 @@ collections:
               - {label: "Projects Completed (Count)", name: "projects_completed", widget: "number", value_type: "int", default: 150, required: true}
               - {label: "Years Experience (Count)", name: "years_experience", widget: "number", value_type: "int", default: 4, required: true}
               - {label: "Client Satisfaction (%)", name: "client_satisfaction", widget: "number", value_type: "int", default: 98, required: true, min: 0, max: 100}
-              - {label: "Company Experience Badge Text", name: "company_experience_badge", widget: "string", default: "4+", required: true}
 
   # Projects Collection
   - name: "projects"
