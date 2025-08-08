@@ -481,21 +481,41 @@ button {
 }
 
 @media (max-width: 1024px) {
-  .hero-visual {
+  .hero-container {
+    flex-direction: column;
+    text-align: center;
+  }
+  .hero-content {
+    padding-right: 0;
+    margin-bottom: 24px;
+    max-width: 100%;
+  }
+  .hero-description {
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .hero-cta {
+    justify-content: center;
+    margin-bottom: 32px;
+    z-index: 2;
     position: relative;
-    margin-top: 16px;
-    height: 320px;
+  }
+  .hero-visual {
+    width: 100%;
+    height: auto;
+    position: static;
     z-index: 1;
+    margin-top: 0;
     display: flex;
     justify-content: center;
     align-items: flex-start;
   }
   .scan-animation {
-    position: relative;
-    margin: 0 auto;
-    top: unset;
-    left: unset;
-    transform: none;
+    position: static !important;
+    margin: 32px auto 0 auto !important;
+    top: unset !important;
+    left: unset !important;
+    transform: none !important;
     display: block;
     width: 320px;
     height: 320px;
@@ -725,15 +745,26 @@ button {
     font-size: 18px;
   }
   .hero-cta {
-    margin-bottom: 16px;
+    margin-bottom: 24px;
   }
   .hero-visual {
-    height: 220px;
+    height: auto;
     margin-top: 0;
+    width: 100%;
+    position: static;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
   .scan-animation {
     width: 200px;
     height: 200px;
+    position: static !important;
+    margin: 24px auto 0 auto !important;
+    top: unset !important;
+    left: unset !important;
+    transform: none !important;
+    display: block;
   }
 }
 
