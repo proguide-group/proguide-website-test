@@ -521,7 +521,6 @@ button {
     display: block;
   }
 }
-}
 
 .scan-animation {
   position: absolute;
@@ -1933,7 +1932,7 @@ button {
   transition: all var(--transition-normal);
   
   &.primary {
-    backgroplease confirm und: linear-gradient(to right, var(--primary), var(--secondary));
+    background: linear-gradient(to right, var(--primary), var(--secondary));
     color: white;
     box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
     
