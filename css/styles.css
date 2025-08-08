@@ -482,18 +482,23 @@ button {
 
 @media (max-width: 1024px) {
   .hero-visual {
-    position: static;
+    position: relative;
     margin-top: 16px;
     height: 320px;
     z-index: 1;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
   .scan-animation {
-    position: static;
+    position: relative;
     margin: 0 auto;
-    display: block;
     top: unset;
     left: unset;
     transform: none;
+    display: block;
+    width: 320px;
+    height: 320px;
   }
 }
 
@@ -501,10 +506,19 @@ button {
   .hero-visual {
     height: 220px;
     margin-top: 12px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
   }
   .scan-animation {
     width: 200px;
     height: 200px;
+    position: relative;
+    margin: 0 auto;
+    top: unset;
+    left: unset;
+    transform: none;
+    display: block;
   }
 }
 }
@@ -1919,7 +1933,7 @@ button {
   transition: all var(--transition-normal);
   
   &.primary {
-    background: linear-gradient(to right, var(--primary), var(--secondary));
+    backgroplease confirm und: linear-gradient(to right, var(--primary), var(--secondary));
     color: white;
     box-shadow: 0 4px 15px rgba(67, 97, 238, 0.3);
     
