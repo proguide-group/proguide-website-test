@@ -480,6 +480,35 @@ button {
   height: 500px;
 }
 
+@media (max-width: 1024px) {
+  .hero-visual {
+    position: static;
+    margin-top: 16px;
+    height: 320px;
+    z-index: 1;
+  }
+  .scan-animation {
+    position: static;
+    margin: 0 auto;
+    display: block;
+    top: unset;
+    left: unset;
+    transform: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-visual {
+    height: 220px;
+    margin-top: 12px;
+  }
+  .scan-animation {
+    width: 200px;
+    height: 200px;
+  }
+}
+}
+
 .scan-animation {
   position: absolute;
   top: 50%;
