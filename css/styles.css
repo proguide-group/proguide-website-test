@@ -1898,15 +1898,14 @@ button {
   }
   
   &.secondary {
-    background-color: rgba(255, 255, 255, 0.1);
-    color: white;
-    backdrop-filter: blur(5px);
-    -webkit-backdrop-filter: blur(5px);
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: transparent;
+    color: #3b2ed0;           /* Use your brand color or a dark color */
+    border: 2px solid #3b2ed0; /* Add a visible border */
+    transition: background 0.2s, color 0.2s;
     
     &:hover {
-      background-color: rgba(255, 255, 255, 0.2);
-      transform: translateY(-3px);
+      background: #3b2ed0;
+      color: #fff;
     }
   }
 }
