@@ -579,7 +579,28 @@ button {
   overflow: hidden;
   background: url('../assets/images/scanimage.png') no-repeat center center / cover;
   border: 1px solid rgba(67, 97, 238, 0.3);
+  box-sizing: border-box;
 }
+
+@media (max-width: 1024px) {
+  .scan-animation {
+    border-radius: 8px !important;
+    overflow: hidden !important;
+    box-sizing: border-box !important;
+  }
+  .scan-animation .overlay,
+  .scan-animation .scan-line,
+  .scan-animation .scan-dots {
+    position: absolute !important;
+    inset: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    box-sizing: border-box !important;
+    border-radius: 8px !important;
+    pointer-events: none;
+  }
+}
+
 
 .scan-animation .overlay {
   position: absolute;
@@ -594,6 +615,8 @@ button {
   -webkit-mask-size: 100% 40px;
   -webkit-mask-repeat: no-repeat;
   -webkit-animation: scan-mask 4s linear infinite;
+  box-sizing: border-box;
+  border-radius: 8px;
 }
 
 .scan-line {
