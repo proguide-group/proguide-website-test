@@ -556,15 +556,19 @@ button {
     left: unset !important;
     transform: none !important;
     display: block;
+    overflow: hidden;
+    border-radius: 8px;
+    isolation: isolate;
+    z-index: 1;
   }
   .scan-animation .overlay,
   .scan-animation .scan-line,
   .scan-animation .scan-dots {
+    position: absolute !important;
+    inset: 0 !important;
     width: 100% !important;
     height: 100% !important;
-    left: 0 !important;
-    top: 0 !important;
-    position: absolute !important;
+    pointer-events: none;
   }
 }
 
