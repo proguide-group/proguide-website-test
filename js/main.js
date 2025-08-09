@@ -30,8 +30,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 const recipientEmail = settings?.site_info?.contact_email;
                 const emailInput = document.getElementById('recipient-email-input');
                 if (recipientEmail && emailInput) {
-                    emailInput.value = recipientEmail;
-                    console.log(`Recipient email set to: ${recipientEmail}`);
+                    if (Array.isArray(recipientEmail)) {
+                        emailInput.value = recipientEmail.join(',');
+                    } else {
+                        emailInput.value = recipientEmail;
+                    }
+                    console.log(`Recipient email set to: ${emailInput.value}`);
                 }
             } catch (error) {
                 console.error('Could not load or set recipient email:', error);
