@@ -6,14 +6,17 @@
 // Hero Section Animations
 function initHeroAnimations() {
   // Generate dot grid for scan effect
-  const dotGrid = document.querySelector('.dot-grid');
-  if (dotGrid) {
+  const dotGrid = document.querySelector('.scan-animation .dot-grid');
+  if (dotGrid && !dotGrid.__filled) {
+    dotGrid.__filled = true;
+    const frag = document.createDocumentFragment();
     for (let i = 0; i < 400; i++) { // 20x20 grid
       const dot = document.createElement('span');
       dot.style.animationDelay = `${Math.random() * 2}s`;
       dot.style.opacity = Math.random() * 0.3 + 0.1; // Reduced opacity for lighter theme
-      dotGrid.appendChild(dot);
+      frag.appendChild(dot);
     }
+    dotGrid.appendChild(frag);
   }
 
   // Animate subtitle lines sequentially
