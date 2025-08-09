@@ -21,28 +21,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // NEW: Advanced form submission handling for Netlify
     const contactForm = document.querySelector('form[name="contact"]');
     if (contactForm) {
-        // Function to fetch the recipient email from CMS settings
-        const setRecipientEmail = async () => {
-            try {
-                const response = await fetch('/data/site-settings.json');
-                if (!response.ok) return; // Silently fail if file not found
-                const settings = await response.json();
-                const recipientEmail = settings?.site_info?.contact_email;
-                const emailInput = document.getElementById('recipient-email-input');
-                if (recipientEmail && emailInput) {
-                    if (Array.isArray(recipientEmail)) {
-                        emailInput.value = recipientEmail.join(',');
-                    } else {
-                        emailInput.value = recipientEmail;
-                    }
-                    console.log(`Recipient email set to: ${emailInput.value}`);
-                }
-            } catch (error) {
-                console.error('Could not load or set recipient email:', error);
-            }
-        };
-        // Set the email on page load
-        setRecipientEmail();
         contactForm.addEventListener('submit', (e) => {
             e.preventDefault(); // Prevent default browser submission
             const form = e.target;
@@ -50,12 +28,18 @@ document.addEventListener('DOMContentLoaded', () => {
             const statusDiv = document.getElementById('form-status');
             const submitButton = form.querySelector('button[type="submit"]');
             const buttonOriginalText = submitButton.querySelector('span').textContent;
+            
+            // Ensure form-name is included
+            formData.set('form-name', 'contact');
+            
             // Disable button and show sending message
             submitButton.disabled = true;
             submitButton.querySelector('span').textContent = 'Sending...';
             statusDiv.textContent = '';
             statusDiv.className = 'form-status-message';
-            fetch('/', {
+            
+            // Use fetch to submit form data in the correct format for Netlify
+            fetch(form.action || '/', {
                 method: 'POST',
                 headers: { "Content-Type": "application/x-www-form-urlencoded" },
                 body: new URLSearchParams(formData).toString()
@@ -65,9 +49,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     // Show success message
                     statusDiv.textContent = 'Thank you! Your message has been sent successfully.';
                     statusDiv.classList.add('success');
-                    form.reset(); // Clear the form
-                    // Re-fetch the email in case the form is submitted again
-                    setRecipientEmail(); 
+                    form.reset(); // Clear the form 
                 } else {
                     // Handle server-side errors
                     throw new Error('Network response was not ok.');
