@@ -4,9 +4,9 @@ This project is a simple HTML, CSS, and JavaScript website.
 
 ## Project Structure
 
-- `src/index.html`: The main HTML document that structures the content of the website.
-- `src/css/styles.css`: Contains the styles for the website.
-- `src/js/main.js`: Contains the JavaScript code that adds interactivity to the website.
+- `index.html`: The main HTML document that structures the content of the website.
+- `css/styles.css`: Contains the styles for the website.
+- `js/main.js`: Contains the JavaScript code that adds interactivity to the website.
 - `package.json`: Configuration file for npm.
 
 ## Getting Started
@@ -18,10 +18,10 @@ This project is a simple HTML, CSS, and JavaScript website.
 
 2. Navigate to the project directory:
    ```
-   cd website-project
+   cd proguide-website-test
    ```
 
-3. Open `src/index.html` in your web browser to view the website.
+3. Open `index.html` in your web browser to view the website.
 
 ## License
 
