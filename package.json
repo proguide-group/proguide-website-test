@@ -9,9 +9,6 @@
     "start": "live-server --port=3000",
     "build": "echo 'Static site - no build step required'"
   },
-  "dependencies": {
-    "rtl-css-js": "^1.16.1"
-  },
   "devDependencies": {
     "live-server": "^1.2.2"
   }
