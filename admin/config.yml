@@ -228,6 +228,218 @@ collections:
               - {label: "Related Posts: Title", name: "related_posts_title", widget: "string"}
               - {label: "Breadcrumb: Blog Link", name: "breadcrumb_blog", widget: "string"}
 
+              # Service Pages
+              - label: "Service: General Mechanical Design"
+                name: "service1_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service1_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service1_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service1_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service1_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service1_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service1_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service1_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service1_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service1_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service1_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service1_cta_text", widget: "text"}
+              - label: "Service: Construction Steel Beams Design"
+                name: "service2_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service2_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service2_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service2_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service2_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service2_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service2_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service2_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service2_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service2_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service2_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service2_cta_text", widget: "text"}
+              - label: "Service: Sheet Metal Parts Modeling"
+                name: "service3_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service3_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service3_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service3_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service3_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service3_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service3_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service3_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service3_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service3_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service3_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service3_cta_text", widget: "text"}
+              - label: "Service: Aluminum Profile Structures"
+                name: "service4_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service4_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service4_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service4_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service4_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service4_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service4_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service4_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service4_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service4_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service4_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service4_cta_text", widget: "text"}
+              - label: "Service: 3D Scanning and Reconstruction"
+                name: "service5_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service5_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service5_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service5_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service5_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service5_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service5_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service5_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service5_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service5_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service5_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service5_cta_text", widget: "text"}
+              - label: "Service: Simulation of Mechanical Assemblies"
+                name: "service6_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service6_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service6_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service6_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service6_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service6_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service6_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service6_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service6_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service6_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service6_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service6_cta_text", widget: "text"}
+              - label: "Service: Product Data Management (PDM)"
+                name: "service7_page"
+                widget: "object"
+                fields:
+                  - {label: "Meta Title", name: "service7_meta_title", widget: "string"}
+                  - {label: "Meta Description", name: "service7_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service7_h1", widget: "string"}
+                  - {label: "Intro H2", name: "service7_intro_h2", widget: "string"}
+                  - {label: "Intro Paragraph 1", name: "service7_intro_p1", widget: "text"}
+                  - {label: "Intro Paragraph 2", name: "service7_intro_p2", widget: "text"}
+                  - {label: "Why H2", name: "service7_why_h2", widget: "string"}
+                  - {label: "Why List (HTML)", name: "service7_why_list", widget: "text"}
+                  - {label: "Process H3", name: "service7_process_h3", widget: "string"}
+                  - {label: "Process List (HTML)", name: "service7_process_list", widget: "text"}
+                  - {label: "CTA Text", name: "service7_cta_text", widget: "text"}
+              # صفحات الخدمات
+              - label: "خدمة: التصميم الميكانيكي العام"
+                name: "service1_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service1_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service1_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service1_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service1_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service1_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service1_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service1_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service1_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service1_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service1_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service1_cta_text", widget: "text"}
+              - label: "خدمة: تصميم العوارض الفولاذية"
+                name: "service2_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service2_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service2_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service2_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service2_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service2_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service2_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service2_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service2_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service2_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service2_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service2_cta_text", widget: "text"}
+              - label: "خدمة: نمذجة الصفائح المعدنية"
+                name: "service3_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service3_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service3_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service3_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service3_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service3_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service3_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service3_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service3_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service3_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service3_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service3_cta_text", widget: "text"}
+              - label: "خدمة: هياكل مقاطع الألمنيوم"
+                name: "service4_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service4_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service4_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service4_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service4_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service4_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service4_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service4_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service4_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service4_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service4_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service4_cta_text", widget: "text"}
+              - label: "خدمة: المسح ثلاثي الأبعاد وإعادة الإنشاء"
+                name: "service5_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service5_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service5_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service5_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service5_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service5_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service5_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service5_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service5_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service5_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service5_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service5_cta_text", widget: "text"}
+              - label: "خدمة: محاكاة التجميعات الميكانيكية"
+                name: "service6_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service6_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service6_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service6_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service6_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service6_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service6_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service6_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service6_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service6_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service6_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service6_cta_text", widget: "text"}
+              - label: "خدمة: إدارة بيانات المنتج"
+                name: "service7_page"
+                widget: "object"
+                fields:
+                  - {label: "عنوان الميتا", name: "service7_meta_title", widget: "string"}
+                  - {label: "وصف الميتا", name: "service7_meta_desc_content", widget: "text"}
+                  - {label: "H1", name: "service7_h1", widget: "string"}
+                  - {label: "H2 تمهيدي", name: "service7_intro_h2", widget: "string"}
+                  - {label: "الفقرة التمهيدية 1", name: "service7_intro_p1", widget: "text"}
+                  - {label: "الفقرة التمهيدية 2", name: "service7_intro_p2", widget: "text"}
+                  - {label: "H2 لماذا", name: "service7_why_h2", widget: "string"}
+                  - {label: "قائمة لماذا (HTML)", name: "service7_why_list", widget: "text"}
+                  - {label: "H3 العملية", name: "service7_process_h3", widget: "string"}
+                  - {label: "قائمة العملية (HTML)", name: "service7_process_list", widget: "text"}
+                  - {label: "نص الدعوة", name: "service7_cta_text", widget: "text"}
               # Cookie Consent Banner
               - {label: "Cookie Consent Banner: Text", name: "cookie_consent_text", widget: "string"}
               - {label: "Cookie Consent Banner: Accept Button", name: "cookie_accept_button", widget: "string"}
