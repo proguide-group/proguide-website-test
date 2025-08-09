@@ -781,28 +781,96 @@
     }
   </script>
 
-  <!-- Cookie Consent Banner -->
-  <div id="cookie-consent-banner" class="cookie-consent-banner">
+  <!-- Cookie Consent (EN/AR, granular, locale-aware) -->
+  <div id="cc-banner" class="cookie-consent-banner" hidden>
     <div class="container cookie-container">
-      <p class="cookie-text">
-        We use cookies to enhance your browsing experience and analyze our traffic. By clicking "Accept All", you consent to our use of cookies.
-      </p>
-      <button id="cookie-accept-btn" class="cta-button primary">Accept All</button>
+      <p class="cookie-text" data-translate="cookie_consent_text"></p>
+      <div class="cookie-actions">
+        <button class="cta-button secondary" id="cc-reject" data-translate="reject_all"></button>
+        <button class="cta-button outline" id="cc-manage" data-translate="manage_prefs"></button>
+        <button class="cta-button primary" id="cc-accept" data-translate="cookie_accept_button"></button>
+      </div>
+      <button id="cc-lang-toggle" class="linklike" aria-label="Toggle language"></button>
     </div>
   </div>
 
-  <!--Start of Tawk.to Script-->
-  <script type="text/javascript">
-  var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
-  (function(){
-    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
-    s1.async=true;
-    s1.src='https://embed.tawk.to/68585d9a03b6a21914ee271f/1iucir8vh';
-    s1.charset='UTF-8';
-    s1.setAttribute('crossorigin','*');
-    s0.parentNode.insertBefore(s1,s0);
-  })();
+  <!-- Preferences Modal -->
+  <div id="cc-modal" class="cc-modal" hidden aria-modal="true" role="dialog">
+    <div class="cc-modal-content">
+      <h3 data-translate="modal_title"></h3>
+      <p class="cc-desc" data-translate="modal_desc"></p>
+      <label class="cc-row">
+        <input type="checkbox" checked disabled />
+        <span>
+          <strong data-translate="cat_necessary"></strong><br>
+          <small data-translate="cat_necessary_desc"></small>
+        </span>
+      </label>
+      <label class="cc-row">
+        <input type="checkbox" id="cc-functional" />
+        <span>
+          <strong data-translate="cat_functional"></strong><br>
+          <small data-translate="cat_functional_desc"></small>
+        </span>
+      </label>
+      <label class="cc-row">
+        <input type="checkbox" id="cc-marketing" />
+        <span>
+          <strong data-translate="cat_marketing"></strong><br>
+          <small data-translate="cat_marketing_desc"></small>
+        </span>
+      </label>
+      <div class="cc-actions">
+        <button class="cta-button secondary" id="cc-save" data-translate="save"></button>
+        <button class="cta-button" id="cc-accept-modal" data-translate="cookie_accept_button"></button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Tawk.to (blocked until marketing consent) -->
+  <script>
+    window.loadTawk = function () {
+      if (window.__tawkLoaded) return; window.__tawkLoaded = true;
+      var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+      s1.async=true;
+      s1.src='https://embed.tawk.to/68585d9a03b6a21914ee271f/1iucir8vh';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    };
   </script>
-  <!--End of Tawk.to Script-->
+
+  <!-- Google Maps (blocked until functional consent) -->
+  <div class="map-section">
+    <div class="map-placeholder" id="map-placeholder">
+      <button id="enable-map" class="cta-button secondary" data-translate="enable_map"></button>
+    </div>
+    <iframe id="gmap"
+            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.23456789!2d39.123456789!3d24.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA3JzI0LjQiTiAzOcKwMDcnMjQuMCJF!5e0!3m2!1sen!2ssa!4v1234567890123!5m2!1sen!2ssa"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            hidden>
+    </iframe>
+  </div>
+
+  <!-- Google Consent Mode v2 (optional, for future Google tags) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('consent', 'default', { ad_user_data: 'denied', ad_personalization: 'denied', ad_storage: 'denied', analytics_storage: 'denied' });
+    (function(){
+      try {
+        var c = JSON.parse(localStorage.getItem('pg_consent_v1'));
+        if (!c) return;
+        gtag('consent', 'update', {
+          analytics_storage: c.functional ? 'granted' : 'denied',
+          ad_storage:       c.marketing  ? 'granted' : 'denied',
+          ad_user_data:     c.marketing  ? 'granted' : 'denied',
+          ad_personalization:c.marketing ? 'granted' : 'denied'
+        });
+      } catch(e){}
+    })();
+  </script>
 </body>
 </html>
