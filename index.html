@@ -7,7 +7,11 @@
   <meta name="description" content="Leading mechanical reverse engineering firm specializing in 3D scanning, CAD modeling, and manufacturability solutions">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght        <div class="contact-form-wrapper">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700&family=Tajawal:wght                <form name="contact" class="contact-form" autocomplete="off" aria-label="Contact Form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
+            <input type="hidden" name="form-name" value="contact" />
+            <p class="hidden" style="display:none;">
+              <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+            </p> class="contact-form-wrapper">
           <form name="contact" class="contact-form" autocomplete="off" aria-label="Contact Form" method="POST" data-netlify="true" data-netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact" />
             <p class="hidden" style="display:none;">
@@ -683,7 +687,16 @@
 
   <!-- Map Section -->
   <div class="map-section">
-    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.23456789!2d39.123456789!3d24.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA3JzI0LjQiTiAzOcKwMDcnMjQuMCJF!5e0!3m2!1sen!2ssa!4v1234567890123!5m2!1sen!2ssa" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+    <div class="map-placeholder" id="map-placeholder">
+      <button id="enable-map" class="cta-button secondary" data-translate="enable_map">Enable Map</button>
+    </div>
+    <iframe id="gmap"
+            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.23456789!2d39.123456789!3d24.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA3JzI0LjQiTiAzOcKwMDcnMjQuMCJF!5e0!3m2!1sen!2ssa!4v1234567890123!5m2!1sen!2ssa"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            hidden>
+    </iframe>
   </div>
 
   <!-- Footer -->
@@ -836,49 +849,16 @@
     </div>
   </div>
 
-  <!-- Tawk.to (blocked until marketing consent) -->
-  <script>
-    window.loadTawk = function () {
-      if (window.__tawkLoaded) return; window.__tawkLoaded = true;
+  <!-- Tawk.to widget always enabled -->
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
       var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
       s1.async=true;
       s1.src='https://embed.tawk.to/68585d9a03b6a21914ee271f/1iucir8vh';
       s1.charset='UTF-8';
       s1.setAttribute('crossorigin','*');
       s0.parentNode.insertBefore(s1,s0);
-    };
-  </script>
-
-  <!-- Google Maps (blocked until functional consent) -->
-  <div class="map-section">
-    <div class="map-placeholder" id="map-placeholder">
-      <button id="enable-map" class="cta-button secondary" data-translate="enable_map"></button>
-    </div>
-    <iframe id="gmap"
-            data-src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3710.23456789!2d39.123456789!3d24.123456789!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjTCsDA3JzI0LjQiTiAzOcKwMDcnMjQuMCJF!5e0!3m2!1sen!2ssa!4v1234567890123!5m2!1sen!2ssa"
-            allowfullscreen=""
-            loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            hidden>
-    </iframe>
-  </div>
-
-  <!-- Google Consent Mode v2 (optional, for future Google tags) -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('consent', 'default', { ad_user_data: 'denied', ad_personalization: 'denied', ad_storage: 'denied', analytics_storage: 'denied' });
-    (function(){
-      try {
-        var c = JSON.parse(localStorage.getItem('pg_consent_v1'));
-        if (!c) return;
-        gtag('consent', 'update', {
-          analytics_storage: c.functional ? 'granted' : 'denied',
-          ad_storage:       c.marketing  ? 'granted' : 'denied',
-          ad_user_data:     c.marketing  ? 'granted' : 'denied',
-          ad_personalization:c.marketing ? 'granted' : 'denied'
-        });
-      } catch(e){}
     })();
   </script>
 </body>
