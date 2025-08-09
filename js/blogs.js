@@ -40,11 +40,9 @@ class BlogManager {
     this.currentFilters.language = newLang; // Update the language filter
     this.currentPage = 1; // Reset to first page on language change
     this.applyFilters(); // Re-apply filters to refresh posts based on new language
-    // Re-attach category listeners as the DOM might have been rebuilt by BlogCategoriesLoader
-    // setTimeout is a small workaround to ensure BlogCategoriesLoader completes its rebuild first
+    // Wait briefly to ensure BlogCategoriesLoader has rebuilt the category tags
     setTimeout(() => {
         if (window.blogCategoriesLoader) {
-            window.blogCategoriesLoader.attachCategoryListeners(); // Re-attach listeners for category tags
             // Ensure the 'All' category for the new language is active by default
             const activeCategoryButton = document.querySelector(`.category-tag[data-slug="all"][data-language="${newLang}"]`);
             if (activeCategoryButton) {
