@@ -12,9 +12,14 @@ class ComponentLoader {
       await this.loadHeader();
       // Initialize navigation functionality after header is loaded
       this.initializeNavigation();
-      // Call translationManager.setupLanguageToggle() directly after header is loaded
-      if (window.translationManager && typeof window.translationManager.setupLanguageToggle === 'function') {
-        window.translationManager.setupLanguageToggle();
+      // Apply translations and set up the language toggle once header exists
+      if (window.translationManager) {
+        if (typeof window.translationManager.applyTranslations === 'function') {
+          window.translationManager.applyTranslations();
+        }
+        if (typeof window.translationManager.setupLanguageToggle === 'function') {
+          window.translationManager.setupLanguageToggle();
+        }
       }
     } catch (error) {
       console.error('Error loading components:', error);
